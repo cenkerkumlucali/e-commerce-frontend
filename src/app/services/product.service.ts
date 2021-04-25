@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Product } from '../models/product';
+import { ProductDetail } from '../models/productDetail';
 import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
@@ -17,6 +18,11 @@ export class ProductService {
   getProducts(): Observable<ListResponseModel<Product>> {
     return this.httpClient.get<ListResponseModel<Product>>(
       this.apiUrl + 'products/getall'
+    );
+  }
+  getProductDetails(): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetails'
     );
   }
   getProductByCategory(

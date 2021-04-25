@@ -1,0 +1,48 @@
+#cargo{
+    color:#ffffff;
+    font-size: 12px;
+}
+#coupon{
+    color:#ffffff;
+    font-size: 12px;
+
+}
+#box1{
+    background-color: #022548; 
+    width: 337px;
+     height: 70px;
+}
+#box2{
+    background-color: #022548;
+     width: 337px;
+     margin-left: 25px; 
+     height: 70px;
+}
+#shoppingStart{
+    background-color: #fff;
+    color: #06284a;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 15px;
+    margin-left: 32px;
+    padding: 10px;
+}
+#cd{
+    font-weight: bold; 
+    color: #022548;
+}
+.card{
+    width: 18rem;
+    float: left;
+    margin-right: 20px;
+
+}
+.card-title{
+    font-size: initial;
+    text-align: -webkit-center;
+    font-weight: bold; 
+}
+#cartBtn{
+   background-color:#d1623d; 
+   color: #ffffff;
+}

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { ProductDetail } from 'src/app/models/productDetail';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-list',
@@ -11,19 +13,27 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
   product: Product;
+  productDetail:ProductDetail[]=[]
   productAddedToCart:boolean=false;
+  imageBasePath = environment.imageUrl;
+  defaultImg=""
   constructor(
     private productService: ProductService,
     private cartService: CartService
   ) {}
 
   ngOnInit(): void {
-    this.getProduct();
+    this.getProductDetails()
   }
 
   getProduct() {
     this.productService.getProducts().subscribe((response) => {
       this.products = response.data;
+    });
+  }
+  getProductDetails() {
+    this.productService.getProductDetails().subscribe((response) => {
+      this.productDetail = response.data;
     });
   }
   getProductByCategory(categoryId: number) {

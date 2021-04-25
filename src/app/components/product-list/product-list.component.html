@@ -21,11 +21,7 @@
         margin-left: 31px;
         margin-top: 20px;
         font-size: 14px;">100.000'in uzerinde urun,buyuk markalar da dahil!</p>
-        <a style="background-color: #fff;color: #06284a;font-weight: bold;border-radius: 7px;
-        margin-top: 15px;
-        margin-left: 32px;
-        padding: 10px;
-    " class="btn">Alisverise basla ></a>
+        <a id="shoppingStart"class="btn">Alisverise basla ></a>
     </div>
     <div class="col-md-6 mt-5">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -36,7 +32,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="https://www.bdc.ca/globalassets/digizuite/27101-articles_price_your_product_fb_1200x630_an.png" alt="First slide">
+            <img class="d-block" style="width: 500px; height: 273px;" src="https://www.bdc.ca/globalassets/digizuite/27101-articles_price_your_product_fb_1200x630_an.png" alt="First slide">
           </div>
          
         </div>
@@ -51,15 +47,42 @@
       </div>
     </div>
   </div>
-
-  <!-- <div *ngIf="productAddedToCart"class="alert alert-primary" role="alert">
-   Urun sepete eklendi
+<div class="row mb-5">
+  <div class="col-md-8 offset-2 mt-5" id="box1">
+    <div class="row">
+    <div class="col-md-3 mt-3">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="60px" height="40px" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1728 1408"><path d="M576 1152q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM192 640h384V384H418q-13 0-22 9L201 588q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM1728 64v1024q0 15-4 26.5t-13.5 18.5t-16.5 11.5t-23.5 6t-22.5 2t-25.5 0t-22.5-.5q0 106-75 181t-181 75t-181-75t-75-181H704q0 106-75 181t-181 75t-181-75t-75-181h-64q-3 0-22.5.5t-25.5 0t-22.5-2t-23.5-6t-16.5-11.5T4 1114.5T0 1088q0-26 19-45t45-19V704q0-8-.5-35t0-38t2.5-34.5t6.5-37t14-30.5t22.5-30l198-198q19-19 50.5-32t58.5-13h160V64q0-26 19-45t45-19h1024q26 0 45 19t19 45z" fill="#ffffff"/><rect x="0" y="0" width="1728" height="1408" fill="rgba(0, 0, 0, 0)" /></svg>
+    </div>
+    <div class="col-md-9 mt-3">
+      <p id="cargo">100 TL ve uzeri alisverilerinizde kargo ücretsiz</p></div>
+    </div>
   </div>
-  <div *ngFor="let product of products" class="card" style="width: 18rem;">
-      <div class="card-body" >
-        <h5 class="card-title">{{product.name}}</h5>
-        <p class="card-text"></p>
-        <a href="#" class="btn btn-primary" (click)="addToCart(product)">Sepete Ekle</a>
+  <div class="col-md-6  mt-5 " id="box2">
+    <div class="row">
+      <div class="col-md-3 mt-3">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="60px" height="40px" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1728 1408"><path d="M576 1152q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM192 640h384V384H418q-13 0-22 9L201 588q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM1728 64v1024q0 15-4 26.5t-13.5 18.5t-16.5 11.5t-23.5 6t-22.5 2t-25.5 0t-22.5-.5q0 106-75 181t-181 75t-181-75t-75-181H704q0 106-75 181t-181 75t-181-75t-75-181h-64q-3 0-22.5.5t-25.5 0t-22.5-2t-23.5-6t-16.5-11.5T4 1114.5T0 1088q0-26 19-45t45-19V704q0-8-.5-35t0-38t2.5-34.5t6.5-37t14-30.5t22.5-30l198-198q19-19 50.5-32t58.5-13h160V64q0-26 19-45t45-19h1024q26 0 45 19t19 45z" fill="#ffffff"/><rect x="0" y="0" width="5000" height="1408" fill="rgba(0, 0, 0, 0)" /></svg>
       </div>
-    </div> -->
+      <div class="col-md-9 mt-4">
+        <p id="coupon">5 TL farkla kupon gün icinde teslim edilir </p></div>
+      </div>
+    </div>
+    
+</div>
+<h5 id="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
+  <div *ngFor="let product of productDetail" class="card mt-3 shadow  mb-5 bg-body rounded" style="width: 15rem;">
+    <h5 style="color: #022548;" class="card-title p-3">{{product.productName}}</h5>
+    <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
+    class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
+      <div class="card-body" >
+        <div class="row">
+          <div style="padding-top: 20px;"class="col-md-5">
+            <p>{{product.price}}TL</p>
+          </div>
+          <div style="padding-top: 20px;" class="col-md-7">
+            <a id="cartBtn" href="#" class="btn">Sepete Ekle</a>
+          </div>
+        </div>
+        <p class="card-text"></p>
+      </div>
+    </div> 
 </div>
