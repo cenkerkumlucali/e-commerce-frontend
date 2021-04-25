@@ -1,10 +1,7 @@
 <div class="container">
   <div class="row">
-
     <app-category></app-category>
   </div>
-
-
   <div class=" offset-md-2 mt-4">
     <span>Sana özel deneyimler sunmamız için <span style="font-weight: bold; color: #022548;">Giriş yap</span>.Henüz
       muşteri değil misin? <span style="font-weight: bold; color: #022548;">Üye ol</span></span>
@@ -69,7 +66,7 @@
     
 </div>
 <h5 id="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
-  <div *ngFor="let product of productDetail" class="card mt-3 shadow  mb-5 bg-body rounded" style="width: 15rem;">
+  <div *ngFor="let product of productDetail" class="card mt-3 ms-1 shadow  mb-5 bg-body rounded" style="width: 15rem;">
     <h5 style="color: #022548;" class="card-title p-3">{{product.productName}}</h5>
     <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
     class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
@@ -84,5 +81,141 @@
         </div>
         <p class="card-text"></p>
       </div>
+    </div>
+    <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4" id="col-md-4">
+  <p id="title">Elektronik Cihazlar icin Aksesuarlar</p>
+  <div class="row">
+    <div class="col-md-6 mt-2 ">
+      <img id="imgCategory" width="125px" height="100px" src="https://coloredway.com/uploads/kategori/16035269761f8a.jpg" alt="" srcset="">
+      <p id="imgFooter">Telefon Kilifi</p>
+    </div>
+    <div class="col-md-6 mt-2">
+      <img id="imgCategory" width="125px" height="100px" src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg" alt="" srcset="">
+      <p id="imgFooter">Tablet Kilifi</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mt-1">
+      <img id="imgCategory" width="125px" height="100px" src="https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2018/11/macbook-air-2018-sleeve.jpg" alt="" srcset="">
+      <p id="imgFooter">Mac Kilifi</p>
+    </div>
+    <div class="col-md-6 mt-1">
+      <img id="imgCategory" width="125px" height="100px" src="https://st3.myideasoft.com/idea/fv/14/myassets/products/895/whatsapp-image-2020-07-15-at-18-49-01-2.jpeg?revision=1594829422" alt="" srcset="">
+      <p id="imgFooter">Diger Aksesuarlar</p>
+    </div>
+  </div>
+      </div>
+      <div class="col-md-4"id="col-md-4">
+        <p id="title">Supermarket</p>   
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px" src="https://i.lezzet.com.tr/images-xxlarge-secondary/taze-meyve-ve-sebze-nasil-secilir-e0009203-a2fb-46be-990f-dbeafe11ed9f.jpg" alt="" srcset="">
+            <p id="imgFooter">Taze meyve, sebze</p>
+          </div>
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px" src="https://www.iklimhaber.org/wp-content/uploads/2018/07/et-990x556.jpg" alt="" srcset="">
+            <p id="imgFooter">Et-sut urunleri</p>
+          </div>
+            
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px" src="https://www.dogutemizlik.com/File_Uploadx/Sayfa/buyuk/temizlik-malzemeleri-ve-kullanim-alanlari-1061695.PNG" alt="" srcset="">
+            <p id="imgFooter">Deterjan, Temizlik</p>
+          </div>  <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px" src="https://satis.yigido.com.tr/wp-content/uploads/2020/04/at%C4%B1%C5%9Ft%C4%B1rmal%C4%B1k-300x300.jpg" alt="" srcset="">
+            <p id="imgFooter">Gıda, Sekerleme</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"id="col-md-4">
+        <p id="title">Kadin - Erkek Urunleri</p>
+        
+          <div class="row">
+            <div class="col-md-6 mt-2">
+              <img id="imgCategory" width="125px" height="100px" src="https://www.shoestime.com.tr/upload/images/SPOR-AYAKKABI-20Y-311_15843486524268_ka.jpg" alt="" srcset="">
+              <p id="imgFooter">Ayakkabi</p>
+            </div>
+            <div class="col-md-6 mt-2">
+              <img id="imgCategory" width="125px" height="100px" src="https://www.longchamp.com/dw/image/v2/BCVX_PRD/on/demandware.static/-/Sites-LC-master-catalog/default/dw09b49f52/images/DIS/L1899089556_0.png?sw=700&sh=700&sm=fit" alt="" srcset="">
+              <p id="imgFooter">Canta</p>
+            </div>
+              
+          </div>
+          <div class="row">
+            <div class="col-md-6 mt-1">
+              <img id="imgCategory" width="125px" height="100px" src="https://images-na.ssl-images-amazon.com/images/I/51F50l4eRzL._SX450_.jpg" alt="" srcset="">
+              <p id="imgFooter">Aksesuar</p>
+            </div>  <div class="col-md-6 mt-1">
+              <img id="imgCategory" width="125px" height="100px" src="https://www.uniqlo.com/custom/img/product-care/outerwear-hero.jpg" alt="" srcset="">
+              <p id="imgFooter">Dış Giyim</p>
+            </div>
+          </div>
+      </div>
     </div> 
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+
+      <p class="btn text-end ">Tumunu gor ></p>
+    </div>
+  </div>
+  <div>
+
+    
+ 
+  </div>
 </div>
+    <div class="container ms-5 mt-5" >
+      <div class="row" >
+        <h5 id="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
+
+        <div class="row no-gutters">
+   
+          <div class="col-md">
+            <div  id="imageCr" >
+              <img style="width: 150px; height: 150px;
+              filter: brightness(50%);"  src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg">
+              <h5 class="centered">Bottom Left
+              </h5>        
+              </div>
+      
+            </div>
+          <div class="col-md">
+      <div  id="imageCr" >
+        <img style="width: 150px; height: 150px;
+        filter: brightness(50%);" src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg">
+        <h5 class="centered">Bottom Left
+        </h5>        
+        </div>
+
+      </div>
+          <div class="col-md">
+            <div id="imageCr">
+            <img  style="width: 150px; height: 150px;
+            filter: brightness(50%);" src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg">
+            <h5 class="centered">Bottom Left
+            </h5>        
+            </div>
+          </div>
+            <div class="col-md">
+              <div id="imageCr">
+              <img style="width: 150px; height: 150px;filter: brightness(50%);"   src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg">
+              <h5 class="centered">Bottom Left
+              </h5>  
+            </div>        
+              </div>
+              <div class="col-md">
+              <div id="imageCr">
+              <img style="width: 150px; height: 150px;filter: brightness(50%);"   src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg">
+              <h5 class="centered">Bottom Left
+              </h5>  
+            </div>        
+              </div>
+         
+          </div>
+    </div>
+  </div>
+
+  
+  
