@@ -1,0 +1,32 @@
+<div class="mb-5">
+    <img class="btn" routerLink=""style="margin-top:25px" src="https://cdn.discordapp.com/attachments/828297169077403649/835963079736033291/logo.png" width="200px" height="80px" alt="">
+  </div>
+<body class="text-center">
+    <main class="form-signin">
+        <form [formGroup]="registerForm">
+          <h1 class="h3 mb-3 fw-normal">Kayıt ol</h1>
+      
+          <div class="form-floating">
+            <input formControlName="firstName" type="firstName" class="form-control" id="floatingInput" class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="Ad" >
+          </div>
+          <div class="form-floating">
+            <input formControlName="lastName" type="lastName" class="form-control" id="floatingInput" class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="Soyad" >
+          </div>
+          <div class="form-floating">
+            <input formControlName="email" type="email" class="form-control" id="floatingInput" class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="E-posta adresi">
+          </div>
+          <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control" id="floatingPassword" class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="Şifre">
+          </div>
+      
+        <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Beni hatırla
+            </label>
+          </div>
+          <p routerLink="/login">Zaten bir hesabın var mı?</p>
+          <button (click)="register()" class="w-100 btn btn-lg btn-success eOptir" type="submit">Giriş yap</button>
+          
+        </form>
+      </main>
+        </body>

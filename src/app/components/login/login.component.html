@@ -1,0 +1,32 @@
+<div class="mb-5">
+  <img class="btn" routerLink=""style="margin-top:25px" src="https://cdn.discordapp.com/attachments/828297169077403649/835963079736033291/logo.png" width="200px" height="80px" alt="">
+</div>
+<div class="container mt-10">
+
+
+    <body class="text-center">
+        <main class="form-signin  ">
+
+            <form [formGroup]="loginForm">
+              <h3 class="h3 mb-3 fw-normal" style="font-family: inherit;">Giriş yap</h3>
+          
+              <div class="form-floating">
+                <input formControlName="email" value=""  type="email" class="form-control" id="floatingInput" class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="E-posta adresi" >
+              </div>
+              
+              <div class="form-floating">
+                <input formControlName="password" type="password" class="form-control" id="floatingPassword" class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="Şifre">
+              </div>
+          
+              <div class="checkbox mb-3"> 
+                <label>
+                  <input type="checkbox" value="remember-me"> Beni hatırla
+                </label>
+               </div>
+              <p routerLink="/register">Hesabın yok mu?</p>
+              <button (click)="login()" class="w-100 btn btn-lg btn-success eOptir" type="submit">Giriş yap</button>
+              
+            </form>
+          </main>
+            </body>
+</div>

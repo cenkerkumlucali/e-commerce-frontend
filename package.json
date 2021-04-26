@@ -19,9 +19,13 @@
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "@auth0/angular-jwt": "^5.0.2",
     "angular-font-awesome": "^3.1.2",
+    "auth0": "^2.34.2",
     "bootstrap": "^5.0.0-beta3",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
+    "toastr": "^2.1.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
