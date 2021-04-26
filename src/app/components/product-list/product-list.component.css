@@ -50,7 +50,7 @@
     width: 338px;
     height: 345px;
     margin-left: 10px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: #f4f6f7;
 }
@@ -95,3 +95,47 @@
     color: #d1623d;
     font-weight: bold;
   }
+  #brand{
+      margin-left: 35px;
+  }
+ #discover{
+    width: 450px;
+    height: 400px;
+    margin-left: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #f4f6f7;
+  
+ }
+ #imgDiscover{
+    margin-top: 16px;
+    margin-left: 38px;
+ }
+ #discoverTitle{
+    font-weight: bold;
+    text-align: center;
+    color: #00162c;
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size:20px;
+ }
+ #discoverFooter{
+    font-weight: bold;
+    text-align: start;
+    color: #00162c;
+    margin-top: 5px;
+    margin-left: 14px;
+    font-size:15px;
+ }
+ .btn.text-center {
+    color: #d1623d;
+    font-weight: bold;
+
+ }
+#dt{
+    font-weight: bold;
+    text-align: start;
+    color: #00162c;
+    margin-top: 5px;
+    margin-left: 12px;
+}
