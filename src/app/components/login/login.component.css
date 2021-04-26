@@ -48,7 +48,7 @@ img{
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  border: 2px solid #022548;
+  border: 1px solid #d1623d;
     border-radius: 8px;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -61,7 +61,7 @@ img{
     width: 100%;
     padding: 14px 56px 14px 14px;
     
-    color: #022548;
+    color: #d1623d;
     margin-bottom: 25px;
 }
 
@@ -70,7 +70,7 @@ img{
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border: 2px solid #022548;
+  border: 1px solid #d1623d;
     border-radius: 8px;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -83,7 +83,7 @@ img{
     width: 100%;
     padding: 14px 56px 14px 14px;
  
-    color: #022548;
+    color: #d1623d;
 }
 body {
   font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
@@ -108,7 +108,7 @@ body {
   padding: 8px;
   position: relative;
   text-decoration: none;
-  background-color: #022548;
+  background-color: #d1623d;
   color: rgb(255, 255, 255);
   font-size: 16px;
   height: 56px;
