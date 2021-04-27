@@ -1,0 +1,89 @@
+#detail{
+    min-height: 601px;
+    background-color: #f5f5f5;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+}
+ h1 {
+    padding: 0;
+    color: #484848;
+    line-height: 1.2;
+    font-size: 17px;
+    font-weight: 600;
+}
+.brand-name{
+    display: block;
+    padding-bottom: 8px;
+    font-size: 15px;
+    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
+    font-weight: 600;
+}
+#brand{
+    color: #537ecf;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background-color: transparent;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: 0;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
+    font-weight: 600;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+}
+#first-campaign-ribbon {
+    display: block;
+    margin-bottom: 8px;
+    color: #090;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    line-height: 1.2;
+}
+
+.product-detail-module .productDetailRight .product-price-wrapper .product-price-and-ratings .badge.active {
+    display: table-cell;
+}
+
+.product-detail-module .productDetailRight .product-price-wrapper .product-price-and-ratings .badge, .product-detail-module .productDetailRight .product-price-wrapper .product-price-and-ratings .product-old-price {
+    display: none;
+}
+.price-container.big .highlight {
+    width: 65px;
+    height: 56px;
+}
+.badge.highlight {
+    width: 42px;
+    background-color: #f90909;
+    color: #fff;
+    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
+    font-weight: 700;
+}.price-container .badge {
+    text-align: center;
+    line-height: 13px;
+}
+span{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+.price-container.big .discount-amount {
+    display: block;
+    padding-bottom: 6px;
+    text-align: center;
+    font-size: 21px;
+}
+.price-container .badge {
+    display: table-cell;
+    width: 42px;
+    right: 15px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 4px 3px;
+    line-height: 13px;
+}

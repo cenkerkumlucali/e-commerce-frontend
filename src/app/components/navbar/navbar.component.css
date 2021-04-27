@@ -4,7 +4,7 @@
     border-radius: 1px;
     border-color: #193959;
     border-style: solid;
-    margin-left: 150px;
+    margin-left: 120px;
 }
 #form-control {
     display: block;
@@ -28,5 +28,8 @@
     color:#193959;
 }
 #navbar-item-cart{
+    color:#193959;
+}
+a{
     color:#193959;
 }

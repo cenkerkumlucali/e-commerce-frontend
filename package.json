@@ -23,6 +23,7 @@
     "angular-font-awesome": "^3.1.2",
     "auth0": "^2.34.2",
     "bootstrap": "^5.0.0-beta3",
+    "jquery": "^3.6.0",
     "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "toastr": "^2.1.4",

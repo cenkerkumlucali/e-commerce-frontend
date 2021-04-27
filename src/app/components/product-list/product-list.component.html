@@ -9,16 +9,8 @@
   </div>
   <div class="row">
     <div class="col-md-6 mt-5" style="width: 500px;height: 273px; background-color: #d1623d;margin-left: 27px;">
-      <p style="     font-weight: 600;
-        color: #ffffff;
-        font-size: 22px;
-        margin-left: 31px;
-        margin-top: 67px;">Buyuk markalar.En iyi rakamlar</p>
-        <p style="     
-        color: #ffffff;
-        margin-left: 31px;
-        margin-top: 20px;
-        font-size: 14px;">100.000'in uzerinde urun,buyuk markalar da dahil!</p>
+      <p id="bn" >Buyuk markalar.En iyi rakamlar</p>
+        <p id="ss">100.000'in uzerinde urun,buyuk markalar da dahil!</p>
         <a id="shoppingStart"class="btn">Alisverise basla ></a>
     </div>
     <div class="col-md-6 mt-5">
@@ -67,8 +59,8 @@
     
 </div>
 <h5 id="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
-  <div *ngFor="let product of productDetail" class="card mt-3 ms-1 shadow  mb-5 bg-body rounded" style="width: 15rem;">
-    <h5 style="color: #022548;" class="card-title p-3">{{product.productName}}</h5>
+  <div  *ngFor="let product of productDetail" class=" card mt-3 ms-1 shadow   mb-5 bg-body rounded" style="width: 15rem;">
+    <h5 style="color: #022548;" class="card-title p-3 ">{{product.productName}}</h5>
     <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
     class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
       <div class="card-body" >
@@ -77,7 +69,7 @@
             <p>{{product.price}}TL</p>
           </div>
           <div style="padding-top: 20px;" class="col-md-7">
-            <a id="cartBtn" href="#" class="btn">Sepete Ekle</a>
+            <a id="cartBtn" routerLink="/products/detail/{{ product.productId }}" class="btn">Sepete Ekle</a>
           </div>
         </div>
         <p class="card-text"></p>

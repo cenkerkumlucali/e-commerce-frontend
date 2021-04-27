@@ -13,12 +13,12 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
   apiUrl = environment.baseUrl;
 getByEmail(email:string):Observable<User>{
-  return this.httpClient.get<User>(this.apiUrl+"/users/email?email="+email)
+  return this.httpClient.get<User>(this.apiUrl+"users/email?email="+email)
 }
 
 profileUpdate(user:User):Observable<ResponseModel>{
   console.log(user)
-  return this.httpClient.post<ResponseModel>(this.apiUrl + '/users/updateprofile', {
+  return this.httpClient.post<ResponseModel>(this.apiUrl + 'users/updateprofile', {
     user:{
       'id': user.id,
       'firstName': user.firstName,

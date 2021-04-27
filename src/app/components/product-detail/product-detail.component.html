@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <app-navbar></app-navbar>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md">
+
+            <app-category></app-category>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div>
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+            <div *ngIf="products[0]?.images?.length===0" class="crousel-item active detailImage" [class.active]="true">
+              <img [src]="imageBasePath + defaultImg" class="d-block mx-auto detailImage"/>
+            </div>
+  
+  
+                <div *ngFor="let product of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }" class="carousel-item " data-bs-interval="10000">
+                <img [src]="productDto.images.length !== 0 ? imageBasePath+ product: imageBasePath + defaultImg" width="90" height="325" class="d-block w-100" >  
+                </div>
+              </div>
+              
+          </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        
+      </div>
+      <div class="col-md-6" id="detail">
+        <header class="title-wrapper">
+            <h1 itemprop="name" class="product-name best-price-trick" id="product-name" data-bind="markupText: 'productName', event: {mouseup: handleMouseUpForProductName}">
+                {{productDto.productName}}
+            </h1>
+        </header>
+        <span class="brand-name">
+            <p id="brand">{{productDto.brandName}}</p>
+        </span>
+        <a id="first-campaign-ribbon" data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
+            <span data-bind="text: firstCampaign, attr:{'data-hbus' : userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('CampaignLinkClick'): ''}" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;CampaignLinkClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60002028&quot;,&quot;name&quot;:&quot;Ev Dekorasyon&quot;},{&quot;id&quot;:&quot;18021299&quot;,&quot;name&quot;:&quot;Mobilya&quot;},{&quot;id&quot;:&quot;18021303&quot;,&quot;name&quot;:&quot;Oturma Odası&quot;},{&quot;id&quot;:&quot;18021332&quot;,&quot;name&quot;:&quot;Sehpalar&quot;},{&quot;id&quot;:&quot;18021615&quot;,&quot;name&quot;:&quot;Orta Sehpa&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;09e7e84b-96ee-46a7-aeac-90e7319bd1f4&quot;,&quot;name&quot;:&quot;cosargroup&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;18021615&quot;,&quot;name&quot;:&quot;orta-sehpalar&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00001AB9SK&quot;,&quot;price&quot;:&quot;228.71&quot;,&quot;sku&quot;:&quot;HBV00001AB9SL&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:&quot;1bfe48cb-fa8a-4224-a228-53c9b91ac531&quot;,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç alışverişlerde 25 TL indirim</span>
+        </a>
+
+
+
+        <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="product-price price-container big" data-bind="css: {'active': product().currentListing.pricing.listingPriceList.length > 2}">            
+<span class="badge highlight active" id="product-discount-rate" data-bind="css: {'active' : hasDiscountPrice() &amp;&amp; isInStock() }">
+<span class="discount-amount">
+    %<span data-bind="markupText: 'discountRate'">12</span>
+</span>
+indirim
+</span>
+
+        </div>
+          <!-- <ul *ngIf="productDto" class="list-group list-group-flush">
+            <li class="list-group-item">Marka: {{productDto.productName |uppercase}}</li>
+            <li class="list-group-item">Renk: {{productDto.brandName}}</li>
+            <li class="list-group-item">Model Yılı: {{productDto.categoryName}}</li>
+            <li class="list-group-item">Günlük fiyat: {{productDto.price |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
+          </ul> -->
+          <section > 
+            <!-- <button *ngIf="productDto" routerLink = "/rental/{{productDto.productId}}" id="rentalButton"type="button"
+            class="btn btn-outline-success">Kirala</button> -->
+          </section>
+        </div>
+     
+    </div>
+  </div>
+  
+  

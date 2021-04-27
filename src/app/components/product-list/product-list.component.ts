@@ -43,11 +43,11 @@ export class ProductListComponent implements OnInit {
         this.product = response.data[0];
       });
   }
-  addToCart(product: Product) {
+  addToCart(product: ProductDetail) {
     this.productAddedToCart = false;
     this.cartService
       .add({
-        productId: product.id,
+        productId: product.productId,
         userId: 1,
         count: 1,
         id: 0,

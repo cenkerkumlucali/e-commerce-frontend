@@ -16,6 +16,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { RegisterComponent } from './components/register/register.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    ResetPasswordComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
