@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <app-navbar></app-navbar>
+        <app-category></app-category>
+        <div class="col-md-6 mt-4">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Adres Bilgileri</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="createAddressForm">
+                <div *ngIf="savedAddress.length>0" id="savedAddress"class="mb-3" >
+                    <p-dropdown id="savedAddress" [disabled]=false (onChange)="setCardInfos()" formControlName="savedAddress" [options]="savedAddress" [(ngModel)]="selectedAddress" placeholder="Kayıtlı kartlar" optionLabel="addressDetail" [showClear]="true"></p-dropdown>
+                  </div>
+              <div class="mb-3">
+                <label for="cityId">Şehir seç</label>
+                <div class="col-sm-12">
+                  <select class="form-control" formControlName="cityId">
+                    <option *ngFor="let city of cities" placeholder="cityId" [ngValue]="city.id">{{city.name}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+             
+              <div class="mb-3">
+                <label for="address">Adres</label>
+                <div class="form-group">
+                  <input type="text" id="address" formControlName="addressDetail" class="form-control"
+                    placeholder="Address" />
+                </div>
+              </div>
+              
+  
+              <div class="mb-3">
+                <label for="postalCode">Posta Kodu</label>
+  
+                <div class="form-group">
+                  <input type="number" id="postalCode" formControlName="postalCode" class="form-control"
+                    placeholder="Posta Kodu" />
+                </div>
+                
+              </div>
+  
+            </form>
+          </div>
+          <div class="card-footer">
+            <button  class="btn btn-fill btn-success">Ekle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

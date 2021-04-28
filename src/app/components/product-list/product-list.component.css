@@ -7,6 +7,27 @@
     font-size: 12px;
 
 }
+.price{
+    padding-top: 20px;
+    font-weight: bold;
+}
+.login{
+    font-weight: bold;
+    color: #022548;
+}
+.register{
+     font-weight: bold;
+      color: #022548;
+}
+#productName{
+    color: #022548;
+}
+#bm{
+    width: 500px;
+    height: 273px; 
+    background-color: #d1623d;
+    margin-left: 27px;
+}
 #box1{
     background-color: #022548; 
     width: 337px;

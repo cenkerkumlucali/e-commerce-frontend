@@ -5,6 +5,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {DropdownModule} from 'primeng/dropdown';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { DiscountPipe } from './components/pipes/discount.pipe';
+import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     RegisterComponent,
     ResetPasswordComponent,
     ProductDetailComponent,
+    DiscountPipe,
+    PaymentInformationComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,10 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    JwtModule,
+    JwtModule,  
+
+    DropdownModule,
+
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),

@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 crsl" >
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div>
             <div class="carousel-indicators">
@@ -48,6 +48,7 @@
             <h1 itemprop="name" class="product-name best-price-trick" id="product-name" data-bind="markupText: 'productName', event: {mouseup: handleMouseUpForProductName}">
                 {{productDto.productName}}
             </h1>
+            
         </header>
         <span class="brand-name">
             <p id="brand">{{productDto.brandName}}</p>
@@ -57,22 +58,37 @@
         </a>
 
 
-
-        <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="product-price price-container big" data-bind="css: {'active': product().currentListing.pricing.listingPriceList.length > 2}">            
-<span class="badge highlight active" id="product-discount-rate" data-bind="css: {'active' : hasDiscountPrice() &amp;&amp; isInStock() }">
-<span class="discount-amount">
-    %<span data-bind="markupText: 'discountRate'">12</span>
-</span>
-indirim
-</span>
-
+        <div class="row" >
+          <div class="col-md-4">
+               <div itemprop="offers" class="product-price price-container big" >            
+  <span class="badge highlight active" id="product-discount-rate" >
+  <span class="discount-amount">%<span data-bind="markupText: 'discountRate'">12</span></span>indirim</span>
+  <span class="discountPrice">{{productDto.price | discount:12}} TL</span>
+  <span class="price">{{productDto.price}} TL</span>
+          </div>
+          </div>
+       <div class="col-md-8">
+        <a id="cartBtn" routerLink="/paymentinformation/{{productDto.productId}}" class="btn">Satın Al</a>
+       </div>
         </div>
-          <!-- <ul *ngIf="productDto" class="list-group list-group-flush">
-            <li class="list-group-item">Marka: {{productDto.productName |uppercase}}</li>
-            <li class="list-group-item">Renk: {{productDto.brandName}}</li>
-            <li class="list-group-item">Model Yılı: {{productDto.categoryName}}</li>
-            <li class="list-group-item">Günlük fiyat: {{productDto.price |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
-          </ul> -->
+        <ul class="shipment-list-container">
+          <li>
+              <b class="hour" >13 saat </b>
+              <b class="minute">57 </b>
+              <span ><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
+          </li>
+          <li style="display: none;">
+              <span ><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
+          </li>
+          <li id="locationBaseDeliveryWithTimer"  style="display: none;">
+              <span id="tooltipContainerWithTimer" class="text">
+                  <b d></b>
+                  iline bugün teslimat seçeneği
+                  <span class="tooltip-info-icon"></span>
+              </span>
+          </li>
+          <li style="display: none">(Kargo Bedava)</li>
+      </ul>
           <section > 
             <!-- <button *ngIf="productDto" routerLink = "/rental/{{productDto.productId}}" id="rentalButton"type="button"
             class="btn btn-outline-success">Kirala</button> -->

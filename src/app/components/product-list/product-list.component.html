@@ -4,11 +4,11 @@
     <app-category></app-category>
   </div>
   <div class=" offset-md-2 mt-4">
-    <span>Sana özel deneyimler sunmamız için <span style="font-weight: bold; color: #022548;">Giriş yap</span>.Henüz
-      muşteri değil misin? <span style="font-weight: bold; color: #022548;">Üye ol</span></span>
+    <span>Sana özel deneyimler sunmamız için <span routerLink="/login" class="login">Giriş yap</span>.Henüz
+      muşteri değil misin? <span routerLink="/register" class="register" >Üye ol</span></span>
   </div>
   <div class="row">
-    <div class="col-md-6 mt-5" style="width: 500px;height: 273px; background-color: #d1623d;margin-left: 27px;">
+    <div class="col-md-6 mt-5" id="bm" >
       <p id="bn" >Buyuk markalar.En iyi rakamlar</p>
         <p id="ss">100.000'in uzerinde urun,buyuk markalar da dahil!</p>
         <a id="shoppingStart"class="btn">Alisverise basla ></a>
@@ -60,16 +60,16 @@
 </div>
 <h5 id="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
   <div  *ngFor="let product of productDetail" class=" card mt-3 ms-1 shadow   mb-5 bg-body rounded" style="width: 15rem;">
-    <h5 style="color: #022548;" class="card-title p-3 ">{{product.productName}}</h5>
+    <h5 id="productName" class="card-title p-3 ">{{product.productName}}</h5>
     <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
     class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
       <div class="card-body" >
         <div class="row">
-          <div style="padding-top: 20px;font-weight: bold;"class="col-md-5">
+          <div class="col-md-5 price">
             <p>{{product.price}}TL</p>
           </div>
           <div style="padding-top: 20px;" class="col-md-7">
-            <a id="cartBtn" routerLink="/products/detail/{{ product.productId }}" class="btn">Sepete Ekle</a>
+            <a id="cartBtn" routerLink="/products/detail/{{ product.productId }}" class="btn">Ürüne Git</a>
           </div>
         </div>
         <p class="card-text"></p>
@@ -269,7 +269,7 @@
             <p>{{product.price}}TL</p>
           </div>
           <div style="padding-top: 20px;" class="col-md-7">
-            <a id="cartBtn" href="#" class="btn">Sepete Ekle</a>
+            <a id="cartBtn" href="#"routerLink="/products/detail/{{ product.productId }}" class="btn">Ürüne Git</a>
           </div>
         </div>
         <p class="card-text"></p>
