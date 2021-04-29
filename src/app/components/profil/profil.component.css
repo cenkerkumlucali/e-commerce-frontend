@@ -1,0 +1,88 @@
+.pb{
+    font-size: 22px;
+    line-height: 30px;
+    color:#484848;
+    font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-right: 80px;
+}
+label{
+    font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
+    display: flex;
+    height: 30px;
+    font-size: 17px;
+    color: #484848;
+    margin: 12px 8px 4px;
+}
+.update{
+    width: 420px;
+    margin-left: 9px;
+    -webkit-box-align: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    -webkit-box-pack: center;
+    justify-content: center;
+    outline: none;
+    padding: 8px;
+    position: relative;
+    text-decoration: none;
+    background-color: #d1623d;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    height: 56px;
+    min-width: 184px;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    
+}
+#firstName{
+    width: 200px;
+    color: rgb(72, 72, 72);
+    background-color: rgb(255, 255, 255);
+}
+#lastName{
+    width: 200px;
+    margin-left: 15px;
+    color: rgb(72, 72, 72);
+    background-color: rgb(255, 255, 255);
+}
+#email{
+    width: 418px;
+    color: rgb(72, 72, 72);
+    background-color: rgb(255, 255, 255);
+    margin-left: 9px;
+}
+#password{
+    width: 418px;
+    color: rgb(72, 72, 72);
+    background-color: rgb(255, 255, 255);
+    margin-left: 9px;
+}
+.form-control {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid #d1623d;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: -0.32px;
+      line-height: 1.5;
+      outline: 0px;
+      width: 100%;
+      padding: 14px 56px 14px 14px;
+      margin-bottom: 25px;
+  }
+    

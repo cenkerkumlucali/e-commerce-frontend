@@ -13,8 +13,8 @@ export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
   
-  addRental(order:Order){
-    let newPath = this.apiUrl + "/rentals/add"
+  addOrder(order:Order){
+    let newPath = this.apiUrl + "orders/add"
     this.httpClient.post(newPath,order).subscribe()
   }
 }

@@ -13,6 +13,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CustomerCreditCard } from 'src/app/models/customerCard';
 import { CustomerAddressService } from 'src/app/services/customer-address.service';
 import { PaymentService } from 'src/app/services/payment.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import { PaymentComponent } from '../payment/payment.component';
+import { Order } from 'src/app/models/order';
 
 @Component({
   selector: 'app-payment-information',
@@ -25,10 +28,11 @@ export class PaymentInformationComponent implements OnInit {
   savedAddress: Address[]=[];
   cities:City[]=[]
   selectedAddress: Address;
-
+  address:Address
   imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
   createAddressForm:FormGroup
+  currentUserId = this.authService.getCurrentUserId()
   constructor(
     private addressService:AddressService,
     private cityService:CityService,
@@ -38,13 +42,15 @@ export class PaymentInformationComponent implements OnInit {
     private formBuilder:FormBuilder,
     private authService:AuthService,
     private customerAddressService:CustomerAddressService,
-    private paymentService:PaymentService
+    private paymentService:PaymentService,
+    private dialogService:DialogService
   ) { }
 
   ngOnInit(): void {
     this.getCity()
     this.setCreditCardForm()
     this.getSavedCards()
+    console.log(this.authService.getCurrentUserId())
   }
 
 
@@ -57,11 +63,11 @@ export class PaymentInformationComponent implements OnInit {
     })
   }
 
-  // buy(){
-  //   if(this.creditCardForm.valid){
-  //     let payment:Payment = Object.assign({},this.creditCardForm.value)
-  //   }
-  // }
+   buy(){
+    this.address = this.address;
+    console.log(this.address)
+    this.openCreditCard()
+  }
 
   getCity(){
     this.cityService.get().subscribe(response=>{
@@ -80,6 +86,15 @@ export class PaymentInformationComponent implements OnInit {
       this.addressService.getAddressById(card.addressId).subscribe(response => {
         this.savedAddress.push(response.data)
       })
+    });
+  }
+  openCreditCard(){
+    const ref = this.dialogService.open(PaymentComponent,{
+      data:{
+        address:this.address
+      },
+      header:'Kart bilgileri',
+      width:'40%'
     });
   }
 

@@ -1,0 +1,48 @@
+<p-confirmDialog header="Confirmation" #cardsave header="Kart kaydet" icon="pi pi-exclamation-triangle" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}"></p-confirmDialog>
+
+<div class="content d-flex justify-content-center">
+  <div class="row justify-content-md-center">
+    <div class="col-md-12">
+      <div class="p-fluid p-formgrid p-grid">
+         <div class="icons"> 
+           <img src="https://img.icons8.com/color/48/000000/visa.png" />
+          <img
+                src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                />
+              <img src="https://img.icons8.com/color/48/000000/maestro.png" /> 
+             </div> 
+            <form [formGroup]="creditCardForm"> 
+              <div *ngIf="savedCards.length>0" id="saveCard"class="mb-3" >
+                <p-dropdown id="savedCards" [disabled]=false (onChange)="setCardInfos()" formControlName="savedCards" [options]="savedCards" [(ngModel)]="selectedCard" placeholder="Kayıtlı kartlar" optionLabel="nameOnTheCard" [showClear]="true"></p-dropdown>
+              </div>
+              <div class="mb-3">
+                      <label for="cardNumber" class="form-label">Kredi Kartı Numaranızı Giriniz: </label>
+                      <input [(ngModel)]="cardNumber" formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="12345678901">
+                    </div>
+                  <div class="mb-3"  style="    width: 100%;">
+                      <label for="firstName" class="form-label">Kart'ın üzerindeki isim: </label>
+                      <input [(ngModel)]="nameOnTheCard" formControlName="nameOnTheCard" type="text" class="form-control" id="firstName" placeholder="Cenker">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="cvv" class="form-label">Güvenlik kodu: </label>
+                          <input [(ngModel)]="cardCvv" formControlName="cardCvv" type="text" class="form-control" id="cvv" placeholder="999">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                              <label for="expirationDate" class="form-label">Son Kullanım Tarihi: </label>
+                              <input [(ngModel)]="expirationDate" formControlName="expirationDate" type="text" class="form-control" id="expirationDate" placeholder="10/21">
+                          </div>   
+                        </div>
+                      </div>
+              </form>
+          </div>
+          <div class="card">
+            <button (click)="rent()" type="button" class="btn btn-success" data-bs-dismiss="modal">Ödeme yap</button>
+          </div>
+        </div>
+
+  </div>
+</div>

@@ -6,8 +6,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {DropdownModule} from 'primeng/dropdown';
-
-
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { DiscountPipe } from './components/pipes/discount.pipe';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,8 @@ import { PaymentInformationComponent } from './components/payment-information/pa
     ProductDetailComponent,
     DiscountPipe,
     PaymentInformationComponent,
+    PaymentComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,15 +52,17 @@ import { PaymentInformationComponent } from './components/payment-information/pa
     AppRoutingModule,
     HttpClientModule,
     JwtModule,  
-
+    DynamicDialogModule,
     DropdownModule,
-
+    ConfirmDialogModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    DialogService,
+    ConfirmationService,
   ],
   bootstrap: [AppComponent]
 })

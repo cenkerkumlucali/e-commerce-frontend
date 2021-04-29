@@ -32,7 +32,7 @@ getCardById(id:number):Observable<SingleResponseModel<Payment>>{
 }
 updateCard(payment:Payment):Observable<ResponseModel>{
   let newPath = this.apiUrl + "fakecards/update"
-  return this.httpClient.put<ResponseModel>(newPath,payment)
+  return this.httpClient.post<ResponseModel>(newPath,payment)
 }
 
 
