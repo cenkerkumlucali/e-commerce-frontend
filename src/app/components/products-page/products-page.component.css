@@ -1,0 +1,42 @@
+
+#productName{
+    color: #022548;
+}
+.price{
+    font-weight: bold;
+    font-size: 15px;
+}
+.discount{
+    height: 17px;
+    margin-top: 15px;
+    text-decoration:line-through;
+    font-size: 15px;
+    color: #919191;
+    font-weight: 500;
+}
+.card-title {
+    font-size: initial;
+    text-align: -webkit-center;
+    font-weight: bold;
+}
+.card{
+    width: 18rem;
+    float: left;
+    margin-right: 20px;
+
+}
+.badge.highlight {
+    margin-left: 5px;
+    width: 85px;
+    background-color: #f90909;
+    color: #fff;
+    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
+    font-weight: 700;
+}
+#cartBtn{
+    background-color:#ed4634; 
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 18px;
+    margin-left: 15px;
+ }

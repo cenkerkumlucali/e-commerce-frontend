@@ -9,6 +9,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { MultiSelectModule } from 'primeng/multiselect';
+
 import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +29,8 @@ import { DiscountPipe } from './components/pipes/discount.pipe';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { ProductsPageComponent } from './components/products-page/products-page.component';
+import { BrandComponent } from './components/brand/brand.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { ProfilComponent } from './components/profil/profil.component';
     PaymentInformationComponent,
     PaymentComponent,
     ProfilComponent,
+    ProductsPageComponent,
+    BrandComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,7 @@ import { ProfilComponent } from './components/profil/profil.component';
     DynamicDialogModule,
     DropdownModule,
     ConfirmDialogModule,
+    MultiSelectModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),

@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DiscountPipe implements PipeTransform {
 
   transform(value: number, discount:number): number {
-  var  deger =  value - value/discount 
+  var  deger =  value - (value*discount /100)
   var discountt = deger.toFixed(2)
   var result= parseFloat(discountt)
   return result

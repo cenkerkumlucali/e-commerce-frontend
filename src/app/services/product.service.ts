@@ -30,6 +30,11 @@ export class ProductService {
       this.apiUrl + 'products/getproductdetailbyproductid?productId='+productId
     );
   }
+  getProductDetailByBrandId(brandId:number): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetailbybrandid?brandId='+brandId
+    );
+  }
   getProductByCategory(
     categoryId: number
   ): Observable<ListResponseModel<Product>> {
