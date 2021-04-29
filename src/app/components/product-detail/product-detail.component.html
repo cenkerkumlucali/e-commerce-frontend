@@ -61,10 +61,10 @@
         <div class="row" >
           <div class="col-md-4">
                <div itemprop="offers" class="product-price price-container big" >            
-  <span class="badge highlight active" id="product-discount-rate" >
-  <span class="discount-amount">%<span data-bind="markupText: 'discountRate'">12</span></span>indirim</span>
-  <span class="discountPrice">{{productDto.price}} TL</span>
-  <span class="price">{{productDto.price | discount:12}} TL</span>
+             <span class="badge highlight active" id="product-discount-rate" >
+            <span class="discount-amount">%<span>{{productDto.discountRate}}</span></span>indirim</span>
+            <span class="discountPrice">{{productDto.price}} TL</span>
+            <span class="price">{{productDto.price | discount:productDto.discountRate}} TL</span>
           </div>
           </div>
        <div class="col-md-8">
