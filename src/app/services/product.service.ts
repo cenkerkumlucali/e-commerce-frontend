@@ -35,12 +35,13 @@ export class ProductService {
       this.apiUrl + 'products/getproductdetailbybrandid?brandId='+brandId
     );
   }
-  getProductByCategory(
-    categoryId: number
-  ): Observable<ListResponseModel<Product>> {
-    return this.httpClient.get<ListResponseModel<Product>>(
-      this.apiUrl + 'products/getbycategory?categoryId=' + categoryId
+  getProductDetailByCategoryId(categoryId:number): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetailbycategoryId?categoryId='+categoryId
     );
+  }
+  getProductByCategory(categoryId: number): Observable<ListResponseModel<Product>> {
+    return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl + 'products/getbycategory?categoryId=' + categoryId);
   }
 
   add(product:Product):Observable<ResponseModel>{

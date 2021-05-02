@@ -1,5 +1,5 @@
 export interface Category{
-    id:number
+    categoryId:number
     name:string
     createDate:Date
     active:boolean

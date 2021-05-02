@@ -11,6 +11,7 @@ import { Location } from '@angular/common'
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   selectedBrands?: Brand[];
+  filterBrandText: string;
   dataLoaded = false;
   constructor(
     private brandService: BrandService,
@@ -28,9 +29,6 @@ export class BrandComponent implements OnInit {
     });
   }
 
-  setCurrentBrand() {
-    let brands = this.selectedBrands.map(b => b.id)
-    this.router.navigate([], { queryParams: { brands }, queryParamsHandling: 'merge', relativeTo: this.route});
-  }
+
 
 }

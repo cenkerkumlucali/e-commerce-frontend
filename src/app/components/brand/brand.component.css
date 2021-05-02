@@ -1,0 +1,30 @@
+.box{
+    width: 240px;
+    height: 200px;
+    border: 1px #e5e5e5 solid;
+}
+.brands{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px #e5e5e5 solid;
+}
+.ulBrand{
+    color: #484848;
+    font-size: 16px;
+    list-style-type: none;
+    cursor: pointer;
+    line-height: 17px;
+}
+#filterBrandText{
+    transition-property: background-color,border-color;
+    background-color: #fff;
+    width: 150px;
+    margin-left: 45px;
+    color: #484848;
+    padding: 12px 15px 11px;
+    border: 2px solid #bfbfbf;
+    outline: 0;
+    height: 35px;
+    padding: 6px 10px;
+    
+}

@@ -15,6 +15,9 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"paymentinformation/:productId",component:PaymentInformationComponent},
   {path:'products/detail/:productId', component: ProductDetailComponent },
+  {path:'products/category/:categoryId', component: ProductsPageComponent },
+  {path:'products/brand/:brandId', component: ProductsPageComponent },
+
   {path:"profil",component:ProfilComponent},
 ];
 

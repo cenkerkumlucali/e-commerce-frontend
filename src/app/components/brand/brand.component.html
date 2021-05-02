@@ -1,1 +1,8 @@
-<p-multiSelect [options]="brands" [(ngModel)]="selectedBrands" (onChange)="setCurrentBrand()" defaultLabel="Marka seç" optionLabel="name" display="chip"></p-multiSelect>
+<div class="box">
+<h6 class="brands">Markalar</h6>
+<input  type="text" [(ngModel)]="filterBrandText" class="form-control mb-3" id="filterBrandText"
+          placeholder="Marka ara" />
+<ul *ngFor="let brand of brands | brandFilter:filterBrandText" class="ulBrand">
+    <li routerLink="/products/brand/{{brand.id}}">{{brand.name}}</li>
+</ul>
+</div>

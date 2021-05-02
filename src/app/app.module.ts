@@ -31,6 +31,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { BrandComponent } from './components/brand/brand.component';
+import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { BrandComponent } from './components/brand/brand.component';
     ProfilComponent,
     ProductsPageComponent,
     BrandComponent,
+    BrandFilterPipe,
   ],
   imports: [
     BrowserModule,
