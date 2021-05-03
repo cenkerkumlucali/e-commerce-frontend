@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
+import { CategoryService } from 'src/app/services/category.service';
+import { Category } from 'src/app/models/category';
 
 
 @Component({
@@ -13,18 +15,29 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  categories:Category[]=[]  
   email = this.localStorageService.get('email');
   user:User=new User();
-  constructor(private authService:AuthService,private localStorageService:LocalStorageService,private userService:UserService,private  toastrService:ToastrService,private router:Router) { }
+  constructor(private authService:AuthService,
+    private localStorageService:LocalStorageService,
+    private userService:UserService,
+    private toastrService:ToastrService,
+    private router:Router,
+    private categoryService:CategoryService
+    ) { }
 
   ngOnInit(): void {
+    this.getCategories();
     this.checkToLogin();
     this.checkToEmail();
     this.getEmail();
 
   }
-
+  getCategories(){
+    this.categoryService.getCategories().subscribe((response)=>{
+      this.categories = response.data
+    })
+  }
   checkToLogin(){
     if(this.authService.isAuthenticated()){
       return true;
