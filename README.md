@@ -4,8 +4,6 @@
 ![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/homegif.gif)
 ## Products
 ![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/products.jpg)
-## Filter Products
-![Filter Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/brand-filter-products.jpg)
 ## Product Detail 
 ![Product Detail](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/product-detail-1.jpg)
 ## Login
