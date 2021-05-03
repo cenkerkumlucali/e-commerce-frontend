@@ -58,6 +58,7 @@
     </div>
     
 </div>
+
 <h5 id="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
 <div style="margin-top: 20px;" id="carouselExampleIndicatorss" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -179,9 +180,9 @@
 
     <div id="brand" class="row mt-3">
       <h5 id="cd" >Markalar</h5>
-      <div *ngFor="let product of brandDetail" class="col-md brandImage">
-        <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
-        class="card-img-top"width="175px" height="100px"  alt="{{ product.brandName }}  Image"/>
+      <div *ngFor="let brand of brandDetail" class="col-md brandImage">
+        <img routerLink="/products/brand/{{brand.brandId}}" [src]="brand.images.length !== 0 ? imageBasePath+ brand.images[0] : imageBasePath + defaultImg"
+        class="card-img-top"width="175px" height="100px"  alt="{{ brand.brandName }}  Image"/>
       </div>
      
     </div>
@@ -246,7 +247,7 @@
       <img id="imgDiscover" width="350px" height="275px" src="https://www.theatrium.com.mt/Content/Images/Bedrooms/1.jpg" alt="" srcset="">
       <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-2">
 
-        <p class="btn text-center">Kesfet ></p>
+        <p class="btn text-center" routerLink="/products">Kesfet ></p>
       </div>
     </div>
     <div class="col-md mt-5">
@@ -264,9 +265,18 @@
     </div>
     
   </div>
-  <div class="col-md-12 mt-5">
+  <div class="col-md-12 ms-5 mt-5">
     <h5 id="cd">Son Gezdiklerim</h5>
-  <div *ngFor="let product of productDetail" class="card mt-3 ms-1 shadow  mb-5 bg-body rounded" style="width: 15rem;">
+    <div style="margin-top: 20px;" id="carouselExampleIndicatorss" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicatorss" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicatorss" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicatorss" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+  <div *ngFor="let product of productDetail.slice(0,4)" class="card mt-3 ms-1 shadow  mb-5 bg-body rounded" style="width: 15rem;">
     <h5 style="color: #022548;" class="card-title p-3">{{product.productName}}</h5>
     <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
     class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
@@ -282,6 +292,10 @@
         <p class="card-text"></p>
       </div>
     </div>
+        
+      </div>
+    </div>
+  </div>
   </div>
 </div>
   
