@@ -1,9 +1,7 @@
 <h1 align="center"> BtkDukkan  </h1>
 
 ## Home 
-![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/home.jpg)
-![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/Home---3.jpg)
-![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/Home---4.jpg)
+![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/homegif.gif)
 ## Products
 ![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/products.jpg)
 ## Filter Products
