@@ -8,7 +8,7 @@ export interface ProductDetail{
  images:string[]
  code:string
  price:number
- discountRate:number
+ discountRate?:number
  createDate:Date
  active:boolean
 }

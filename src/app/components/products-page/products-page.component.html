@@ -1,16 +1,18 @@
-<div class="container">
-    <div class="row">
-        <app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+      <app-navbar></app-navbar>
+      <div class="col-md-12 category">
         <app-category></app-category>
+      </div>
         <div class="col-md-3 mt-3">
 <app-brand></app-brand>
         </div>
-        <div class="col-md-9">  
-            <div  *ngFor="let product of productDetail" class=" card mt-3 ms-1    mb-5 bg-body rounded" style="width: 15rem;">
+        <div class="col-md-9 ">  
+            <div  *ngFor="let product of productDetail" class=" card mt-3 ms-1    mb-5 bg-body rounded" style="width: 17rem;">
                 <h5 id="productName" class="card-title p-3 ">{{product.productName}}</h5>
                 <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
-                class="card-img-top" alt="{{ product.code }} Image"style="width:190px; margin-left:40px; " />
-                  <div class="card-body mb-4" >
+                class="card-img-top" alt="{{ product.code }} Image"style="width: 205px; margin-left: 38px; " />
+                  <div class="card-body" >
                     <div class="row">
                       <div class="col-md-5">
                         <div class="row">

@@ -25,6 +25,9 @@
     margin-right: 20px;
 
 }
+.card:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
 .badge.highlight {
     margin-left: 5px;
     width: 85px;
@@ -40,3 +43,7 @@
     margin-top: 18px;
     margin-left: 15px;
  }
+ .category{
+    margin-left: 7rem;
+ }
+ 

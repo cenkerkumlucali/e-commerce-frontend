@@ -3,7 +3,7 @@
   <div class="row">
     <app-category></app-category>
   </div>
-  <div class=" offset-md-2 mt-4">
+  <div *ngIf="checkToLogin()==false" class=" offset-md-2 mt-4">
     <span>Sana özel deneyimler sunmamız için <span routerLink="/login" class="login">Giriş yap</span>.Henüz
       muşteri değil misin? <span routerLink="/register" class="register" >Üye ol</span></span>
   </div>
@@ -179,32 +179,17 @@
 
     <div id="brand" class="row mt-3">
       <h5 id="cd" >Markalar</h5>
-      <div class="col-md">
-        <img  width="175px" height="100px" src="https://c.static-nike.com/a/images/w_1920,c_limit/mdbgldn6yg1gg88jomci/image.jpg" alt="" srcset="">
-
+      <div *ngFor="let product of brandDetail" class="col-md brandImage">
+        <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
+        class="card-img-top"width="175px" height="100px"  alt="{{ product.brandName }}  Image"/>
       </div>
-      <div class="col-md">
-        <img  width="175px" height="100px" src="https://tentulogo.com/wp-content/uploads/Adidas-CABECERA-POST-BLOG.jpg" alt="" srcset="">
-
-      </div>
-      <div class="col-md">
-        <img  width="175px" height="100px" src="https://gagadget.com/media/post_big/Lenovo-Logo-.png" alt="" srcset="">
-
-      </div>
-      <div class="col-md">
-        <img  width="175px" height="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_nTl1CpMOdSGdlN4P_fjgOpl79q0qbm8TW1PVE2n2d-bjjk_d5A64utT_A6iiSBomV9I&usqp=CAU" alt="" srcset="">
-
-      </div>
-      <div class="col-md">
-        <img  width="175px" height="100px" src="https://i.ytimg.com/vi/yoNVKKRt90Y/hqdefault.jpg" alt="" srcset="">
-
-      </div>
+     
     </div>
     
  
   </div>
 </div>
-    <div class="container ms-5 mt-5" >
+    <div  style="margin-left: 140px!important" class="container ms-5 mt-5" >
       <div class="row" >
         <h5 id="cd">One Cikan Kategoriler</h5>
 

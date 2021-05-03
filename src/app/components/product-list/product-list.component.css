@@ -14,10 +14,12 @@
 .login{
     font-weight: bold;
     color: #022548;
+    cursor: pointer;
 }
 .register{
      font-weight: bold;
       color: #022548;
+      cursor: pointer;
 }
 #productName{
     color: #022548;
@@ -172,4 +174,7 @@
         margin-left: 31px;
         margin-top: 20px;
         font-size: 14px;    
+}
+.brandImage{
+    cursor: pointer;
 }
