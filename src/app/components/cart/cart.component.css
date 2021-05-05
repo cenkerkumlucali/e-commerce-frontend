@@ -1,0 +1,75 @@
+.title{
+    font-size: 2.2rem;
+    margin: 10px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.033rem;
+    color: #3a3a3a;
+}
+.productName{
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    font-stretch: normal;
+    color: #3a3a3a;
+}
+.seller{
+    color: #646464;
+    font-size: 0.9rem;
+}
+.brandName{
+    color:#d1623d; 
+    font-weight: 600;
+    cursor: pointer;
+}
+.cargo{
+    font-size: 0.9rem;
+    color: #646464;
+    font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.trash{
+    cursor: pointer;
+    display: none;
+    height: 0px;
+    font-size: 2.0rem;
+    color: #d1623d;
+    margin-top: 0!important;
+    margin-right: 20px;
+}
+img{
+    cursor: pointer;
+}
+.paymentBtn{
+    background-color: #d1623d;
+    color:#fff;
+    margin: 78px 0 0 4px;
+}
+.removeText{
+    font-size: 0.9rem;
+    color: black;
+    
+    margin-left: 563px;
+    text-align: end;
+}
+.basket{
+    border-bottom: 1px solid gainsboro;
+}
+.basket:hover .trash{
+    display: block;
+    
+}
+.basketPrice{
+    color: rgb(72, 72, 72);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: -0.36px;
+    line-height: 20px;
+}

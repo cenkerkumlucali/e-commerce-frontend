@@ -6,10 +6,8 @@
       <div class="p-fluid p-formgrid p-grid">
          <div class="icons"> 
            <img src="https://img.icons8.com/color/48/000000/visa.png" />
-          <img
-                src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
-                />
-              <img src="https://img.icons8.com/color/48/000000/maestro.png" /> 
+           <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/>
+           <img src="https://img.icons8.com/color/48/000000/maestro.png" /> 
              </div> 
             <form [formGroup]="creditCardForm"> 
               <div *ngIf="savedCards.length>0" id="saveCard"class="mb-3" >
@@ -39,8 +37,8 @@
                       </div>
               </form>
           </div>
-          <div class="card">
-            <button (click)="rent()" type="button" class="btn btn-success" data-bs-dismiss="modal">Ödeme yap</button>
+          <div  class="card">
+            <button (click)="pay()" type="button" class="btn payBtn"  data-bs-dismiss="modal">Ödeme yap</button>
           </div>
         </div>
 

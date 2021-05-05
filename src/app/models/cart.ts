@@ -1,6 +1,7 @@
 export interface Cart{
-    id:number
-    productId:number
-    userId:number
-    count:number
+    productId?:number
+    brandId?:number
+    userId?:number
+    count?:number
+    id?:number
 }

@@ -9,8 +9,8 @@
         </div>
         <div class="col-md-9 ">  
             <div  *ngFor="let product of productDetail" class=" card mt-3 ms-1    mb-5 bg-body rounded" style="width: 17rem;">
-                <h5 id="productName" class="card-title p-3 ">{{product.productName}}</h5>
-                <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
+                <h5 routerLink="/product/detail/{{ product.productId }}" id="productName" class="card-title p-3 ">{{product.productName}}</h5>
+                <img routerLink="/product/detail/{{ product.productId }}" [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
                 class="card-img-top" alt="{{ product.code }} Image"style="width: 205px; margin-left: 38px; " />
                   <div class="card-body" >
                     <div class="row">
@@ -28,7 +28,7 @@
                           <p class="price">{{product.price | discount:product.discountRate}} TL</p>
                         </div>
                       <div style="padding-top: 20px;" class="col-md-7">
-                        <a id="cartBtn" routerLink="/products/detail/{{ product.productId }}" class="btn">Ürüne Git</a>
+                        <a id="cartBtn" (click)="addToCart(product)" class="btn">Sepete ekle</a>
                       </div>
                     </div>
                     <p class="card-text"></p>

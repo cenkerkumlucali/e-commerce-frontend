@@ -41,7 +41,7 @@
   <div class="col-md-8 offset-2 mt-5" id="box1">
     <div class="row">
     <div class="col-md-3 mt-3">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="60px" height="40px" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1728 1408"><path d="M576 1152q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM192 640h384V384H418q-13 0-22 9L201 588q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM1728 64v1024q0 15-4 26.5t-13.5 18.5t-16.5 11.5t-23.5 6t-22.5 2t-25.5 0t-22.5-.5q0 106-75 181t-181 75t-181-75t-75-181H704q0 106-75 181t-181 75t-181-75t-75-181h-64q-3 0-22.5.5t-25.5 0t-22.5-2t-23.5-6t-16.5-11.5T4 1114.5T0 1088q0-26 19-45t45-19V704q0-8-.5-35t0-38t2.5-34.5t6.5-37t14-30.5t22.5-30l198-198q19-19 50.5-32t58.5-13h160V64q0-26 19-45t45-19h1024q26 0 45 19t19 45z" fill="#ffffff"/><rect x="0" y="0" width="1728" height="1408" fill="rgba(0, 0, 0, 0)" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="60px" height="40px" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1728 1408"><path d="M576 1152q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM192 640h384V384H418q-13 0-22 9L201 588q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM1728 64v1024q0 15-4 26.5t-13.5 18.5t-16.5 11.5t-23.5 6t-22.5 2t-25.5 0t-22.5-.5q0 106-75 181t-181 75t-181-75t-75-181H704q0 106-75 181t-181 75t-181-75t-75-181h-64q-3 0-22.5.5t-25.5 0t-22.5-2t-23.5-6t-16.5-11.5T4 1114.5T0 1088q0-26 19-45t45-19V704q0-8-.5-35t0-38t2.5-34.5t6.5-37t14-30.5t22.5-30l198-198q19-19 50.5-32t58.5-13h160V64q0-26 19-45t45-19h1024q26 0 45 19t19 45z" fill="#ffffff"/><rect x="0" y="0" width="1728" height="1408" fill="rgba(0, 0, 0, 0)" /></svg>
     </div>
     <div class="col-md-9 mt-3">
       <p id="cargo">100 TL ve uzeri alisverilerinizde kargo ücretsiz</p></div>
@@ -69,17 +69,18 @@
   
   <div class="carousel-inner">
     <div class="carousel-item active">
-  <div *ngFor="let product of productDetail.slice(0,4)" class=" card mt-3 ms-1 shadow   mb-5 bg-body rounded" style="width: 15rem;">
-    <h5 id="productName" class="card-title p-3 ">{{product.productName}}</h5>
-    <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
-    class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
+  <div *ngFor="let product of productDetail.slice(0,4)" class=" card mt-3 ms-1 shadow   mb-5 bg-body rounded" style="width: 15.5rem;">
+    <h5 routerLink="/product/detail/{{ product.productId }}" id="productName" class="card-title p-3 ">{{product.productName}}</h5>
+    <img routerLink="/product/detail/{{ product.productId }}" [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
+    class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px;cursor: pointer; " />
     <div class="card-body" >
       <div  class="row">
         <div class="col-md-5 price" >
-          <p>{{product.price}}TL</p>
+          <p class="discount">{{product.price}} TL</p>
+          <p class="price">{{product.price | discount:product.discountRate}}TL</p>
         </div>
         <div style="padding-top: 20px;" class="col-md-7">
-          <a id="cartBtn" routerLink="/products/detail/{{ product.productId }}" class="btn">Ürüne Git</a>
+          <a id="cartBtn" (click)="addToCart(product)"  class="btn">Sepete ekle</a>
         </div>
       </div>
       <p class="card-text"></p>
@@ -89,14 +90,14 @@
   
 </div>
 </div>
-    <button  class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorss" data-bs-slide="prev">
+    <!-- <button  class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorss" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button  class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorss" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
-    </button>
+    </button> -->
 </div>
     <div class="container mt-5">
     <div class="row">
@@ -277,16 +278,17 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
   <div *ngFor="let product of productDetail.slice(0,4)" class="card mt-3 ms-1 shadow  mb-5 bg-body rounded" style="width: 15rem;">
-    <h5 style="color: #022548;" class="card-title p-3">{{product.productName}}</h5>
+    <h5 style="color: #022548; cursor: pointer;" class="card-title p-3">{{product.productName}}</h5>
     <img [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
-    class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; " />
+    class="card-img-top" alt="{{ product.code }} Image"style="width:150px; margin-left:40px; cursor: pointer;" routerLink="/product/detail/{{product.productId}}" />
       <div class="card-body" >
         <div class="row">
-          <div style="padding-top: 20px;font-weight: bold;"class="col-md-5">
-            <p>{{product.price}}TL</p>
+          <div class="col-md-5 price" >
+            <p class="discount">{{product.price}} TL</p>
+            <p class="price">{{product.price | discount:product.discountRate}}TL</p>
           </div>
           <div style="padding-top: 20px;" class="col-md-7">
-            <a id="cartBtn" href="#"routerLink="/products/detail/{{ product.productId }}" class="btn">Ürüne Git</a>
+            <a id="cartBtn" (click)="addToCart(product)" class="btn">Sepete ekle</a>
           </div>
         </div>
         <p class="card-text"></p>

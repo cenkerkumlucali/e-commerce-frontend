@@ -26,4 +26,7 @@ export class AddressService {
     let newPath = this.apiUrl +"addresses/getbyid?id="+id
     return this.httpClient.get<SingleResponseModel<Address>>(newPath)
   }
+  getAdressByUserId(userId:number):Observable<ListResponseModel<Address>>{
+    return this.httpClient.get<ListResponseModel<Address>>(this.apiUrl+"addresses/getallbyuserid?userId="+userId)
+  }
 }

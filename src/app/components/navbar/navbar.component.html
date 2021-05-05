@@ -15,7 +15,7 @@
         <span  id="navbar-item" class="btn"> <i class="fas fa-heart"></i>Favoriler</span>
         <span  id="navbar-item" *ngIf="checkToLogin()==false" class="btn" routerLink="/login"><i class="fas fa-user"></i>Giris</span>
         
-        <span  id="navbar-item-cart" class="btn"><i class="fas fa-shopping-cart"></i>Sepetim</span>
+        <span  id="navbar-item-cart" routerLink="/cart/{{this.user.id}}" class="btn"><i class="fas fa-shopping-cart"></i>Sepetim</span>
         <div class="dropdown text-end" *ngIf="checkToEmail()==true">
           <a class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true"  type="button">  {{this.user.firstName}} {{this.user.lastName}}  </a>
           

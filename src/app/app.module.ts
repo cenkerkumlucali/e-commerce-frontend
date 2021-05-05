@@ -32,6 +32,9 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
+import { CartComponent } from './components/cart/cart.component';
+import { LoginGuard } from './guards/login.guard';
+import { AddressTransactionsComponent } from './components/address-transactions/address-transactions.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
     ProductsPageComponent,
     BrandComponent,
     BrandFilterPipe,
+    CartComponent,
+    AddressTransactionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +75,7 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    LoginGuard,
     DialogService,
     ConfirmationService,
   ],

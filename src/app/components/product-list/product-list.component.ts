@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BrandDetail } from 'src/app/models/brandDetail';
+import { Cart } from 'src/app/models/cart';
 import { Product } from 'src/app/models/product';
 import { ProductDetail } from 'src/app/models/productDetail';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,18 +17,20 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  brandDetail:BrandDetail[]=[]
-  productDetail:ProductDetail[]=[]
+  brandDetail: BrandDetail[] = []
+  productDetail: ProductDetail[] = []
+  cart: Cart
   product: Product;
-  productAddedToCart:boolean=false;
+  productAddedToCart: boolean = false;
   imageBasePath = environment.imageUrl;
-  defaultImg=""
+  defaultImg = ""
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private authService:AuthService,
-    private brandService:BrandService
-  ) {}
+    private authService: AuthService,
+    private brandService: BrandService,
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.getProductDetails()
@@ -50,16 +54,17 @@ export class ProductListComponent implements OnInit {
         this.product = response.data[0];
       });
   }
-  getBrandsDetail(){
-    this.brandService.getBrandsDetail().subscribe((response)=>{
+  getBrandsDetail() {
+    this.brandService.getBrandsDetail().subscribe((response) => {
       this.brandDetail = response.data
-      })
+    })
   }
-  checkToLogin(){
-    if(this.authService.isAuthenticated()){
+
+  checkToLogin() {
+    if (this.authService.isAuthenticated()) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
@@ -68,10 +73,14 @@ export class ProductListComponent implements OnInit {
     this.cartService
       .add({
         productId: product.productId,
-        userId: 1,
+        brandId: product.brandId,
+        userId: this.authService.currentUserId,
         count: 1,
-        id: 0,
+
       })
-      .subscribe((response) => {this.productAddedToCart=true;});
+      .subscribe((response) => {
+        this.productAddedToCart = true;
+        this.toastrService.success(response.message)
+      });
   }
 }

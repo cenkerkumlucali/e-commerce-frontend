@@ -1,10 +1,14 @@
 
 #productName{
     color: #022548;
+    cursor: pointer;
 }
 .price{
     font-weight: bold;
     font-size: 15px;
+}
+img{
+    cursor: pointer;
 }
 .discount{
     height: 17px;
@@ -37,7 +41,7 @@
     font-weight: 700;
 }
 #cartBtn{
-    background-color:#ed4634; 
+    background-color: #d1623d;
     color: #ffffff;
     padding: 10px;
     margin-top: 18px;

@@ -8,8 +8,9 @@
 
 }
 .price{
-    padding-top: 20px;
+
     font-weight: bold;
+    color:#022548;
 }
 .login{
     font-weight: bold;
@@ -23,6 +24,7 @@
 }
 #productName{
     color: #022548;
+    cursor: pointer;
 }
 #bm{
     width: 500px;
@@ -58,6 +60,7 @@
     width: 18rem;
     float: left;
     margin-right: 20px;
+    
 
 }
 .card-title{
@@ -68,6 +71,8 @@
 #cartBtn{
    background-color:#d1623d; 
    color: #ffffff;
+   border-radius: 7px;
+   font-weight: 500;
 }
 #col-md-4{
     width: 338px;
@@ -178,3 +183,12 @@
 .brandImage{
     cursor: pointer;
 }
+.discount{
+    height: 17px;
+
+    text-decoration:line-through;
+    font-size: 14px;
+    color: #022548;
+    font-weight: 500;
+}
+
