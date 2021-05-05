@@ -1,4 +1,6 @@
-
+.title{
+    margin-left: 55px;
+}
 .ai{
     font-size: 22px;
     margin-top: 10px;
@@ -36,4 +38,7 @@
     font-size: 100%;
     line-height: 1.15;
 }
+.ui-dropdown    {
+    background-color:black;
+  }
 select:invalid { color: #6c757d; }

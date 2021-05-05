@@ -10,7 +10,7 @@
           <div class="card-body">
             <form [formGroup]="createAddressForm">
                 <div *ngIf="savedAddress.length>0" id="savedAddress"class="mb-3" >
-                    <p-dropdown id="savedAddress" [disabled]=false (onChange)="setCardInfos()" formControlName="savedAddress" [options]="savedAddress" [(ngModel)]="selectedAddress" placeholder="Kayıtlı adresler" optionLabel="addressDetail" [showClear]="true"></p-dropdown>
+                    <p-dropdown id="savedAddress" [style]="{'width':'498px'}" [disabled]=false (onChange)="setCardInfos()" formControlName="savedAddress" [options]="savedAddress" [(ngModel)]="selectedAddress" placeholder="Kayıtlı adresler" optionLabel="addressAbbreviation" [showClear]="true"></p-dropdown>
                   </div>
               <div class="mb-3">
                 <label for="cityId">Şehir seç</label>
@@ -27,7 +27,7 @@
                 <label for="address">Adres</label>
                 <div class="form-group">
                   <input type="text" id="address" formControlName="addressDetail" class="form-control"
-                    placeholder="Address" />
+                    placeholder="Adres" />
                 </div>
               </div>
               

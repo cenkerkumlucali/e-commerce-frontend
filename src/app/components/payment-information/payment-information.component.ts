@@ -51,6 +51,7 @@ export class PaymentInformationComponent implements OnInit {
     this.setCreditCardForm()
     this.getSavedCards()
     console.log(this.authService.getCurrentUserId())
+    
   }
 
 
@@ -63,10 +64,15 @@ export class PaymentInformationComponent implements OnInit {
     })
   }
 
+  
+  
    buy(){
-    this.address = this.address;
-    console.log(this.address)
-    this.openCreditCard()
+     this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response)=>{
+      this.address = response.data[0];
+      this.openCreditCard()
+     })
+   
+    
   }
 
   getCity(){
@@ -96,6 +102,7 @@ export class PaymentInformationComponent implements OnInit {
       header:'Kart bilgileri',
       width:'40%'
     });
+    
   }
 
 }
