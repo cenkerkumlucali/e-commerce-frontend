@@ -51,10 +51,10 @@
             
         </header>
         <span class="brand-name">
-            <p id="brand">{{productDto.brandName}}</p>
+            <p routerLink="/products/brand/{{productDto.brandId}}" id="brand">{{productDto.brandName}}</p>
         </span>
         <a id="first-campaign-ribbon" data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
-            <span data-bind="text: firstCampaign, attr:{'data-hbus' : userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('CampaignLinkClick'): ''}" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;CampaignLinkClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60002028&quot;,&quot;name&quot;:&quot;Ev Dekorasyon&quot;},{&quot;id&quot;:&quot;18021299&quot;,&quot;name&quot;:&quot;Mobilya&quot;},{&quot;id&quot;:&quot;18021303&quot;,&quot;name&quot;:&quot;Oturma Odası&quot;},{&quot;id&quot;:&quot;18021332&quot;,&quot;name&quot;:&quot;Sehpalar&quot;},{&quot;id&quot;:&quot;18021615&quot;,&quot;name&quot;:&quot;Orta Sehpa&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;09e7e84b-96ee-46a7-aeac-90e7319bd1f4&quot;,&quot;name&quot;:&quot;cosargroup&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;18021615&quot;,&quot;name&quot;:&quot;orta-sehpalar&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00001AB9SK&quot;,&quot;price&quot;:&quot;228.71&quot;,&quot;sku&quot;:&quot;HBV00001AB9SL&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:&quot;1bfe48cb-fa8a-4224-a228-53c9b91ac531&quot;,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç alışverişlerde 25 TL indirim</span>
+            <span class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç alışverişlerde 25 TL indirim</span>
         </a>
 
 
@@ -68,7 +68,7 @@
           </div>
           </div>
        <div class="col-md-8">
-        <a id="cartBtn" routerLink="/paymentinformation/{{productDto.productId}}" class="btn">Satın Al</a>
+        <a id="cartBtn" (click)="addToCart(productDto)" class="btn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
        </div>
         </div>
         <ul class="shipment-list-container">
@@ -89,11 +89,41 @@
           </li>
           <li style="display: none">(Kargo Bedava)</li>
       </ul>
-          <section > 
-            <!-- <button *ngIf="productDto" routerLink = "/rental/{{productDto.productId}}" id="rentalButton"type="button"
-            class="btn btn-outline-success">Kirala</button> -->
-          </section>
+      <section > 
+        <!-- <button *ngIf="productDto" routerLink = "/rental/{{productDto.productId}}" id="rentalButton"type="button"
+          class="btn btn-outline-success">Kirala</button> -->
+        </section>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-5 p-3 description">
+          <h2 class="sameSeller">Açıklama</h2>
+          <p>{{productDto.description}}</p>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <h2 class="sameSeller">Aynı satıcıdan</h2>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+          <div *ngFor="let product of products" class=" card mt-3 ms-4 shadow d-flex  mb-5 bg-body rounded" style="width: 18.5rem;">
+            <h5 routerLink="/product/detail/{{ product.productId }}" id="productName" class="card-title p-3 ">{{product.productName}}</h5>
+            <img routerLink="/product/detail/{{ product.productId }}" [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
+            class="card-img-top" alt="{{ product.code }} Image"style="width:220px; margin-left:40px;cursor: pointer; " />
+            <div class="card-body " >
+              <div  class="row">
+                <div class="col-md- price" >
+                  <p class="discount">{{product.price}} TL</p>
+                  <p class="priceBrand">{{product.price | discount:product.discountRate}}TL</p>
+                </div>
+                <div style="padding-top: 20px;" class="col-md-7">
+                  <a id="cartBtnBrand" (click)="addToCart(product)"  class="btn">Sepete ekle</a>
+                </div>
+              </div>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
      
     </div>
   </div>

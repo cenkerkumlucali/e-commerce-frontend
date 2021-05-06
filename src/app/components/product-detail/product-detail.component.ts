@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Product } from 'src/app/models/product';
 import { ProductDetail } from 'src/app/models/productDetail';
+import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,14 +20,19 @@ export class ProductDetailComponent implements OnInit {
   Images:string[]=[]
   imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
-  constructor(private productService:ProductService,private activatedRoute:ActivatedRoute) { }
+  constructor(private productService:ProductService,
+              private activatedRoute:ActivatedRoute,
+              private toastrService:ToastrService,
+              private cartService:CartService,
+              private authService:AuthService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       if(params["productId"]){
         this.getProductDetail(params["productId"]);
+        this.getProductDetailByBrandId(params["productId"]);
       }
-     
+      
     });
   }
 
@@ -33,6 +43,21 @@ export class ProductDetailComponent implements OnInit {
       this.Images=this.productDto.images
     })
   }
-
-
+  getProductDetailByBrandId(brandId:number){
+    this.productService.getProductDetailByBrandId(brandId).subscribe((response)=>{
+      this.products = response.data
+      console.log(response.data)
+      this.Images=this.productDto.images
+    })
+  }
+  addToCart(product:ProductDetail){
+    this.cartService.add({
+      userId:this.authService.getCurrentUserId(),
+      brandId:product.brandId,
+      productId:product.productId,
+      count:1
+    }).subscribe((response)=>{
+      this.toastrService.success(response.message)
+    })
+  }
 }

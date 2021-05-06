@@ -5,6 +5,7 @@ export interface ProductDetail{
  categoryName:string
  brandName:string
  productName:string
+ description:string
  images:string[]
  code:string
  price:number
