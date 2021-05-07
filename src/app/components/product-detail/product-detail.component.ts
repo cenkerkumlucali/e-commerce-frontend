@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Product } from 'src/app/models/product';
 import { ProductDetail } from 'src/app/models/productDetail';
 import { AuthService } from 'src/app/services/auth.service';
@@ -8,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -24,7 +26,8 @@ export class ProductDetailComponent implements OnInit {
               private activatedRoute:ActivatedRoute,
               private toastrService:ToastrService,
               private cartService:CartService,
-              private authService:AuthService) { }
+              private authService:AuthService,
+              private dialogService:DialogService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -59,5 +62,14 @@ export class ProductDetailComponent implements OnInit {
     }).subscribe((response)=>{
       this.toastrService.success(response.message)
     })
+  }
+  openComment() {
+    const ref = this.dialogService.open(CommentComponent, {
+      data: {
+        productDto: this.productDto
+      },
+      header: 'Yorum yap',
+      width: '40%'
+    });
   }
 }
