@@ -24,6 +24,7 @@ export class ProductListComponent implements OnInit {
   productAddedToCart: boolean = false;
   imageBasePath = environment.imageUrl;
   defaultImg = ""
+  limit=12
   constructor(
     private productService: ProductService,
     private cartService: CartService,
@@ -35,6 +36,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.getProductDetails()
     this.getBrandsDetail()
+    this.getLimitedProducts(this.limit)
   }
 
   getProduct() {
@@ -68,19 +70,10 @@ export class ProductListComponent implements OnInit {
       return false;
     }
   }
-  addToCart(product: ProductDetail) {
-    this.productAddedToCart = false;
-    this.cartService
-      .add({
-        productId: product.productId,
-        brandId: product.brandId,
-        userId: this.authService.currentUserId,
-        count: 1,
-
-      })
-      .subscribe((response) => {
-        this.productAddedToCart = true;
-        this.toastrService.success(response.message)
-      });
+  getLimitedProducts(limit:number){
+    this.productService.getProductLimited(limit).subscribe((response)=>{
+      this.productDetail = response.data
+      console.log(response.data)
+    })
   }
 }
