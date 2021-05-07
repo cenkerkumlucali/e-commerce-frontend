@@ -35,6 +35,7 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginGuard } from './guards/login.guard';
 import { AddressTransactionsComponent } from './components/address-transactions/address-transactions.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AddressTransactionsComponent } from './components/address-transactions/
     BrandFilterPipe,
     CartComponent,
     AddressTransactionsComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

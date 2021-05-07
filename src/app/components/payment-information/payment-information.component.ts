@@ -5,7 +5,7 @@ import { AddressService } from 'src/app/services/address.service';
 import { CityService } from 'src/app/services/city.service';
 import { CountryService } from 'src/app/services/country.service';
 import { environment } from 'src/environments/environment';
-import { FormGroup,FormBuilder ,Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { City } from 'src/app/models/city';
 import { OrderService } from 'src/app/services/order.service';
 import { Address } from 'src/app/models/address';
@@ -23,27 +23,27 @@ import { Order } from 'src/app/models/order';
   styleUrls: ['./payment-information.component.css']
 })
 export class PaymentInformationComponent implements OnInit {
-  products:Product[]=[]
-  product:Product
-  savedAddress: Address[]=[];
-  cities:City[]=[]
+  products: Product[] = []
+  product: Product
+  savedAddress: Address[] = [];
+  cities: City[] = []
   selectedAddress: Address;
-  address:Address
+  address: Address
   imageBasePath = environment.imageUrl;
-  defaultImg="/images/default.jpg"
-  createAddressForm:FormGroup
+  defaultImg = "/images/default.jpg"
+  createAddressForm: FormGroup
   currentUserId = this.authService.getCurrentUserId()
   constructor(
-    private addressService:AddressService,
-    private cityService:CityService,
-    private countryService:CountryService,
-    private toastrService:ToastrService,
-    private orderService:OrderService,
-    private formBuilder:FormBuilder,
-    private authService:AuthService,
-    private customerAddressService:CustomerAddressService,
-    private paymentService:PaymentService,
-    private dialogService:DialogService
+    private addressService: AddressService,
+    private cityService: CityService,
+    private countryService: CountryService,
+    private toastrService: ToastrService,
+    private orderService: OrderService,
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private customerAddressService: CustomerAddressService,
+    private paymentService: PaymentService,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -51,11 +51,11 @@ export class PaymentInformationComponent implements OnInit {
     this.setCreditCardForm()
     this.getSavedCards()
     console.log(this.authService.getCurrentUserId())
-    
+
   }
 
 
-  setCreditCardForm(){
+  setCreditCardForm() {
     this.createAddressForm = this.formBuilder.group({
       savedAddress: [""],
       cityId: ["", Validators.required],
@@ -63,29 +63,24 @@ export class PaymentInformationComponent implements OnInit {
       postalCode: ["", Validators.required],
     })
   }
-
-  
-  
-   buy(){
-     this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response)=>{
+  buy() {
+    this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response) => {
       this.address = response.data[0];
       this.openCreditCard()
-     })
-   
-    
+    })
   }
 
-  getCity(){
-    this.cityService.get().subscribe(response=>{
+  getCity() {
+    this.cityService.get().subscribe(response => {
       this.cities = response.data
     })
   }
-  setCardInfos(){
+  setCardInfos() {
     this.createAddressForm.patchValue(
       this.selectedAddress
     )
   }
-  async getSavedCards(){
+  async getSavedCards() {
     let customerId = this.authService.getCurrentUserId();
     let customerCards = (await this.customerAddressService.getByCustomerId(customerId).toPromise()).data
     customerCards.forEach(card => {
@@ -94,15 +89,15 @@ export class PaymentInformationComponent implements OnInit {
       })
     });
   }
-  openCreditCard(){
-    const ref = this.dialogService.open(PaymentComponent,{
-      data:{
-        address:this.address
+  openCreditCard() {
+    const ref = this.dialogService.open(PaymentComponent, {
+      data: {
+        address: this.address
       },
-      header:'Kart bilgileri',
-      width:'40%'
+      header: 'Kart bilgileri',
+      width: '40%'
     });
-    
+
   }
 
 }
