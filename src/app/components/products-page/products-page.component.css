@@ -1,4 +1,3 @@
-
 #productName{
     color: #022548;
     cursor: pointer;
@@ -10,23 +9,17 @@
 img{
     cursor: pointer;
 }
-.discount{
-    height: 17px;
-    margin-top: 15px;
-    text-decoration:line-through;
-    font-size: 15px;
-    color: #919191;
-    font-weight: 500;
-}
+
 .card-title {
     font-size: initial;
     text-align: -webkit-center;
     font-weight: bold;
 }
 .card{
-    width: 18rem;
+    width: 16rem;
     float: left;
     margin-right: 20px;
+    
 
 }
 .card:hover{

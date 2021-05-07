@@ -10,7 +10,7 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MultiSelectModule } from 'primeng/multiselect';
-
+import {CarouselModule} from 'primeng/carousel';
 import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +36,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { LoginGuard } from './guards/login.guard';
 import { AddressTransactionsComponent } from './components/address-transactions/address-transactions.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { ProductCardComponent } from './components/templates/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CommentComponent } from './components/comment/comment.component';
     CartComponent,
     AddressTransactionsComponent,
     CommentComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,7 @@ import { CommentComponent } from './components/comment/comment.component';
     DynamicDialogModule,
     DropdownModule,
     ConfirmDialogModule,
+    CarouselModule,
     MultiSelectModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"

@@ -43,6 +43,9 @@ export class ProductService {
   getProductByCategory(categoryId: number): Observable<ListResponseModel<Product>> {
     return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl + 'products/getbycategory?categoryId=' + categoryId);
   }
+  getProductLimited(limit:number):Observable<ListResponseModel<ProductDetail>>{
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(this.apiUrl+"products/getproductdetailslimit?limit="+limit)
+  }
 
   add(product:Product):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl +"products/add",product)
