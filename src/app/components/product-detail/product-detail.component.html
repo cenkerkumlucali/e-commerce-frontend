@@ -68,8 +68,8 @@
           </div>
           </div>
        <div class="col-md-8">
-        <a id="cartBtn" (click)="addToCart(productDto)" class="btn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
-        <button (click)="openComment()"  class="btn">Sepete ekle</button>
+        <a (click)="addToCart(productDto)" class="btn cartBtn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
+        <button (click)="openComment()"  class="btn cartBtn"><i class="fas fa-comments"></i> Değerlendir</button>
 
        </div>
         </div>
@@ -92,8 +92,6 @@
           <li style="display: none">(Kargo Bedava)</li>
       </ul>
       <section > 
-        <!-- <button *ngIf="productDto" routerLink = "/rental/{{productDto.productId}}" id="rentalButton"type="button"
-          class="btn btn-outline-success">Kirala</button> -->
         </section>
       </div>
       <div class="row">
@@ -102,32 +100,31 @@
           <p>{{productDto.description}}</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 mt-5">
-          <h2 class="sameSeller">Aynı satıcıdan</h2>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-          <div *ngFor="let product of products" class=" card mt-3 ms-4 shadow d-flex  mb-5 bg-body rounded" style="width: 18.5rem;">
-            <h5 routerLink="/product/detail/{{ product.productId }}" id="productName" class="card-title p-3 ">{{product.productName}}</h5>
-            <img routerLink="/product/detail/{{ product.productId }}" [src]="product.images.length !== 0 ? imageBasePath+ product.images[0] : imageBasePath + defaultImg"
-            class="card-img-top" alt="{{ product.code }} Image"style="width:220px; margin-left:40px;cursor: pointer; " />
-            <div class="card-body " >
-              <div  class="row">
-                <div class="col-md- price" >
-                  <p class="discount">{{product.price}} TL</p>
-                  <p class="priceBrand">{{product.price | discount:product.discountRate}}TL</p>
-                </div>
-                <div style="padding-top: 20px;" class="col-md-7">
-                  <a id="cartBtnBrand" (click)="addToCart(product)"  class="btn">Sepete ekle</a>
-
-                </div>
-              </div>
-              <p class="card-text"></p>
+      <div *ngFor="let comment of productComment" class="row">
+        <div class="userr">
+          <div class="col-md-3">
+            <div class="user">
+              <i class="fas fa-user"></i>
             </div>
           </div>
         </div>
+        <div class="col-md-9 mt-5 p-2">
+          <p class="userName">{{comment.userFullName}}</p>
+          <div class="p-4 comment">
+              <p>{{comment.comment}}</p>
+          </div>
+        </div>
       </div>
-     
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <h2 class="sameSeller ">Aynı satıcıdan</h2>
+      <p-carousel [value]="products" [autoplayInterval]="3000" [numVisible]="4" [numScroll]="1">
+        <ng-template let-product pTemplate="item">
+
+          <app-product-card [products]="product"></app-product-card>
+        </ng-template>  
+
+      </p-carousel>
     </div>
   </div>
   

@@ -3,10 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Product } from 'src/app/models/product';
+import { ProductCommentDetails } from 'src/app/models/productCommentDetail';
 import { ProductDetail } from 'src/app/models/productDetail';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
+import { ProductCommentService } from 'src/app/services/product-comment.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 import { CommentComponent } from '../comment/comment.component';
@@ -19,10 +21,12 @@ import { CommentComponent } from '../comment/comment.component';
 export class ProductDetailComponent implements OnInit {
   products:ProductDetail[]=[]
   productDto:ProductDetail
+  productComment:ProductCommentDetails[]=[]
   Images:string[]=[]
   imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
   constructor(private productService:ProductService,
+              private productCommentService:ProductCommentService,
               private activatedRoute:ActivatedRoute,
               private toastrService:ToastrService,
               private cartService:CartService,
@@ -34,6 +38,7 @@ export class ProductDetailComponent implements OnInit {
       if(params["productId"]){
         this.getProductDetail(params["productId"]);
         this.getProductDetailByBrandId(params["productId"]);
+        this.getCommentByProductId(params["productId"])
       }
       
     });
@@ -53,6 +58,12 @@ export class ProductDetailComponent implements OnInit {
       this.Images=this.productDto.images
     })
   }
+  getCommentByProductId(productId:number){
+    this.productCommentService.getDetailByProductId(productId).subscribe((response)=>{
+      this.productComment = response.data
+      console.log(response.data)
+    })
+  }
   addToCart(product:ProductDetail){
     this.cartService.add({
       userId:this.authService.getCurrentUserId(),
@@ -69,7 +80,7 @@ export class ProductDetailComponent implements OnInit {
         productDto: this.productDto
       },
       header: 'Yorum yap',
-      width: '40%'
+      width: '50%',
     });
   }
 }
