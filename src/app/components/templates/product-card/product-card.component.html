@@ -2,7 +2,7 @@
   
   <h5 routerLink="/product/detail/{{ products.productId }}" id="productName" class="card-title p-3 ">{{products.productName}}</h5>
   <img routerLink="/product/detail/{{ products.productId }}" [src]="products.images.length !== 0 ? imageBasePath+ products.images[0] : imageBasePath + defaultImg"
-  class="card-img-top" alt="{{ products.code }} Image"style="width:150px; margin-left:40px;cursor: pointer; " />
+  class="card-img-top" alt="{{ products.code }} Image"style="width: 168px;margin-left: 44px;cursor: pointer; " />
   <div class="card-body" >
     <div  class="row">
       <div class="col-md-5 price" >

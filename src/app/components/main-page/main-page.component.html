@@ -1,0 +1,298 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div class="row">
+    <app-category></app-category>
+  </div>
+  <div *ngIf="checkToLogin()==false" class=" offset-md-2 mt-4">
+    <span>Sana özel deneyimler sunmamız için <span routerLink="/login" class="login">Giriş yap</span>.Henüz
+      muşteri değil misin? <span routerLink="/register" class="register">Üye ol</span></span>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mt-5" id="bm">
+      <p id="bn">Buyuk markalar.En iyi rakamlar</p>
+      <p id="ss">100.000'in uzerinde urun,buyuk markalar da dahil!</p>
+      <a id="shoppingStart" class="btn">Alisverise basla ></a>
+    </div>
+    <div class="col-md-6 mt-5">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block" style="width: 500px; height: 273px;"
+              src="https://www.bdc.ca/globalassets/digizuite/27101-articles_price_your_product_fb_1200x630_an.png"
+              alt="First slide">
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-md-8 offset-2 mt-5" id="box1">
+      <div class="row">
+        <div class="col-md-3 mt-3">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+            focusable="false" width="60px" height="40px"
+            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+            preserveAspectRatio="xMidYMid meet" viewBox="0 0 1728 1408">
+            <path
+              d="M576 1152q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM192 640h384V384H418q-13 0-22 9L201 588q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM1728 64v1024q0 15-4 26.5t-13.5 18.5t-16.5 11.5t-23.5 6t-22.5 2t-25.5 0t-22.5-.5q0 106-75 181t-181 75t-181-75t-75-181H704q0 106-75 181t-181 75t-181-75t-75-181h-64q-3 0-22.5.5t-25.5 0t-22.5-2t-23.5-6t-16.5-11.5T4 1114.5T0 1088q0-26 19-45t45-19V704q0-8-.5-35t0-38t2.5-34.5t6.5-37t14-30.5t22.5-30l198-198q19-19 50.5-32t58.5-13h160V64q0-26 19-45t45-19h1024q26 0 45 19t19 45z"
+              fill="#ffffff" />
+            <rect x="0" y="0" width="1728" height="1408" fill="rgba(0, 0, 0, 0)" />
+          </svg>
+        </div>
+        <div class="col-md-9 mt-3">
+          <p id="cargo">100 TL ve uzeri alisverilerinizde kargo ücretsiz</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6  mt-5 " id="box2">
+      <div class="row">
+        <div class="col-md-3 mt-3">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+            focusable="false" width="60px" height="40px"
+            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+            preserveAspectRatio="xMidYMid meet" viewBox="0 0 1728 1408">
+            <path
+              d="M576 1152q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM192 640h384V384H418q-13 0-22 9L201 588q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38t-90 38t-38 90t38 90t90 38t90-38t38-90zM1728 64v1024q0 15-4 26.5t-13.5 18.5t-16.5 11.5t-23.5 6t-22.5 2t-25.5 0t-22.5-.5q0 106-75 181t-181 75t-181-75t-75-181H704q0 106-75 181t-181 75t-181-75t-75-181h-64q-3 0-22.5.5t-25.5 0t-22.5-2t-23.5-6t-16.5-11.5T4 1114.5T0 1088q0-26 19-45t45-19V704q0-8-.5-35t0-38t2.5-34.5t6.5-37t14-30.5t22.5-30l198-198q19-19 50.5-32t58.5-13h160V64q0-26 19-45t45-19h1024q26 0 45 19t19 45z"
+              fill="#ffffff" />
+            <rect x="0" y="0" width="5000" height="1408" fill="rgba(0, 0, 0, 0)" />
+          </svg>
+        </div>
+        <div class="col-md-9 mt-4">
+          <p id="coupon">5 TL farkla kupon gün icinde teslim edilir </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!--Products-->
+  <h5 class="cd">En İyi Fiyat Performansına Sahip Ürünler</h5>
+  <p-carousel [value]="productDetail" [autoplayInterval]="3000" [numVisible]="4" [numScroll]="1">
+    <ng-template let-product pTemplate="item">
+      <app-product-card [products]="product"></app-product-card>
+    </ng-template>
+  </p-carousel>
+
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4" id="col-md-4">
+        <p id="title">Elektronik Cihazlar icin Aksesuarlar</p>
+        <div class="row">
+          <div class="col-md-6 mt-2 ">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://coloredway.com/uploads/kategori/16035269761f8a.jpg" alt="" srcset="">
+            <p id="imgFooter">Telefon Kilifi</p>
+          </div>
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://i.pinimg.com/originals/bf/91/f5/bf91f5cc44629d1235dc7244e6f36887.jpg" alt="" srcset="">
+            <p id="imgFooter">Tablet Kilifi</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2018/11/macbook-air-2018-sleeve.jpg"
+              alt="" srcset="">
+            <p id="imgFooter">Mac Kilifi</p>
+          </div>
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://st3.myideasoft.com/idea/fv/14/myassets/products/895/whatsapp-image-2020-07-15-at-18-49-01-2.jpeg?revision=1594829422"
+              alt="" srcset="">
+            <p id="imgFooter">Diger Aksesuarlar</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="col-md-4">
+        <p id="title">Supermarket</p>
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://i.lezzet.com.tr/images-xxlarge-secondary/taze-meyve-ve-sebze-nasil-secilir-e0009203-a2fb-46be-990f-dbeafe11ed9f.jpg"
+              alt="" srcset="">
+            <p id="imgFooter">Taze meyve, sebze</p>
+          </div>
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://www.iklimhaber.org/wp-content/uploads/2018/07/et-990x556.jpg" alt="" srcset="">
+            <p id="imgFooter">Et-sut urunleri</p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://www.dogutemizlik.com/File_Uploadx/Sayfa/buyuk/temizlik-malzemeleri-ve-kullanim-alanlari-1061695.PNG"
+              alt="" srcset="">
+            <p id="imgFooter">Deterjan, Temizlik</p>
+          </div>
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://satis.yigido.com.tr/wp-content/uploads/2020/04/at%C4%B1%C5%9Ft%C4%B1rmal%C4%B1k-300x300.jpg"
+              alt="" srcset="">
+            <p id="imgFooter">Gıda, Sekerleme</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="col-md-4">
+        <p id="title">Kadin - Erkek Urunleri</p>
+
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://www.shoestime.com.tr/upload/images/SPOR-AYAKKABI-20Y-311_15843486524268_ka.jpg" alt=""
+              srcset="">
+            <p id="imgFooter">Ayakkabi</p>
+          </div>
+          <div class="col-md-6 mt-2">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://www.longchamp.com/dw/image/v2/BCVX_PRD/on/demandware.static/-/Sites-LC-master-catalog/default/dw09b49f52/images/DIS/L1899089556_0.png?sw=700&sh=700&sm=fit"
+              alt="" srcset="">
+            <p id="imgFooter">Canta</p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://images-na.ssl-images-amazon.com/images/I/51F50l4eRzL._SX450_.jpg" alt="" srcset="">
+            <p id="imgFooter">Aksesuar</p>
+          </div>
+          <div class="col-md-6 mt-1">
+            <img id="imgCategory" width="125px" height="100px"
+              src="https://www.uniqlo.com/custom/img/product-care/outerwear-hero.jpg" alt="" srcset="">
+            <p id="imgFooter">Dış Giyim</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+
+      <p class="btn text-end ">Tumunu gor ></p>
+    </div>
+  </div>
+  <div>
+
+    <div id="brand" class="row mt-3">
+      <h5 id="cd">Markalar</h5>
+      <div *ngFor="let brand of brandDetail" class="col-md brandImage">
+        <img routerLink="/products/brand/{{brand.brandId}}"
+          [src]="brand.images.length !== 0 ? imageBasePath+ brand.images[0] : imageBasePath + defaultImg"
+          class="card-img-top" width="175px" height="100px" alt="{{ brand.brandName }}  Image" />
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+<div style="margin-left: 140px!important" class="container ms-5 mt-5">
+  <div class="row">
+    <h5 id="cd">One Cikan Kategoriler</h5>
+
+    <div class="row no-gutters">
+
+      <div class="col-md">
+        <div id="imageCr">
+          <img style="width: 150px; height: 150px;
+              filter: brightness(35%);"
+            src="https://i.pinimg.com/originals/bd/a0/be/bda0bea0ba4cd5492728b7f246f111fc.jpg">
+          <h5 class="centered">Ofis
+          </h5>
+        </div>
+
+      </div>
+      <div class="col-md">
+        <div id="imageCr">
+          <img style="width: 150px; height: 150px;
+        filter: brightness(35%);" src="https://www.cumhuriyet.com.tr/Archive/2020/4/15/121937634-res.jpg">
+          <h5 class="centered">Supermarket
+          </h5>
+        </div>
+
+      </div>
+      <div class="col-md">
+        <div id="imageCr">
+          <img style="width: 150px; height: 150px;
+            filter: brightness(35%);" src="https://listelist.com/wp-content/uploads/2019/04/High-Tech-Products.png">
+          <h5 class="centered">Teknoloji
+          </h5>
+        </div>
+      </div>
+      <div class="col-md">
+        <div id="imageCr">
+          <img style="width: 150px; height: 150px;filter: brightness(35%);"
+            src="https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg">
+          <h5 class="centered">Kitap
+          </h5>
+        </div>
+      </div>
+      <div class="col-md">
+        <div id="imageCr">
+          <img style="width: 150px; height: 150px;filter: brightness(35%);"
+            src="https://3dkonut.com/Resimler/Galeriler/en-guzel-ev-yasam-alani-dekorasyonlari/en-guzel-ev-yasam-alani-dekorasyonlari_92826.jpg">
+          <h5 class="centered">Ev ve Yasam
+          </h5>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="container ms-5 mt-5">
+  <div class="row">
+    <div class="col-md-6 mt-2 me-5 " id="discover">
+      <h2 id="discoverTitle">Yeni Gelenleri Kacirma</h2>
+      <img id="imgDiscover" width="350px" height="275px"
+        src="https://www.theatrium.com.mt/Content/Images/Bedrooms/1.jpg" alt="" srcset="">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-2">
+
+        <p class="btn text-center" routerLink="/products">Kesfet ></p>
+      </div>
+    </div>
+    <div class="col-md mt-5">
+      <img width="260px" height="200px"
+        src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Big-Sur/macos-big-sur-upgrade-hero.jpg"
+        alt="" srcset="">
+      <h4 id="dt">Elektronik</h4>
+      <h4 id="discoverFooter">Mac</h4>
+      <p class="btn text-center ">Kesfet ></p>
+    </div>
+    <div class="col-md mt-5">
+      <img width="260px" height="200px"
+        src="https://www.ecoparent.ca/sites/default/files/styles/max_width_800px/public/2019-04/reading-cosmetic-labels_canstockphoto20082317.jpg?itok=SKpLGWdV"
+        alt="" srcset="">
+      <h4 id="dt">Kozmetik</h4>
+      <h4 id="discoverFooter">The ordinary peeling</h4>
+      <p class="btn text-center ">Kesfet ></p>
+
+    </div>
+
+  </div>
+  <div class="col-md-12 ms-5 mt-5">
+    <h5 class="cd mb-3">Son Gezdiklerim</h5>
+    <p-carousel [value]="productDetail" [autoplayInterval]="3000" [numVisible]="3" [numScroll]="1">
+      <ng-template let-product pTemplate="item">
+        <app-product-card [products]="product"></app-product-card>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>

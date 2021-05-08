@@ -46,7 +46,7 @@
     width: 16rem;
     float: left;
     margin-right: 20px;
-    max-height: 20.8rem;
+    max-height: 22.8rem;
 
 }
 
@@ -60,7 +60,8 @@
    color: #ffffff;
    border-radius: 7px;
    font-weight: 500;
-}.discount{
+}
+.discount{
     height: 17px;
 
     text-decoration:line-through;

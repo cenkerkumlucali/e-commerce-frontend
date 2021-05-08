@@ -1,0 +1,168 @@
+#cargo{
+    color:#ffffff;
+    font-size: 12px;
+}
+#coupon{
+    color:#ffffff;
+    font-size: 12px;
+
+}
+.price{
+
+    font-weight: bold;
+    color:#022548;
+}
+.login{
+    font-weight: bold;
+    color: #022548;
+    cursor: pointer;
+}
+.register{
+     font-weight: bold;
+      color: #022548;
+      cursor: pointer;
+}
+
+#bm{
+    width: 500px;
+    height: 273px; 
+    background-color: #d1623d;
+    margin-left: 27px;
+}
+#box1{
+    background-color: #022548; 
+    width: 337px;
+     height: 70px;
+}
+#box2{
+    background-color: #022548;
+     width: 337px;
+     margin-left: 25px; 
+     height: 70px;
+}
+#shoppingStart{
+    background-color: #fff;
+    color: #06284a;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 15px;
+    margin-left: 32px;
+    padding: 10px;
+}
+.cd{
+    margin-left: 2.2rem;    
+    margin-bottom:1.2rem;
+}
+
+
+#col-md-4{
+    width: 338px;
+    height: 345px;
+    margin-left: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #f4f6f7;
+}
+#title{
+    font-weight: bold; 
+    color: #022548;
+    font-size: 18px;
+    margin-top: 10px;
+}
+#imgFooter{
+    font-weight: bold;
+    color: #022548;
+    margin-top: 3px;
+    margin-left: 8px;
+    font-size:15px;
+}
+#imgCategory{
+    margin-left: 8px;
+}
+#image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#imageCr {
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+#imageCr h5 {
+    position: absolute;
+    color:white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+  }
+  .text-end{
+    color: #d1623d;
+    font-weight: bold;
+  }
+  #brand{
+      margin-left: 35px;
+  }
+ #discover{
+    width: 450px;
+    height: 400px;
+    margin-left: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #f4f6f7;
+  
+ }
+ #imgDiscover{
+    margin-top: 16px;
+    margin-left: 38px;
+ }
+ #discoverTitle{
+    font-weight: bold;
+    text-align: center;
+    color: #00162c;
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size:20px;
+ }
+ #discoverFooter{
+    font-weight: bold;
+    text-align: start;
+    color: #00162c;
+    margin-top: 5px;
+    margin-left: 14px;
+    font-size:15px;
+ }
+ .btn.text-center {
+    color: #d1623d;
+    font-weight: bold;
+
+ }
+#dt{
+    font-weight: bold;
+    text-align: start;
+    color: #00162c;
+    margin-top: 5px;
+    margin-left: 12px;
+}
+#bn{
+    font-weight: 600;
+        color: #ffffff;
+        font-size: 22px;
+        margin-left: 31px;
+        margin-top: 67px;
+}
+#ss{
+    color: #ffffff;
+        margin-left: 31px;
+        margin-top: 20px;
+        font-size: 14px;    
+}
+.brandImage{
+    cursor: pointer;
+}
+
+
