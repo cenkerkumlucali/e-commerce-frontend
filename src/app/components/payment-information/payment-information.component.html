@@ -1,16 +1,12 @@
 <div class="container">
     <div class="row">
-        <app-navbar></app-navbar>
-        <app-category></app-category>
-        <div class="col-md-6 mt-4">
-        <div class="card">
-          <div class="ai">
-            <h5 class="title">Adres Bilgileri</h5>
-          </div>
+ 
+        <div class="col-md-12 ">
+
           <div class="card-body">
             <form [formGroup]="createAddressForm">
                 <div *ngIf="savedAddress.length>0" id="savedAddress"class="mb-3" >
-                    <p-dropdown id="savedAddress" [style]="{'width':'498px'}" [disabled]=false (onChange)="setCardInfos()" formControlName="savedAddress" [options]="savedAddress" [(ngModel)]="selectedAddress" placeholder="Kayıtlı adresler" optionLabel="addressAbbreviation" [showClear]="true"></p-dropdown>
+                    <p-dropdown id="savedAddress" [style]="{'width':'510px'}" [disabled]=false (onChange)="setCardInfos()" formControlName="savedAddress" [options]="savedAddress" [(ngModel)]="selectedAddress" placeholder="Kayıtlı adresler" optionLabel="addressAbbreviation" [showClear]="true"></p-dropdown>
                   </div>
               <div class="mb-3">
                 <label for="cityId">Şehir seç</label>
@@ -30,25 +26,13 @@
                     placeholder="Adres" />
                 </div>
               </div>
-              
-  
-              <div class="mb-3">
-                <label for="postalCode">Posta Kodu</label>
-  
-                <div class="form-group">
-                  <input type="number" id="postalCode" formControlName="postalCode" class="form-control"
-                    placeholder="Posta Kodu" />
-                </div>
-                
-              </div>
   
             </form>
           </div>
           <div class="">
-            <button  class="btn buy" (click)="buy()">Ekle</button>
+            <button  class="btn buy" (click)="buy()">Devam et</button>
           </div>
         </div>
       </div>
     </div>
   
-  </div>

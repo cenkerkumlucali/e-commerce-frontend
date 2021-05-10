@@ -50,7 +50,6 @@ export class PaymentInformationComponent implements OnInit {
     this.getCity()
     this.setCreditCardForm()
     this.getSavedCards()
-    console.log(this.authService.getCurrentUserId())
 
   }
 
@@ -60,7 +59,7 @@ export class PaymentInformationComponent implements OnInit {
       savedAddress: [""],
       cityId: ["", Validators.required],
       addressDetail: ["", Validators.required],
-      postalCode: ["", Validators.required],
+      postalCode: ["1", Validators.required],
     })
   }
   buy() {

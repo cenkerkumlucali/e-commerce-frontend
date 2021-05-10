@@ -100,6 +100,17 @@ export class PaymentComponent implements OnInit {
         let wannaSave = await this.isSaved(newPayment)
         if (!wannaSave) {
           this.payProduct(newPayment)
+          this.orderService.addOrder({
+      userId: this.authService.getCurrentUserId(),
+      addressId: this.address.id = this.config.data.address.id,
+      active:true,
+      createDate:new Date,
+      count:1,
+      orderStatusId:2
+    }).subscribe((response) => {
+      
+      this.router.navigate(["",800])
+    })
         }
       } else {
         this.toastrService.error("Hesap bilgileriniz onaylanmadı", "Hata")
