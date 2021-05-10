@@ -1,9 +1,13 @@
 .savedAddressTitle{
     margin-left: 3.4rem;
+    
 }
 .title{
     margin-left: 55px;
     
+}
+.card{
+    border: 0!important;
 }
 .ai{
     font-size: 22px;
@@ -18,7 +22,7 @@
 .buy{
     width: 264px;
     margin-bottom: 15px;
-    margin-left: 120px;
+    margin-left: 9.8rem;
     align-items: center;
     border: none;
     border-radius: 8px;
@@ -61,6 +65,8 @@ select:invalid { color: #6c757d; }
 .savedAddress{
     border: 1px solid #ced4da;
     position: relative;
+    width: 48.7rem!important;
+    margin-left: 17px!important;
 }
 #addressUpdate{
     margin-top: 10px;
@@ -76,4 +82,47 @@ select:invalid { color: #6c757d; }
 }
 .list{
     margin-top: 4.1rem;
+}
+.form-control {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid #d1623d;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: -0.32px;
+      line-height: 1.5;
+      outline: 0px;
+      width: 100%;
+      padding: 14px 56px 14px 14px;
+      margin-bottom: 25px;
+  }
+  .label{
+    line-height: 30px;
+    color:#484848;
+    font-weight: 500;
+    font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
+    text-align: center;
+    margin-right: 80px;
+  }
+  .trash{
+    cursor: pointer;
+    height: 0px;
+    font-size: 1.1rem;
+    color: #d1623d;
+    margin-top: 0!important;
+    margin-right: 20px;
+    position: relative;
+    left: 42rem;
+    top: 9px;
+    display: none;
+}
+
+.address:hover .trash{
+    display: block;
+    
 }

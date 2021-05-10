@@ -50,6 +50,7 @@ export class AddressTransactionsComponent implements OnInit {
       cityId: ["", Validators.required],
       addressDetail: ["", Validators.required],
       addressAbbreviation: ["", Validators.required],
+      createDate:[new Date(),Validators.required],
       postalCode: ["1"],
     })
   }
@@ -61,6 +62,12 @@ export class AddressTransactionsComponent implements OnInit {
         setTimeout(()=>window.location.reload(),500)
       })
     }
+  }
+  delete(address:Address){
+    this.addressService.delete(address).subscribe((response)=>{
+      this.toastrService.success(response.message)
+      setTimeout(()=>window.location.reload(),500)
+    })
   }
   getAddressByCustomerId() {
     this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response) => { 

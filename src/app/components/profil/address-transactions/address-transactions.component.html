@@ -8,14 +8,17 @@
             <a routerLink="/address"  [class]="getCurrentCategoryClass()" ><i class="fas fa-map-marker-alt"></i>  Adres bilgileri</a>
           </div>
         </div>
-        <div  class="col-md-9  mt-4">
+        <div  class="col-md-9   mt-4">
           <div  class="ai">
             <h5 class="savedAddressTitle">Kayıtlı adresler</h5>
             
           </div>
-            <div >
-              <div  class="savedAddress" *ngFor="let address of addresses">
+            <div class="address">
+              <div  class="savedAddress mt-2" *ngFor="let address of addresses">
                 <p class="addressAbbreviation">{{address.addressAbbreviation}}</p>
+                <div (click)="delete(address)" class=" trash" >
+                  <i  class="fas fa-trash"></i>
+              </div>
                 <p id="addressUpdate" (click)="setSelectedAddress(address)" data-bs-target="#exampleModal" data-bs-toggle="modal">Düzenle</p>
               </div>
 
@@ -27,7 +30,7 @@
           <div class="card-body">
             <form [formGroup]="addressForm">
               <div class="mb-3">
-                <label for="cityId">Şehir seç</label>
+                <label class="label" for="cityId">Şehir seç</label>
                 <div class="col-sm-12">
                   <select class="form-control" formControlName="cityId">
                     <option value="" disabled selected hidden>Şehir seç</option>
@@ -38,7 +41,7 @@
               </div>
              
               <div class="mb-3">
-                <label for="address">Adres</label>
+                <label  class="label" for="address">Adres</label>
                 <div class="form-group">
                   <input type="text" id="address" formControlName="addressDetail" class="form-control"
                     placeholder="Adres detayı" />
@@ -46,7 +49,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="addressAbbreviation">Adres kısayolu</label>
+                <label  class="label" for="addressAbbreviation">Adres kısayolu</label>
                 <div class="form-group">
                   <input type="text" id="addressAbbreviation" formControlName="addressAbbreviation" class="form-control"
                     placeholder="örn=Ev adresim,İş adresim" />
