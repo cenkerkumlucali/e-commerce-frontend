@@ -85,6 +85,7 @@ export class AddressUpdateComponent implements OnInit {
       addressModel.id = this.addressForUpdate.id
       this.addressService.update(addressModel).subscribe((response)=>{
         this.toastrService.success(response.message)
+        setTimeout(()=>window.location.reload(),500)
       })
     }
   }

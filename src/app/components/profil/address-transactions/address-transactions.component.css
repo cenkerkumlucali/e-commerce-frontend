@@ -1,5 +1,9 @@
+.savedAddressTitle{
+    margin-left: 3.4rem;
+}
 .title{
     margin-left: 55px;
+    
 }
 .ai{
     font-size: 22px;
@@ -28,6 +32,7 @@
     outline: none;
     padding: 8px;
     position: relative;
+    left: 7rem;
     text-decoration: none;
     background-color: #d1623d;
     color: rgb(255, 255, 255);
@@ -44,6 +49,8 @@
 select:invalid { color: #6c757d; }
 .addressAbbreviation{
     padding: 0;
+    position: absolute;
+    top: 10px;
     color: #484848;
     line-height: 1.2;
     font-size: 17px;
@@ -53,4 +60,20 @@ select:invalid { color: #6c757d; }
 }
 .savedAddress{
     border: 1px solid #ced4da;
+    position: relative;
+}
+#addressUpdate{
+    margin-top: 10px;
+    text-align: end;
+    margin-right: 15px;
+    font-weight: bold; 
+    color: #ed4634;
+    cursor: pointer;
+}
+.list-group-item.active {
+    background-color: #d1623d;
+    border-color: #d1623d 
+}
+.list{
+    margin-top: 4.1rem;
 }

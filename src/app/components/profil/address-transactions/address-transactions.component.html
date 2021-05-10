@@ -2,17 +2,27 @@
     <div class="row">
         <app-navbar></app-navbar>
         <app-category></app-category>
-        <div class="col-md-4">
-
+        <div class="col-md-3 list">
+          <div class="list-group">
+            <a  routerLink="/profil" [class]="getProfilEditClass()" aria-current="true"><i class="fas fa-user-edit"></i>  Profil bilgileri </a>
+            <a routerLink="/address"  [class]="getCurrentCategoryClass()" ><i class="fas fa-map-marker-alt"></i>  Adres bilgileri</a>
+          </div>
         </div>
-        <div class="col-md-8  mt-4">
+        <div  class="col-md-9  mt-4">
+          <div  class="ai">
+            <h5 class="savedAddressTitle">Kayıtlı adresler</h5>
+            
+          </div>
+            <div >
+              <div  class="savedAddress" *ngFor="let address of addresses">
+                <p class="addressAbbreviation">{{address.addressAbbreviation}}</p>
+                <p id="addressUpdate" (click)="setSelectedAddress(address)" data-bs-target="#exampleModal" data-bs-toggle="modal">Düzenle</p>
+              </div>
+
+            </div>
         <div class="card">
           <div class="ai">
-            <h5 class="title">Adres Bilgileri</h5><br>
-          </div>
-          <div class="savedAddress" *ngFor="let address of addresses">
-            <p class="addressAbbreviation">{{address.addressAbbreviation}}</p>
-            <p  (click)="setSelectedAddress(address)" data-bs-target="#exampleModal" data-bs-toggle="modal">Düzenle</p>
+            <h5 class="title">Yeni adres ekle</h5>
           </div>
           <div class="card-body">
             <form [formGroup]="addressForm">
@@ -31,7 +41,7 @@
                 <label for="address">Adres</label>
                 <div class="form-group">
                   <input type="text" id="address" formControlName="addressDetail" class="form-control"
-                    placeholder="Adres" />
+                    placeholder="Adres detayı" />
                 </div>
               </div>
 
@@ -39,21 +49,12 @@
                 <label for="addressAbbreviation">Adres kısayolu</label>
                 <div class="form-group">
                   <input type="text" id="addressAbbreviation" formControlName="addressAbbreviation" class="form-control"
-                    placeholder="Adres kısayolu" />
+                    placeholder="örn=Ev adresim,İş adresim" />
                 </div>
               </div>
               
   
-              <div class="mb-3">
-                <label for="postalCode">Posta Kodu</label>
-  
-                <div class="form-group">
-                  <input type="text" id="postalCode" formControlName="postalCode" class="form-control"
-                    placeholder="Posta Kodu" />
-                </div>
-                
-              </div>
-  
+              
             </form>
           </div>
           <div class="">

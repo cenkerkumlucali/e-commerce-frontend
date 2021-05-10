@@ -1,0 +1,31 @@
+.buy{
+    width: 264px;
+    margin-bottom: 9px;
+    margin-top: 10px;
+    margin-left: 120px;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    justify-content: center;
+    outline: none;
+    padding: 8px;
+    position: relative;
+    text-decoration: none;
+    background-color: #d1623d;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    height: 47px;
+    min-width: 184px;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+}
+.footer{
+    border-top: 1px solid #ced4da;
+}

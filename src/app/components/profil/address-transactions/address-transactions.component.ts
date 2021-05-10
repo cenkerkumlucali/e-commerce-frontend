@@ -26,6 +26,7 @@ export class AddressTransactionsComponent implements OnInit {
   addressForm: FormGroup
   user: User = new User()
   email: string;
+  currentAddress:Address
 
   
   constructor(private cityService: CityService,
@@ -49,7 +50,7 @@ export class AddressTransactionsComponent implements OnInit {
       cityId: ["", Validators.required],
       addressDetail: ["", Validators.required],
       addressAbbreviation: ["", Validators.required],
-      postalCode: ["", Validators.required],
+      postalCode: ["1"],
     })
   }
   add() {
@@ -57,6 +58,7 @@ export class AddressTransactionsComponent implements OnInit {
       let addressModel = Object.assign({}, this.addressForm.value)
       this.addressService.add(addressModel).subscribe((response) => {
         this.toastrService.success(response.message)
+        setTimeout(()=>window.location.reload(),500)
       })
     }
   }
@@ -92,5 +94,21 @@ export class AddressTransactionsComponent implements OnInit {
   }
   setSelectedAddress(address:Address){
     this.selectedAddress = address
+  }
+ 
+  setCurrentAddress(address: Address) {
+    this.currentAddress = address;
+  }
+  getCurrentCategoryClass() {
+    
+      return "list-group-item active"
+    
+  }
+  getProfilEditClass(){
+    if(!this.currentAddress){
+      return "list-group-item active"
+    }else{
+      return "list-group-item "
+    }
   }
 }
