@@ -15,7 +15,7 @@ import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 import { from } from 'rxjs';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -25,7 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { DiscountPipe } from './components/pipes/discount.pipe';
+import { DiscountPipe } from './pipes/discount.pipe';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProfilComponent } from './components/profil/profil.component';
@@ -34,14 +34,15 @@ import { BrandComponent } from './components/brand/brand.component';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginGuard } from './guards/login.guard';
-import { AddressTransactionsComponent } from './components/address-transactions/address-transactions.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ProductCardComponent } from './components/templates/product-card/product-card.component';
+import { AddressTransactionsComponent } from './components/profil/address-transactions/address-transactions.component';
+import { AddressUpdateComponent } from './components/profil/address-transactions/address-update/address-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
+    MainPageComponent,
     NavbarComponent,
     CategoryComponent,
     FooterComponent,
@@ -60,6 +61,7 @@ import { ProductCardComponent } from './components/templates/product-card/produc
     AddressTransactionsComponent,
     CommentComponent,
     ProductCardComponent,
+    AddressUpdateComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,56 @@
+.title{
+    margin-left: 55px;
+}
+.ai{
+    font-size: 22px;
+    margin-top: 10px;
+    line-height: 30px;
+    color:#484848;
+    font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-right: 80px;
+}
+.buy{
+    width: 264px;
+    margin-bottom: 15px;
+    margin-left: 120px;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    justify-content: center;
+    outline: none;
+    padding: 8px;
+    position: relative;
+    text-decoration: none;
+    background-color: #d1623d;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    height: 47px;
+    min-width: 184px;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+}
+.ui-dropdown    {
+    background-color:black;
+  }
+select:invalid { color: #6c757d; }
+.addressAbbreviation{
+    padding: 0;
+    color: #484848;
+    line-height: 1.2;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 0px 18px;
+
+}
+.savedAddress{
+    border: 1px solid #ced4da;
+}

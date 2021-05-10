@@ -1,0 +1,59 @@
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="    margin-left: 180px;">Güncelle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color:black">
+          <div class="card-body">
+            <div class="card-body">
+                <form [formGroup]="addressForm">
+                  <div class="mb-3">
+                    <label for="cityId">Şehir seç</label>
+                    <div class="col-sm-12">
+                      <select class="form-control" formControlName="cityId">
+                        <option value="" disabled selected hidden>Şehir seç</option>
+                        <option *ngFor="let city of cities" placeholder="cityId" [ngValue]="city.id">{{city.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                 
+                  <div class="mb-3">
+                    <label for="address">Adres</label>
+                    <div class="form-group">
+                      <input type="text" id="address" formControlName="addressDetail" class="form-control"
+                        placeholder="Adres" />
+                    </div>
+                  </div>
+    
+                  <div class="mb-3">
+                    <label for="addressAbbreviation">Adres kısayolu</label>
+                    <div class="form-group">
+                      <input type="text" id="addressAbbreviation" formControlName="addressAbbreviation" class="form-control"
+                        placeholder="Adres kısayolu" />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="postalCode">Posta Kodu</label>
+      
+                    <div class="form-group">
+                      <input type="text" id="postalCode" formControlName="postalCode" class="form-control"
+                        placeholder="Posta Kodu" />
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Kapat</button>
+          <button class="btn buy" (click)="update()" >Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>

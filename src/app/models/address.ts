@@ -1,6 +1,6 @@
 export interface Address{
     id:number
-    userId?:number
+    userId:number
     cityId:number
     addressAbbreviation:string
     addressDetail:string

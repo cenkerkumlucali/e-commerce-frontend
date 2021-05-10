@@ -12,12 +12,15 @@ import { SingleResponseModel } from '../models/singleResponseModel';
   providedIn: 'root'
 })
 export class AddressService {
-
+  currentAddress:Address
   apiUrl = environment.baseUrl;
   constructor(private httpClient:HttpClient) { }
 
   add(address:Address):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "addresses/add", address);
+  }
+  update(address:Address):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"addresses/update",address)
   }
   get():Observable<ListResponseModel<Address>>{
   return this.httpClient.get<ListResponseModel<Address>>(this.apiUrl+"addresses/getall")
@@ -28,5 +31,11 @@ export class AddressService {
   }
   getAdressByUserId(userId:number):Observable<ListResponseModel<Address>>{
     return this.httpClient.get<ListResponseModel<Address>>(this.apiUrl+"addresses/getallbyuserid?userId="+userId)
+  }
+  setCurrentAddress(address:Address){
+    this.currentAddress=address
+  }
+  getCurrentAddress(){
+    return this.currentAddress
   }
 }
