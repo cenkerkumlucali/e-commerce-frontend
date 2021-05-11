@@ -72,23 +72,25 @@ export class PaymentComponent implements OnInit {
     if (payment.moneyInTheCard >= 1) {
 
       this.updateCard(payment)
-      this.orderService.addOrder(this.order)
       this.toastrService.success("Ürünü satın aldınız", "Işlem başarılı")
     } else {
       this.toastrService.error("Hata")
     }
   }
+
+  
   pay() {
-    this.orderService.addOrder({
+    this.orderService.addOrder([{
       userId: this.authService.getCurrentUserId(),
       addressId: this.address.id = this.config.data.address.id,
-      active:true,
-      createDate:new Date,
-      count:1,
-      orderStatusId:2
-    }).subscribe((response) => {
+      active: true,
+      createDate: new Date,
+      count: 1,
+      orderStatusId: 2
+    }]
+    ).subscribe((response) => {
       this.toastrService.success(response.message)
-      this.router.navigate(["",800])
+      this.router.navigate(["", 800])
     })
   }
   async rent() {
@@ -100,17 +102,6 @@ export class PaymentComponent implements OnInit {
         let wannaSave = await this.isSaved(newPayment)
         if (!wannaSave) {
           this.payProduct(newPayment)
-          this.orderService.addOrder({
-      userId: this.authService.getCurrentUserId(),
-      addressId: this.address.id = this.config.data.address.id,
-      active:true,
-      createDate:new Date,
-      count:1,
-      orderStatusId:2
-    }).subscribe((response) => {
-      
-      this.router.navigate(["",800])
-    })
         }
       } else {
         this.toastrService.error("Hesap bilgileriniz onaylanmadı", "Hata")

@@ -7,35 +7,41 @@
         <app-category></app-category>
 
     </div>
-    <div class="row">
+    <div class="row" style="position: relative;">
         <div class="col-md-6">
             <h1 class="title">Sepetim</h1>
         </div>
+        <div class="col-md-3 complete">
+            <div class="ab">
+                <span class="payPrice">Ödenecek tutar</span>
+            <div class="totalPrice">{{totalPrice}} TL</div>
+                <button (click)="openCreditCard()" class="btn paymentBtn">Alışverişi tamamla</button>
+            </div>
+        </div>
     </div>
     <div class="row basket">
-          <div *ngFor="let basket of basketDetail" class="row mb-2 ">
-        <div  class="col-md-2 mt-5 ms-2">
-            <img routerLink="/product/detail/{{basket.productId}}" [src]="basket.images.length !== 0 ? imageBasePath+ basket.images[0] : imageBasePath + defaultImg"
-    class="card-img-top" alt="{{ basket.userId }} Image"style="width:120px; height:120px;margin-bottom:15px " />
-   
-        </div>
-        <div class="col-md-7 mt-5 ms-2 ">
-            <p class="productName" routerLink="/product/detail/{{basket.productId}}">{{basket.productName}}</p>
-            <div (click)="delete(basket)" class=" trash" >
-                <i  style="float:right" class="fas fa-trash"></i>
-                <p class="removeText">Kaldır</p>
+        <div *ngFor="let basket of basketDetail" class="row mb-2 ">
+            <div class="col-md-2 mt-5 ms-2">
+                <img routerLink="/product/detail/{{basket.productId}}"
+                    [src]="basket.images.length !== 0 ? imageBasePath+ basket.images[0] : imageBasePath + defaultImg"
+                    class="card-img-top" alt="{{ basket.userId }} Image"
+                    style="width:120px; height:120px;margin-bottom:15px " />
             </div>
-            <div class="seller">
+            <div class="col-md-7 mt-5 ms-2 ">
+                <p class="productName" routerLink="/product/detail/{{basket.productId}}">{{basket.productName}}</p>
+                <div (click)="delete(basket)" class=" trash">
+                    <i style="float:right" class="fas fa-trash"></i>
+                    <p class="removeText">Kaldır</p>
+                </div>
+                <div class="seller">
                     Satıcı
-                    <span class="brandName">{{basket.brandName}}</span> <span class="cargo ms-2">En geç 10 Mayıs Perşembe günü kargoda <i class="fas fa-truck"></i></span><br><br>
+                    <span class="brandName">{{basket.brandName}}</span> <span class="cargo ms-2">En geç 10 Mayıs
+                        Perşembe günü kargoda <i class="fas fa-truck"></i></span><br><br>
                     <span class="basketPrice">{{basket.price}} TL</span>
                 </div>
-           
+            </div>
         </div>
-        <div class="col-md-2">
-            <button routerLink="/paymentinformation/{{basket.productId}}" class="btn paymentBtn">Alışverişi tamamla</button>
-        </div>
-    </div>
-    </div>
-  
+       
+    </div> 
+
 </div>

@@ -96,7 +96,6 @@ export class PaymentInformationComponent implements OnInit {
       header: 'Kart bilgileri',
       width: '40%'
     });
-
   }
 
 }

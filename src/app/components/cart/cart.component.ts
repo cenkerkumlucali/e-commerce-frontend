@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { DialogService } from 'primeng/dynamicdialog';
 import { BasketDetails } from 'src/app/models/basketDetail';
 import { Cart } from 'src/app/models/cart';
 import { Product } from 'src/app/models/product';
@@ -9,6 +10,7 @@ import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
+import { PaymentInformationComponent } from '../payment-information/payment-information.component';
 
 @Component({
   selector: 'app-cart',
@@ -22,12 +24,14 @@ export class CartComponent implements OnInit {
   product: Product;
   user: User = new User();
   basketDetail: BasketDetails[] = []
+  basket:BasketDetails
   imageBasePath = environment.imageUrl;
   defaultImg = "";
   constructor(private cartService: CartService,
     private authService: AuthService,
     private toastrService: ToastrService,
-    private router: Router) { }
+    private router: Router,
+    private dialogService:DialogService) { }
 
   ngOnInit(): void {
     this.getDetailUserId()
@@ -47,5 +51,22 @@ export class CartComponent implements OnInit {
       this.basketDetail = response.data
     })
   }
-
+ get totalPrice(){
+   let total = 0;
+   for (let b of this.basketDetail) {
+     total +=b.price 
+   } 
+   return Math.round(total*100)/100
+  }
+ 
+  openCreditCard() {
+    const ref = this.dialogService.open(PaymentInformationComponent, {
+      data: {
+        basketDetail: this.basketDetail
+      },
+      header: 'Adres bilgileri',
+      width: '45%'
+    });
+    console.log(this.basketDetail)
+  }
 }

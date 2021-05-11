@@ -14,7 +14,7 @@ export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
   
-  addOrder(order:Order):Observable<ResponseModel>{
+  addOrder(order:Order[]):Observable<ResponseModel>{
     let newPath = this.apiUrl + "orders/add"
     return this.httpClient.post<ResponseModel>(newPath,order)
   }

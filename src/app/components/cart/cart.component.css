@@ -47,11 +47,6 @@
 img{
     cursor: pointer;
 }
-.paymentBtn{
-    background-color: #d1623d;
-    color:#fff;
-    margin: 78px 0 0 4px;
-}
 .removeText{
     font-size: 0.9rem;
     color: black;
@@ -59,9 +54,7 @@ img{
     margin-left: 563px;
     text-align: end;
 }
-.basket{
-    border-bottom: 1px solid gainsboro;
-}
+
 .basket:hover .trash{
     display: block;
     
@@ -72,4 +65,43 @@ img{
     font-weight: bold;
     letter-spacing: -0.36px;
     line-height: 20px;
+}
+.complete{
+    position: absolute;
+    right: 0;
+    min-height: 12rem;
+    top: 6rem;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    margin-left: 5rem;
+}
+.totalPrice{
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.033rem;
+    color: var(--black);
+    margin-top: 2rem;
+    margin-left: 3.5rem;
+}
+
+.paymentBtn{
+    background-color: #d1623d;
+    color:#fff;
+    margin: 10px 42px;
+    border-radius: 18px;
+}
+.payPrice{
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    left: 3rem;
+    top: 0.3rem;
+}
+.ab{
+    position: absolute;
+    top: 26px;
+    left: 20px;
 }
