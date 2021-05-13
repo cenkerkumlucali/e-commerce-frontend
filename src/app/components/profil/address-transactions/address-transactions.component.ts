@@ -27,6 +27,7 @@ export class AddressTransactionsComponent implements OnInit {
   user: User = new User()
   email: string;
   currentAddress:Address
+  id:number
 
   
   constructor(private cityService: CityService,
@@ -60,6 +61,7 @@ export class AddressTransactionsComponent implements OnInit {
       this.addressService.add(addressModel).subscribe((response) => {
         this.toastrService.success(response.message)
         setTimeout(()=>window.location.reload(),500)
+       
       })
     }
   }

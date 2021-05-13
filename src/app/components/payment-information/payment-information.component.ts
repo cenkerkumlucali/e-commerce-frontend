@@ -16,6 +16,8 @@ import { PaymentService } from 'src/app/services/payment.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { PaymentComponent } from '../payment/payment.component';
 import { Order } from 'src/app/models/order';
+import { BasketDetails } from 'src/app/models/basketDetail';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-payment-information',
@@ -32,25 +34,23 @@ export class PaymentInformationComponent implements OnInit {
   imageBasePath = environment.imageUrl;
   defaultImg = "/images/default.jpg"
   createAddressForm: FormGroup
+  basketDetail:BasketDetails[]
   currentUserId = this.authService.getCurrentUserId()
   constructor(
     private addressService: AddressService,
     private cityService: CityService,
-    private countryService: CountryService,
-    private toastrService: ToastrService,
-    private orderService: OrderService,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private customerAddressService: CustomerAddressService,
-    private paymentService: PaymentService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private cartService:CartService
   ) { }
 
   ngOnInit(): void {
     this.getCity()
     this.setCreditCardForm()
     this.getSavedCards()
-
+    this.getDetailUserId()
   }
 
 
@@ -79,6 +79,11 @@ export class PaymentInformationComponent implements OnInit {
       this.selectedAddress
     )
   }
+  getDetailUserId() {
+    this.cartService.getDetailsUserId(this.authService.currentUserId).subscribe((response) => {
+      this.basketDetail = response.data
+    })
+  }
   async getSavedCards() {
     let customerId = this.authService.getCurrentUserId();
     let customerCards = (await this.customerAddressService.getByCustomerId(customerId).toPromise()).data
@@ -91,11 +96,15 @@ export class PaymentInformationComponent implements OnInit {
   openCreditCard() {
     const ref = this.dialogService.open(PaymentComponent, {
       data: {
-        address: this.address
+        address: this.address,
+        basketDetail:this.basketDetail
       },
       header: 'Kart bilgileri',
       width: '40%'
     });
+    
+    console.log(this.basketDetail)
+    console.log(this.address)
   }
 
 }
