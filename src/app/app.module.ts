@@ -19,7 +19,6 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { from } from 'rxjs';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoryComponent } from './components/category/category.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -38,6 +37,8 @@ import { CommentComponent } from './components/comment/comment.component';
 import { ProductCardComponent } from './components/templates/product-card/product-card.component';
 import { AddressTransactionsComponent } from './components/profil/address-transactions/address-transactions.component';
 import { AddressUpdateComponent } from './components/profil/address-transactions/address-update/address-update.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { ProfilListComponent } from './components/templates/profil-list/profil-list.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +46,7 @@ import { AddressUpdateComponent } from './components/profil/address-transactions
     MainPageComponent,
     NavbarComponent,
     CategoryComponent,
-    FooterComponent,
-    LoginComponent,
+     LoginComponent,
     RegisterComponent,
     ResetPasswordComponent,
     ProductDetailComponent,
@@ -62,6 +62,8 @@ import { AddressUpdateComponent } from './components/profil/address-transactions
     CommentComponent,
     ProductCardComponent,
     AddressUpdateComponent,
+    OrdersComponent,
+    ProfilListComponent,
   ],
   imports: [
     BrowserModule,

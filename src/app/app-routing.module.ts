@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { OrdersComponent } from './components/orders/orders.component';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'products/brand/:brandId', component: ProductsPageComponent},
   {path:"profil",component:ProfilComponent,canActivate:[LoginGuard]},
   {path:"address",component:AddressTransactionsComponent,canActivate:[LoginGuard]},
+  {path:"orders",component:OrdersComponent}
 ];
 
 @NgModule({

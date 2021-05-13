@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <app-navbar></app-navbar>
+        <div class="row ">
+            <span class="myOrders">Siparişlerim</span>
+
+            <div class="col-md-3  ">
+                <app-profil-list></app-profil-list>
+            </div>
+            
+            <div class="col-md-9 orders border" *ngFor="let orderDetail of orderDetailDto">
+                
+                <div class="row">
+                    <div class="col-md-2">
+                        <img [src]="orderDetail.images.length !== 0 ? imageBasePath+ orderDetail.images[0] : imageBasePath + defaultImg"
+                            class="card-img-top" alt="{{ orderDetail.productName }} Image"
+                            style="cursor: pointer;margin-top: 1rem;width: 5.9rem;border-radius: 3rem;" />
+
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row details">
+                            <div class="col-md-4 mt-3">
+                                <p class="productName" routerLink="/product/detail/{{orderDetail.productId}}">{{orderDetail.productName}}</p>
+                                <br>
+                               <div><span class="countText">Miktar:</span><span  class="count">{{orderDetail.count}}</span><span class="countText"> adet</span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <p [class]="getCurrent(orderDetail)">{{orderDetail.orderStatus}}</p>
+                            </div>
+                            <div class="col-md-3 mt-5 ms-3">
+                                <span class="salePrice">
+                                    {{orderDetail.salePrice}} TL
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
