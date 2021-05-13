@@ -1,4 +1,5 @@
 <h1 align="center"> E-Commerce  </h1>
+<h2 align="center">This project is the frontend part of <a href="https://github.com/cenkerkumlucali/E-Commerce-Backend" target="_blank" rel="nofollow"> E-Commerce-Backend</a>  </h2>
 
 ## Home (.gif)
 ![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/Homeg.gif)
@@ -7,7 +8,7 @@
 ## Products
 ![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/all--products.jpg)
 ## Order (.gif)
-![order](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/add-order.gif)
+![order](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/order.gif)
 ## Filtered Products
 ![Filtered Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/brand-filtered-products.jpg)
 ## User Address (.gif)
