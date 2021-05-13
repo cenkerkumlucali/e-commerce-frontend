@@ -5,10 +5,12 @@
 ![Home](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/Homeg.gif)
 ## Product Detail (.gif)
 ![Product Detail](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/product-detail-2.gif)
-## Products
-![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/all--products.jpg)
 ## Order (.gif)
 ![order](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/order.gif)
+## Orders
+![orders](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/orders.jpg)
+## Products
+![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/all--products.jpg)
 ## Filtered Products
 ![Filtered Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/brand-filtered-products.jpg)
 ## User Address (.gif)
