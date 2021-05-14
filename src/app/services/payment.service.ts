@@ -22,18 +22,24 @@ export class PaymentService {
     return this.httpClient.post<ResponseModel>(newPath,payment);
   }
 
+  
+
   getCardByNumber(cardNumber:string):Observable<ListResponseModel<Payment>>{
     let newPath = this.apiUrl + "fakecards/getbycardnumber?cardnumber=" + cardNumber
     return this.httpClient.get<ListResponseModel<Payment>>(newPath);
   }
-getCardById(id:number):Observable<SingleResponseModel<Payment>>{
+  getCardById(id:number):Observable<SingleResponseModel<Payment>>{
   let newPath = this.apiUrl +"fakecards/getbyid?id="+id
   return this.httpClient.get<SingleResponseModel<Payment>>(newPath)
-}
-updateCard(payment:Payment):Observable<ResponseModel>{
+  }
+
+  updateCard(payment:Payment):Observable<ResponseModel>{
   let newPath = this.apiUrl + "fakecards/update"
   return this.httpClient.post<ResponseModel>(newPath,payment)
-}
-
+  }
+  addCard(payment:Payment):Observable<ResponseModel>{
+    let newPath = this.apiUrl + "fakecards/add"
+    return this.httpClient.post<ResponseModel>(newPath,payment)
+    }
 
 }

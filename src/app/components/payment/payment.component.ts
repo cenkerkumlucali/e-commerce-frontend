@@ -12,6 +12,8 @@ import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/models/order';
 import { Address } from 'src/app/models/address';
 import { BasketDetails } from 'src/app/models/basketDetail';
+import { OrderDetail } from 'src/app/models/order-detail';
+import { OrderDetailService } from 'src/app/services/order-detail.service';
 
 
 
@@ -33,9 +35,9 @@ export class PaymentComponent implements OnInit {
   creditCardForm: FormGroup;
   selectedCard: Payment;
   address: Address
-
+  orderDetail: OrderDetail[] = []
+  basketDetail: BasketDetails[]
   constructor(
-
     private paymentService: PaymentService,
     private router: Router,
     private toastrService: ToastrService,
@@ -44,20 +46,24 @@ export class PaymentComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private config: DynamicDialogConfig,
     private formBuilder: FormBuilder,
-    private orderService: OrderService
-
+    private orderService: OrderService,
+    private orderDetailService: OrderDetailService
   ) { }
 
   ngOnInit(): void {
     this.getAddress()
     this.setCreditCardForm();
     this.getSavedCards()
+    this.getBasket()
 
   }
   getAddress() {
     this.address = this.config.data.address
   }
+  getBasket() {
+    this.basketDetail = this.config.data.basketDetail
 
+  }
   setCreditCardForm() {
     this.creditCardForm = this.formBuilder.group({
       savedCards: [""],
@@ -78,22 +84,36 @@ export class PaymentComponent implements OnInit {
     }
   }
 
-  
+
   pay() {
-    this.orderService.addOrder([{
+    this.orderService.addOrder({
       userId: this.authService.getCurrentUserId(),
       addressId: this.address.id = this.config.data.address.id,
-      active: true,
-      createDate: new Date,
       count: 1,
-      orderStatusId: 2
-    }]
-    ).subscribe((response) => {
+      orderStatusId: 2,
+      createDate: new Date,
+      active: true,
+    }).subscribe((response) => {
       this.toastrService.success(response.message)
-      this.router.navigate(["", 800])
+      this.addOrderDetail()
     })
   }
-  async rent() {
+  addOrderDetail() {
+    this.basketDetail.forEach(basket => {
+      let orderDetail: OrderDetail = new OrderDetail()
+      orderDetail.orderId = 11
+      orderDetail.productId = basket.productId
+      orderDetail.count = 2
+      orderDetail.salePrice=basket.price*orderDetail.count
+      orderDetail.createDate = new Date()
+      orderDetail.active = true
+      this.orderDetail.push(orderDetail)
+    });
+    this.orderDetailService.addOrderDetail(this.orderDetail).subscribe((response) => {
+      this.toastrService.success("başarılı")
+    })
+  }
+  async card() {
     if (this.creditCardForm.valid) {
       let payment: Payment = Object.assign({}, this.creditCardForm.value)
       this.cardExist = await this.isCardExist(payment)
