@@ -8,6 +8,7 @@ import { PaymentInformationComponent } from './components/payment-information/pa
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { AddressTransactionsComponent } from './components/profil/address-transactions/address-transactions.component';
+import { CreditCardOperationComponent } from './components/profil/credit-card-operation/credit-card-operation.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
@@ -19,12 +20,13 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"paymentinformation/:productId",component:PaymentInformationComponent},
   {path:'product/detail/:productId', component: ProductDetailComponent},
-  {path:'cart/:userId',component: CartComponent,canActivate:[LoginGuard]},
+  {path:'cart',component: CartComponent,canActivate:[LoginGuard]},
   {path:'products/category/:categoryId', component: ProductsPageComponent },
   {path:'products/brand/:brandId', component: ProductsPageComponent},
   {path:"profil",component:ProfilComponent,canActivate:[LoginGuard]},
   {path:"address",component:AddressTransactionsComponent,canActivate:[LoginGuard]},
-  {path:"orders",component:OrdersComponent}
+  {path:"orders",component:OrdersComponent,canActivate:[LoginGuard]},
+  {path:"creditcard",component:CreditCardOperationComponent}
 ];
 
 @NgModule({
