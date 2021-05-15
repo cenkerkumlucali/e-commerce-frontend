@@ -1,8 +1,10 @@
 
 .saveCreditCard{
     width: 50rem;
-    height: 100px;
-    margin-top: 2.8rem;
+    height: 50px;
+    
+    margin-bottom: 1rem;
+
     border-radius: 13px;
 }
 .nameOnTheCard{

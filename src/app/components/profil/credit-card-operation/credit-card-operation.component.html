@@ -5,9 +5,9 @@
       <app-profil-list></app-profil-list>
     </div>
     <div class="col-md-8 mt-4">
-      <div class="saveCreditCard border">
-        <h5 class="title">Kayıtlı kredi kartları</h5>
-        <div  class="ai" *ngFor="let creditCard of customerCreditCard">
+      <h5 class="title">Kayıtlı kredi kartları</h5>
+      <div class="saveCreditCard border"*ngFor="let creditCard of customerCreditCard">
+        <div  class="ai" >
           <div >
               <p class="nameOnTheCard">{{creditCard.nameOnTheCard}}</p>
           </div>

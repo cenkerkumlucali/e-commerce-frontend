@@ -14,53 +14,63 @@ import { PaymentService } from 'src/app/services/payment.service';
   styleUrls: ['./credit-card-operation.component.css']
 })
 export class CreditCardOperationComponent implements OnInit {
-  creditCardForm:FormGroup
-  customerCreditCard:CustomerCreditCardDetails[]=[]
-  constructor(private customerCreditCardService:CustomerCreditCardService,
-              private paymentService:PaymentService,
-              private authService:AuthService,
-              private toastrService:ToastrService,
-              private formBuilder:FormBuilder) { }
+  creditCardForm: FormGroup
+  customerCreditCard: CustomerCreditCardDetails[] = []
+  paymentId: number
+  constructor(private customerCreditCardService: CustomerCreditCardService,
+    private paymentService: PaymentService,
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private formBuilder: FormBuilder) { }
 
-  ngOnInit( ): void {
+  ngOnInit(): void {
     this.createCreditCardAddForm()
     this.getCustomerCreditCardByCustomerId()
   }
-  getCustomerCreditCardByCustomerId(){
-    this.customerCreditCardService.getDetailByCustomerId(this.authService.getCurrentUserId()).subscribe((response)=>{
+  getCustomerCreditCardByCustomerId() {
+    this.customerCreditCardService.getDetailByCustomerId(this.authService.getCurrentUserId()).subscribe((response) => {
       this.customerCreditCard = response.data
       console.log(response.data)
     })
   }
-  createCreditCardAddForm(){
-   this.creditCardForm =this.formBuilder.group({
-    nameOnTheCard: ["", Validators.required],
-    cardNumber: ["", Validators.required],
-    cardCvv: ["", Validators.required],
-    expirationDate: ["", Validators.required],
-   })
+  createCreditCardAddForm() {
+    this.creditCardForm = this.formBuilder.group({
+      nameOnTheCard: ["", Validators.required],
+      cardNumber: ["", Validators.required],
+      cardCvv: ["", Validators.required],
+      expirationDate: ["", Validators.required],
+    })
   }
 
-  addCreditCard(){
-    if(this.creditCardForm.valid){
-      let cardModel = Object.assign({},this.creditCardForm.value)
-      this.paymentService.addCard(cardModel).subscribe((response)=>{
+  addCreditCard() {
+    if (this.creditCardForm.valid) {
+      let cardModel = Object.assign({}, this.creditCardForm.value)
+      this.paymentService.addCard(cardModel).subscribe((response) => {
         this.toastrService.success(response.message)
-      },responseError=>{
-        if(responseError.error.Errors.length>0){
+        this.paymentId = response.data
+        this.addCustomerCreditCard()
+      }, responseError => {
+        if (responseError.error.Errors.length > 0) {
           console.log(responseError.error.Errors)
           for (let i = 0; i < responseError.error.Errors.length; i++) {
 
-          this.toastrService.error(responseError.error.Errors[i].ErrorMessage
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage
             )
           }
         }
-    })
+      })
     }
   }
 
-  deleteCustomerCreditCard(customerCreditCard:CustomerCreditCard){
-    this.customerCreditCardService.deleteCustomerCreditCard(customerCreditCard).subscribe((response)=>{
+  addCustomerCreditCard() {
+    this.customerCreditCardService.addCustomerCreditCard({
+      cardId: this.paymentId,
+      customerId: this.authService.getCurrentUserId()
+    }).subscribe((response)=>{})
+  }
+
+  deleteCustomerCreditCard(customerCreditCard: CustomerCreditCard) {
+    this.customerCreditCardService.deleteCustomerCreditCard(customerCreditCard).subscribe((response) => {
       this.toastrService.error(response.message)
     })
   }

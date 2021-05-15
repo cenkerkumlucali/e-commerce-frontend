@@ -14,6 +14,8 @@ import { Address } from 'src/app/models/address';
 import { BasketDetails } from 'src/app/models/basketDetail';
 import { OrderDetail } from 'src/app/models/order-detail';
 import { OrderDetailService } from 'src/app/services/order-detail.service';
+import { CustomerCreditCard } from 'src/app/models/customerCard';
+import { CustomerCreditCardDetails } from 'src/app/models/customerCreditCardDetails';
 
 
 
@@ -30,13 +32,15 @@ export class PaymentComponent implements OnInit {
   cardCvv: string;
   expirationDate: string;
   payment: Payment;
-  savedCards: Payment[] = [];
+  savedCards: Payment[]=[]
   cardExist: Boolean = false;
   creditCardForm: FormGroup;
   selectedCard: Payment;
   address: Address
   orderDetail: OrderDetail[] = []
   basketDetail: BasketDetails[]
+  customerCreditCard:CustomerCreditCardDetails[]=[]
+  orderId:number
   constructor(
     private paymentService: PaymentService,
     private router: Router,
@@ -89,19 +93,19 @@ export class PaymentComponent implements OnInit {
     this.orderService.addOrder({
       userId: this.authService.getCurrentUserId(),
       addressId: this.address.id = this.config.data.address.id,
-      count: 1,
       orderStatusId: 2,
       createDate: new Date,
       active: true,
     }).subscribe((response) => {
       this.toastrService.success(response.message)
+      this.orderId = response.data
       this.addOrderDetail()
     })
   }
   addOrderDetail() {
     this.basketDetail.forEach(basket => {
       let orderDetail: OrderDetail = new OrderDetail()
-      orderDetail.orderId = 11
+      orderDetail.orderId = this.orderId
       orderDetail.productId = basket.productId
       orderDetail.count = 2
       orderDetail.salePrice=basket.price*orderDetail.count
@@ -167,12 +171,13 @@ export class PaymentComponent implements OnInit {
       this.toastrService.success(response.message, "Kaydedildi")
     })
   }
-  async getSavedCards() {
+    async getSavedCards() {
     let customerId = this.authService.getCurrentUserId();
-    let customerCards = (await this.customerCreditCardService.getByCustomerId(customerId).toPromise()).data
+    let customerCards=(await (await(this.customerCreditCardService.getDetailByCustomerId(customerId))).toPromise()).data
     customerCards.forEach(card => {
-      this.paymentService.getCardById(card.cardId).subscribe(response => {
+      this.paymentService.getCardById(card.paymentId).subscribe(response => {
         this.savedCards.push(response.data)
+        console.log(response.data)
       })
     });
   }

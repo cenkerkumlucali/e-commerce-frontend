@@ -14,22 +14,26 @@ import { AuthService } from './auth.service';
 })
 export class CustomerCreditCardService {
   apiUrl = environment.baseUrl;
-  constructor(private httpClient:HttpClient,
-              private authService:AuthService) { }
-  
-    saveCreditCard(payment:Payment):Observable<ResponseModel>{
-      let customerCreditCard:CustomerCreditCard = {customerId:this.authService.currentUserId,cardId:payment.id}
-      let newPath = this.apiUrl +"customercreditcard/add"
-      return this.httpClient.post<ResponseModel>(newPath,customerCreditCard)
-    }
-    deleteCustomerCreditCard(customerCreditCard:CustomerCreditCard):Observable<ResponseModel>{
-      return this.httpClient.post<ResponseModel>(this.apiUrl+"customercreditcard/delete",customerCreditCard)
-    }
-    getDetailByCustomerId(customerId:number):Observable<ListResponseModel<CustomerCreditCardDetails>>{
-      return this.httpClient.get<ListResponseModel<CustomerCreditCardDetails>>(this.apiUrl+"customercreditcard/getdetailsbycustomerid?customerId="+customerId)
-    }
-    getByCustomerId(customerId:number):Observable<ListResponseModel<CustomerCreditCard>>{
-      let newPath = this.apiUrl + "customercreditcard/getbycustomerid?customerId="+customerId
-      return this.httpClient.get<ListResponseModel<CustomerCreditCard>>(newPath)
-    }
+  constructor(private httpClient: HttpClient,
+    private authService: AuthService) { }
+
+  addCustomerCreditCard(customerCreditCard: CustomerCreditCard): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "customercreditcard/add",customerCreditCard)
+  }
+  deleteCustomerCreditCard(customerCreditCard: CustomerCreditCard): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "customercreditcard/delete", customerCreditCard)
+  }
+  getDetailByCustomerId(customerId: number): Observable<ListResponseModel<CustomerCreditCardDetails>> {
+    return this.httpClient.get<ListResponseModel<CustomerCreditCardDetails>>(this.apiUrl + "customercreditcard/getdetailsbycustomerid?customerId=" + customerId)
+  }
+  getByCustomerId(customerId: number): Observable<ListResponseModel<CustomerCreditCard>> {
+    let newPath = this.apiUrl + "customercreditcard/getbycustomerid?customerId=" + customerId
+    return this.httpClient.get<ListResponseModel<CustomerCreditCard>>(newPath)
+  } 
+
+  saveCreditCard(payment: Payment): Observable<ResponseModel> {
+    let customerCreditCard: CustomerCreditCard = { customerId: this.authService.currentUserId, cardId: payment.id }
+    let newPath = this.apiUrl + "customercreditcard/add"
+    return this.httpClient.post<ResponseModel>(newPath, customerCreditCard)
+  }
 }
