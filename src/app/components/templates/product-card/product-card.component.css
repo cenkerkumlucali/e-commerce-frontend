@@ -1,4 +1,21 @@
-
+.discountRate{
+    width: 50px;
+    height: 50px;
+    background-color: #f90909;
+    border-bottom-right-radius: 12px;
+}
+.discountText{
+    color: #fff;
+}
+.discount-amount {
+    display: block;
+    margin-top: 5px;
+    padding-bottom: 6px;
+    text-align: center;
+    font-size: 16px;
+    color:#fff;
+    font-weight: 700;
+}
 #productName{
     color: #022548;
     cursor: pointer;
@@ -49,16 +66,18 @@
     max-height: 22.8rem;
 
 }
-
 .card-title{
     font-size: initial;
     text-align: -webkit-center;
     font-weight: bold; 
+    padding-bottom: 0.7rem;
 }
 #cartBtn{
    background-color:#d1623d; 
    color: #ffffff;
    border-radius: 7px;
+   padding: 10px;
+   font-size: 13px;
    font-weight: 500;
 }
 .discount{
@@ -70,7 +89,7 @@
     font-weight: 500;
 }
 .price{
-
+    font-size: 20px;
     font-weight: bold;
     color:#022548;
 }

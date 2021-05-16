@@ -22,10 +22,6 @@ export class ProductCardComponent {
     private toastrService:ToastrService,
     private productService: ProductService
   ){}
- 
-
-
-
   addToCart(product: ProductDetail) {
     this.cartService
       .add({

@@ -1,19 +1,23 @@
-<div class = "card">
-  
-  <h5 routerLink="/product/detail/{{ products.productId }}" id="productName" class="card-title p-3 ">{{products.productName}}</h5>
-  <img routerLink="/product/detail/{{ products.productId }}" [src]="products.images.length !== 0 ? imageBasePath+ products.images[0] : imageBasePath + defaultImg"
-  class="card-img-top" alt="{{ products.code }} Image"style="width: 168px;margin-left: 44px;cursor: pointer; " />
-  <div class="card-body" >
-    <div  class="row">
-      <div class="col-md-5 price" >
+<div class="card">
+  <div class="discountRate">
+    <!-- <span class="discountText">{{products.discountRate}}</span> -->
+    <span class="discount-amount">%<span>{{products.discountRate}}</span></span>
+  </div>
+  <span routerLink="/product/detail/{{ products.productId }}" id="productName" class="card-title  ">
+    {{products.productName}}</span>
+  <img routerLink="/product/detail/{{ products.productId }}"
+    [src]="products.images.length !== 0 ? imageBasePath+ products.images[0] : imageBasePath + defaultImg"
+    class="card-img-top" alt="{{ products.code }} Image" style="width: 168px;margin-left: 44px;cursor: pointer; " />
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 price">
         <p class="discount">{{products.price}} TL</p>
         <p class="price">{{products.price | discount:products.discountRate}}TL</p>
       </div>
-      <div style="padding-top: 20px;" class="col-md-7">
-        <a id="cartBtn" (click)="addToCart(products)"  class="btn">Sepete ekle</a>
+      <div style="padding-top: 20px;" class="col-md-6">
+        <a id="cartBtn" (click)="addToCart(products)" class="btn">Sepete ekle</a>
       </div>
     </div>
     <p class="card-text"></p>
   </div>
-
 </div>
