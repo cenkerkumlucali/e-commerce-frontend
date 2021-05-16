@@ -3,19 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { AddressTransactionsComponent } from './components/profil/address-transactions/address-transactions.component';
 import { CreditCardOperationComponent } from './components/profil/credit-card-operation/credit-card-operation.component';
+import { OrdersComponent } from './components/profil/orders/orders.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path:"",component:MainPageComponent},
-  {path:"login",component:LoginComponent},
+  {path:"login",component:LoginComponent}, 
   {path:"products",component:ProductsPageComponent}, 
   {path:"register",component:RegisterComponent},
   {path:"paymentinformation/:productId",component:PaymentInformationComponent},

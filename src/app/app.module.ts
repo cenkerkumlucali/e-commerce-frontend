@@ -37,8 +37,10 @@ import { CommentComponent } from './components/comment/comment.component';
 import { ProductCardComponent } from './components/templates/product-card/product-card.component';
 import { AddressTransactionsComponent } from './components/profil/address-transactions/address-transactions.component';
 import { AddressUpdateComponent } from './components/profil/address-transactions/address-update/address-update.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { ProfilListComponent } from './components/templates/profil-list/profil-list.component';
+import { CreditCardOperationComponent } from './components/profil/credit-card-operation/credit-card-operation.component';
+import { OrdersComponent } from './components/profil/orders/orders.component';
+import { CreditCardAddComponent } from './components/profil/credit-card-operation/credit-card-add/credit-card-add.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { ProfilListComponent } from './components/templates/profil-list/profil-l
     AddressUpdateComponent,
     OrdersComponent,
     ProfilListComponent,
+    CreditCardOperationComponent,
+    CreditCardAddComponent,
   ],
   imports: [
     BrowserModule,
