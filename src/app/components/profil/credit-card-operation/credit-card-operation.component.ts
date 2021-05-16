@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { DialogService } from 'primeng/dynamicdialog';
 import { CustomerCreditCard } from 'src/app/models/customerCard';
 import { CustomerCreditCardDetails } from 'src/app/models/customerCreditCardDetails';
 import { AuthService } from 'src/app/services/auth.service';
 import { CustomerCreditCardService } from 'src/app/services/customer-credit-card.service';
 import { PaymentService } from 'src/app/services/payment.service';
+import { CreditCardAddComponent } from './credit-card-add/credit-card-add.component';
 
 
 @Component({
@@ -14,17 +16,17 @@ import { PaymentService } from 'src/app/services/payment.service';
   styleUrls: ['./credit-card-operation.component.css']
 })
 export class CreditCardOperationComponent implements OnInit {
-  creditCardForm: FormGroup
+  
   customerCreditCard: CustomerCreditCardDetails[] = []
-  paymentId: number
+  
   constructor(private customerCreditCardService: CustomerCreditCardService,
     private paymentService: PaymentService,
     private authService: AuthService,
     private toastrService: ToastrService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private dialogService:DialogService) { }
 
   ngOnInit(): void {
-    this.createCreditCardAddForm()
     this.getCustomerCreditCardByCustomerId()
   }
   getCustomerCreditCardByCustomerId() {
@@ -33,45 +35,18 @@ export class CreditCardOperationComponent implements OnInit {
       console.log(response.data)
     })
   }
-  createCreditCardAddForm() {
-    this.creditCardForm = this.formBuilder.group({
-      nameOnTheCard: ["", Validators.required],
-      cardNumber: ["", Validators.required],
-      cardCvv: ["", Validators.required],
-      expirationDate: ["", Validators.required],
-    })
-  }
 
-  addCreditCard() {
-    if (this.creditCardForm.valid) {
-      let cardModel = Object.assign({}, this.creditCardForm.value)
-      this.paymentService.addCard(cardModel).subscribe((response) => {
-        this.toastrService.success(response.message)
-        this.paymentId = response.data
-        this.addCustomerCreditCard()
-      }, responseError => {
-        if (responseError.error.Errors.length > 0) {
-          console.log(responseError.error.Errors)
-          for (let i = 0; i < responseError.error.Errors.length; i++) {
+ 
 
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage
-            )
-          }
-        }
-      })
-    }
-  }
-
-  addCustomerCreditCard() {
-    this.customerCreditCardService.addCustomerCreditCard({
-      cardId: this.paymentId,
-      customerId: this.authService.getCurrentUserId()
-    }).subscribe((response)=>{})
-  }
-
-  deleteCustomerCreditCard(customerCreditCard: CustomerCreditCard) {
+  deleteCustomerCreditCard(customerCreditCard: CustomerCreditCardDetails) {
     this.customerCreditCardService.deleteCustomerCreditCard(customerCreditCard).subscribe((response) => {
-      this.toastrService.error(response.message)
+      this.toastrService.success(response.message)
     })
+  }
+  openComment() {
+    const ref = this.dialogService.open(CreditCardAddComponent, {
+      header: 'Kredi kartı ekle',
+      width: '50%',
+    });
   }
 }

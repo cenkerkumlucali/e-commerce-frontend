@@ -1,0 +1,21 @@
+
+      <div class="card-body creditCardForm">
+        <form [formGroup]="creditCardForm">
+          
+            <label for="cardNumber" class="form-label">Kredi kartı numarası </label>
+            <input formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="örn=12345678901">
+           
+            <label for="firstName" class="form-label">Kart'ın üzerindeki isim </label>
+            <input formControlName="nameOnTheCard" type="text" class="form-control" id="firstName" placeholder="örn=Cenker Kumlucalı">
+             
+            <label for="cvv" class="form-label">Güvenlik kodu </label>
+              <input formControlName="cardCvv" type="text" class="form-control" id="cvv" placeholder="örn=999">
+           
+              <label for="expirationDate" class="form-label">Son Kullanım Tarihi </label>
+            <input  formControlName="expirationDate" type="text" class="form-control" id="expirationDate"placeholder="örn=10/21">
+        
+          </form>
+      </div>
+      <div class="">
+        <button class="btn buy" (click)="addCreditCard()">Ekle</button>
+      </div>

@@ -4,37 +4,18 @@
     <div class="col-md-3">
       <app-profil-list></app-profil-list>
     </div>
-    <div class="col-md-8 mt-4">
+    <div class="col-md-8 mt-4 ">
       <h5 class="title">Kayıtlı kredi kartları</h5>
       <div class="saveCreditCard border"*ngFor="let creditCard of customerCreditCard">
-        <div  class="ai" >
-          <div >
-              <p class="nameOnTheCard">{{creditCard.nameOnTheCard}}</p>
-          </div>
-        </div>
+        <span  class="ai" >
+     
+            <span class="nameOnTheCard">{{creditCard.nameOnTheCard}}</span>
+   
+          <span class="remove" (click)="deleteCustomerCreditCard(creditCard)"><i class="fas fa-times"></i></span>
+        </span>
       </div>
-      <h5 class="title">Yeni kredi kartı ekle</h5>
-      <div class="card-body creditCardForm">
-        <form [formGroup]="creditCardForm">
-          
-            <label for="cardNumber" class="form-label">Kredi kartı numarası </label>
-            <input formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="örn=12345678901">
-           
-            <label for="firstName" class="form-label">Kart'ın üzerindeki isim </label>
-            <input formControlName="nameOnTheCard" type="text" class="form-control" id="firstName" placeholder="örn=Cenker Kumlucalı">
-             
-            <label for="cvv" class="form-label">Güvenlik kodu </label>
-              <input formControlName="cardCvv" type="text" class="form-control" id="cvv" placeholder="örn=999">
-           
-              <label for="expirationDate" class="form-label">Son Kullanım Tarihi </label>
-            <input  formControlName="expirationDate" type="text" class="form-control" id="expirationDate"
-              placeholder="örn=10/21">
-
-        </form>
-      </div>
-      <div class="">
-        <button class="btn buy" (click)="addCreditCard()">Ekle</button>
-      </div>
+      
+      <button class="buy " (click)="openComment()">Yeni kredi kartı ekle</button>
     </div>
   </div>
   

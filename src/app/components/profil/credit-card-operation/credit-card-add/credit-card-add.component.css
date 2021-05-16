@@ -1,30 +1,4 @@
 
-.saveCreditCard{
-    width: 50rem;
-    height: 50px;
-    
-    margin-bottom: 1rem;
-    position: relative;
-    border-radius: 13px;
-}
-.nameOnTheCard{
-  text-align: initial;
-  font-size: 17px;
-  position: absolute;
-  top: 8px;
-  margin-left: 17px;
-}
-.ai{
-    font-size: 22px;
-    margin-top: 10px;
-    line-height: 30px;
-    color:#484848;
-    font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
-    font-weight: 600;
-    text-align: center;
-    margin-right: 80px;
-  
-}
 .buy {
   width: 264px;
   margin-bottom: 15px;
@@ -42,7 +16,7 @@
   outline: none;
   padding: 8px;
   position: relative;
-  left: 7rem;
+  left: 2rem;
   text-decoration: none;
   background-color: #d1623d;
   color: rgb(255, 255, 255);
@@ -55,7 +29,7 @@
 }
 .creditCardForm {
   width: 28rem;
-  margin-left: 13rem;
+  margin-left: 6rem;
 }
 .form-control {
   margin-bottom: -1px;
@@ -80,9 +54,4 @@
   color: #484848;
   margin-left: 20.7rem;
 }
-.remove{
-  position: absolute;
-  right: 28px;
-  top: 6px;
-  cursor: pointer;
-}
+
