@@ -175,7 +175,7 @@ export class PaymentComponent implements OnInit {
     let customerId = this.authService.getCurrentUserId();
     let customerCards=(await (await(this.customerCreditCardService.getDetailByCustomerId(customerId))).toPromise()).data
     customerCards.forEach(card => {
-      this.paymentService.getCardById(card.paymentId).subscribe(response => {
+      this.paymentService.getCardById(card.cardId).subscribe(response => {
         this.savedCards.push(response.data)
         console.log(response.data)
       })
