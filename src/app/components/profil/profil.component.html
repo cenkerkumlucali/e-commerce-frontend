@@ -1,7 +1,10 @@
 <div class="container">
     <app-navbar></app-navbar>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
+            <app-profil-list></app-profil-list>
+        </div>
+        <div class="col-md-9">
             <div class="mt-4">
                 <h5 class="pb">Profil bilgileri</h5>
             </div>
@@ -21,7 +24,7 @@
                         </div>
                         <div class="col-md-6  mb-3">
 
-                            <label for="lastName" class="col-sm-2 col-form-label">Soyad</label>
+                            <label for="lastName" class="col-md-2 lastNameLabel col-form-label">Soyad</label>
 
                             <input type="text" id="lastName" formControlName="lastName" [ngModel]="user.lastName"
                                 class="form-control" placeholder="Soyadınız" />

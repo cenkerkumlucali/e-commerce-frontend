@@ -1,12 +1,8 @@
 <div class="container">
     <div class="row">
         <app-navbar></app-navbar>
-        <app-category></app-category>
-        <div class="col-md-3 list">
-          <div class="list-group">
-            <a  routerLink="/profil" [class]="getProfilEditClass()" aria-current="true"><i class="fas fa-user-edit"></i>  Profil bilgileri </a>
-            <a routerLink="/address"  [class]="getCurrentCategoryClass()" ><i class="fas fa-map-marker-alt"></i>  Adres bilgileri</a>
-          </div>
+        <div class="col-md-3 ">
+          <app-profil-list></app-profil-list>
         </div>
         <div  class="col-md-9   mt-4">
           <div  class="ai">
