@@ -22,6 +22,9 @@ export class AddressService {
   update(address:Address):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"addresses/update",address)
   }
+  delete(address:Address):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"addresses/delete",address)
+  }
   get():Observable<ListResponseModel<Address>>{
   return this.httpClient.get<ListResponseModel<Address>>(this.apiUrl+"addresses/getall")
   }
