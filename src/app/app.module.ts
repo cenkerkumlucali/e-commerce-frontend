@@ -41,6 +41,7 @@ import { ProfilListComponent } from './components/templates/profil-list/profil-l
 import { CreditCardOperationComponent } from './components/profil/credit-card-operation/credit-card-operation.component';
 import { OrdersComponent } from './components/profil/orders/orders.component';
 import { CreditCardAddComponent } from './components/profil/credit-card-operation/credit-card-add/credit-card-add.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CreditCardAddComponent } from './components/profil/credit-card-operatio
     ProfilListComponent,
     CreditCardOperationComponent,
     CreditCardAddComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,

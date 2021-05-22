@@ -32,7 +32,7 @@ export class ProductService {
   }
   getProductDetailByBrandId(brandId:number): Observable<ListResponseModel<ProductDetail>> {
     return this.httpClient.get<ListResponseModel<ProductDetail>>(
-      this.apiUrl + 'products/getproductdetailbybrandid?brandId='+brandId
+      this.apiUrl + "products/getproductdetailbybrandid?brandId="+brandId
     );
   }
   getProductDetailByCategoryId(categoryId:number): Observable<ListResponseModel<ProductDetail>> {

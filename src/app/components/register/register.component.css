@@ -31,13 +31,14 @@ body {
   margin: auto;
 }
 img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top:25px;
+  cursor:pointer
 }
-
 .form-signin .checkbox {
   font-weight: 400;
 }

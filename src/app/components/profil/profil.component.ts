@@ -18,6 +18,7 @@ export class ProfilComponent implements OnInit {
   password:FormControl
   user:User = new User()
   status:string
+  currentUser:User
   constructor(
               private userService:UserService,
               private formBuilder:FormBuilder,
@@ -69,4 +70,16 @@ export class ProfilComponent implements OnInit {
       this.toastrService.error("Formu boş bırakmayınız")
     }
   }
+  getCurrentCategoryClass() {
+    
+    return "list-group-item active"
+  
+}
+getProfilEditClass(){
+  if(!this.currentUser){
+    return "list-group-item active"
+  }else{
+    return "list-group-item "
+  }
+}
 }

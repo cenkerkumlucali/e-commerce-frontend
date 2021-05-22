@@ -46,12 +46,12 @@
       <div class="col-md-6" id="detail">
         <header class="title-wrapper">
             <h1 itemprop="name" class="product-name best-price-trick" id="product-name">
-                {{productDto.productName}}
+                {{productDto?.productName}}
             </h1>
             
         </header>
         <span class="brand-name">
-            <p routerLink="/products/brand/{{productDto.brandId}}" id="brand">{{productDto.brandName}}</p>
+            <p routerLink="/products/brand/{{productDto?.brandId}}" id="brand">{{productDto?.brandName}}</p>
         </span>
         <a id="first-campaign-ribbon" data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
             <span class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç alışverişlerde 25 TL indirim</span>
@@ -62,9 +62,9 @@
           <div class="col-md-4">
                <div itemprop="offers" class="product-price price-container big" >            
              <span class="badge highlight active" id="product-discount-rate" >
-            <span class="discount-amount">%<span>{{productDto.discountRate}}</span></span>indirim</span>
-            <span class="discountPrice">{{productDto.price}} TL</span>
-            <span class="price">{{productDto.price | discount:productDto.discountRate}} TL</span>
+            <span class="discount-amount">%<span>{{productDto?.discountRate}}</span></span>indirim</span>
+            <span class="discountPrice">{{productDto?.price}} TL</span>
+            <span class="price">{{productDto?.price | discount:productDto?.discountRate}} TL</span>
           </div>
           </div>
        <div class="col-md-8">
@@ -97,7 +97,7 @@
       <div class="row">
         <div class="col-md-12 mt-5 p-3 description">
           <h2 class="sameSeller">Açıklama</h2>
-          <p>{{productDto.description}}</p>
+          <p>{{productDto?.description}}</p>
         </div>
       </div>
       <div *ngFor="let comment of productComment" class="row">
@@ -120,10 +120,8 @@
           <h2 class="sameSeller ">Aynı satıcıdan</h2>
       <p-carousel [value]="products" [autoplayInterval]="3000" [numVisible]="4" [numScroll]="1">
         <ng-template let-product pTemplate="item">
-
           <app-product-card [products]="product"></app-product-card>
         </ng-template>  
-
       </p-carousel>
     </div>
   </div>

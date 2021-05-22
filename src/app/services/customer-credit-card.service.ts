@@ -20,7 +20,7 @@ export class CustomerCreditCardService {
   addCustomerCreditCard(customerCreditCard: CustomerCreditCard): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "customercreditcard/add",customerCreditCard)
   }
-  deleteCustomerCreditCard(customerCreditCard: CustomerCreditCard): Observable<ResponseModel> {
+  deleteCustomerCreditCard(customerCreditCard: CustomerCreditCardDetails): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "customercreditcard/delete", customerCreditCard)
   }
   getDetailByCustomerId(customerId: number): Observable<ListResponseModel<CustomerCreditCardDetails>> {

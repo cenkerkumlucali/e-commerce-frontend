@@ -71,7 +71,6 @@ export class MainPageComponent implements OnInit {
   getLimitedProducts(limit:number){
     this.productService.getProductLimited(limit).subscribe((response)=>{
       this.productDetail = response.data
-      console.log(response.data)
     })
   }
 }

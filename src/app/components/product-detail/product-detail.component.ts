@@ -54,14 +54,12 @@ export class ProductDetailComponent implements OnInit {
   getProductDetailByBrandId(brandId:number){
     this.productService.getProductDetailByBrandId(brandId).subscribe((response)=>{
       this.products = response.data
-      console.log(response.data)
       this.Images=this.productDto.images
     })
   }
   getCommentByProductId(productId:number){
     this.productCommentService.getDetailByProductId(productId).subscribe((response)=>{
       this.productComment = response.data
-      console.log(response.data)
     })
   }
   addToCart(product:ProductDetail){

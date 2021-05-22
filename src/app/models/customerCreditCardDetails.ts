@@ -1,5 +1,5 @@
 export interface CustomerCreditCardDetails{
-    paymentId:number
+    cardId:number
     userId:number
     nameOnTheCard:string;
     cardNumber:string;

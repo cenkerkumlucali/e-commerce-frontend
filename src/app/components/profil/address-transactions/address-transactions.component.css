@@ -2,6 +2,7 @@
     margin-left: 3.4rem;
     
 }
+
 .title{
     margin-left: 55px;
     
@@ -76,13 +77,7 @@ select:invalid { color: #6c757d; }
     color: #ed4634;
     cursor: pointer;
 }
-.list-group-item.active {
-    background-color: #d1623d;
-    border-color: #d1623d 
-}
-.list{
-    margin-top: 4.1rem;
-}
+
 .form-control {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;

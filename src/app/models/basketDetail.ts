@@ -1,7 +1,7 @@
 export interface BasketDetails{
     basketId?:number;
     userId?:number;
-    productId:number;
+    productId?:number;
     productName?:string;
     brandName?:string
     userFullName?:string;

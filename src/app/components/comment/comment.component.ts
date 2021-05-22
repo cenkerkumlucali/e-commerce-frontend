@@ -59,13 +59,24 @@ export class CommentComponent implements OnInit {
   }
   
   comment(){
-  
+    if(this.commentForm.valid){
       let commentModel = Object.assign({},this.commentForm.value)
       this.userCommentService.add(commentModel).subscribe((response)=>{
         this.toastrService.success(response.message,"Başarılı")
         this.productCommentService.add(commentModel).subscribe((response1)=>{
+          setTimeout(()=>window.location.reload())
         })
+      },responseError=>{
+          if(responseError.error.Errors.length>0){
+            console.log(responseError.error.Errors)
+            for (let i = 0; i < responseError.error.Errors.length; i++) {
+  
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Hata"
+              )
+            }
+          }
       })
+    }
      
 }
 }
