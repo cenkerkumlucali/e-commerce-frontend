@@ -8,7 +8,21 @@
       <div class="col-md-3 mt-3">
         <app-brand></app-brand>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9 ap border">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="asc border" (click)="getProductsAsc()">
+                Artan Fiyat
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="desc border" (click)="getProductsDesc()">
+              Azalan Fiyat
+            </div>
+          </div>
+        </div>
+        
+        
         <div *ngFor="let product of productDetail" class=" card mt-3 ms-1 mb-5 bg-body rounded" style="width: 16rem">
           <app-product-card [products]="product"></app-product-card>
         </div>

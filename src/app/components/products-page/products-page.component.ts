@@ -48,7 +48,15 @@ export class ProductsPageComponent implements OnInit {
       this.productDetail = response.data
     })
   }
- 
+  getProductsAsc(){
+    this.productService.getProductDetailsAsc().subscribe(response=>{
+      this.productDetail = response.data
+    })
+  } getProductsDesc(){
+    this.productService.getProductDetailsDesc().subscribe(response=>{
+      this.productDetail = response.data
+    })
+  }
   getProductsDetailByCategoryId(categoryId:number){
     this.productService.getProductDetailByCategoryId(categoryId).subscribe((response)=>{
       this.productDetail = response.data

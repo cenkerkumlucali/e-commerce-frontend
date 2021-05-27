@@ -25,6 +25,16 @@ export class ProductService {
       this.apiUrl + 'products/getproductdetails'
     );
   }
+  getProductDetailsAsc(): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetailsasc'
+    );
+  }
+  getProductDetailsDesc(): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetailsdesc'
+    );
+  }
   getProductDetailByProductId(productId:number): Observable<ListResponseModel<ProductDetail>> {
     return this.httpClient.get<ListResponseModel<ProductDetail>>(
       this.apiUrl + 'products/getproductdetailbyproductid?productId='+productId
