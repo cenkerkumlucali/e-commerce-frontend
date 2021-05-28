@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ProductCommentService } from 'src/app/services/product-comment.service';
 import { UserCommentService } from 'src/app/services/user-comment.service';
 
+
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -21,7 +22,7 @@ export class CommentComponent implements OnInit {
   commentForm:FormGroup
   productCommentForm:FormGroup
   comments:UserComment
-  deneme="s"
+  currentRate : number = 3;  
   constructor(
     private toastrService: ToastrService,
     private authService:AuthService,

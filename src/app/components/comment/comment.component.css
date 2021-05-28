@@ -5,3 +5,11 @@
 #comment{
     width: 22rem;
 }
+.evaluate{
+    position: absolute;
+    top: 6.7rem;
+    font-weight: 600;
+}
+.cm12{
+    margin-top: 3rem;
+}

@@ -6,9 +6,15 @@
       <div class="p-fluid p-formgrid p-grid">
             <form [formGroup]="commentForm"> 
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12 cm12">
                       <div class="mb-3">
-                        <label for="comment" class="form-label">Yorum yaz </label>
+                        <label for="comment" class="form-label evaluate">Değerlendir </label>
+                        <div style="font-size:2rem; color:orange">
+                        <!-- <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating> -->
+                      </div>
+                        <label for="comment" class="form-label">Ürün hakkındaki düşünceleriniz (İsteğe Bağlı)
+                          </label>
+                        
                           <input  formControlName="comment" type="text" class="form-control" id="comment">
                         </div>
                       </div>
