@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"paymentinformation/:productId",component:PaymentInformationComponent},
   {path:'product/detail/:productId', component: ProductDetailComponent},
-  {path:'cart',component: CartComponent,canActivate:[LoginGuard]},
+  {path:'cart',component: CartComponent,canActivate:[LoginGuard]}, 
+  {path:'favorite',component: FavoriteComponent,canActivate:[LoginGuard]},
   {path:'products/category/:categoryId', component: ProductsPageComponent },
   {path:'products/brand/:brandId', component: ProductsPageComponent},
   {path:"profil",component:ProfilComponent,canActivate:[LoginGuard]},
