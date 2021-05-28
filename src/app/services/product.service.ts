@@ -30,6 +30,11 @@ export class ProductService {
       this.apiUrl + 'products/getproductdetailsasc'
     );
   }
+  getProductDetailsEvaluation(): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'Products/getproductdetailsevaluation'
+    );
+  }
   getProductDetailsDesc(): Observable<ListResponseModel<ProductDetail>> {
     return this.httpClient.get<ListResponseModel<ProductDetail>>(
       this.apiUrl + 'products/getproductdetailsdesc'

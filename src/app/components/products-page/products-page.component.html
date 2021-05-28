@@ -11,11 +11,21 @@
       <div class="col-md-9 ap border">
         <div class="row">
           <div class="col-md-3">
+            <div class="asc border" (click)="getProductsDesc()">
+                En Çok Satanlar
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="asc border" (click)="getProductsEvaluation()">
+                Değerlendirme Sayısı
+            </div>
+          </div>
+          <div class="col-md-3">
             <div class="asc border" (click)="getProductsAsc()">
                 Artan Fiyat
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-3">
             <div class="desc border" (click)="getProductsDesc()">
               Azalan Fiyat
             </div>
