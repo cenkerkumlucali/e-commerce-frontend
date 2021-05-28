@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Favorite } from '../models/favorite';
+import { FavoriteDetails } from '../models/favoriteDetails';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
 
@@ -11,20 +12,22 @@ import { ResponseModel } from '../models/responseModel';
 })
 export class FavoriteService {
 
- apiUrl=environment.baseUrl
-  constructor(private httpClient:HttpClient) { }
+  apiUrl = environment.baseUrl
+  constructor(private httpClient: HttpClient) { }
 
-  getAll():Observable<ListResponseModel<Favorite>>
-{
-  return this.httpClient.get<ListResponseModel<Favorite>>(this.apiUrl+ "favorites/getall");
+  getAllDetails(): Observable<ListResponseModel<Favorite>> {
+    return this.httpClient.get<ListResponseModel<Favorite>>(this.apiUrl + "favorites/getall");
+  }
+
+getDetailsByUserId(userId:number):Observable<ListResponseModel<FavoriteDetails>> {
+  return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsbyuserid?userId="+userId);
 }
+  Add(favorite: Favorite): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "favorites/add", favorite)
 
-Add(favorite:Favorite):Observable<ResponseModel>{
-  return this.httpClient.post<ResponseModel>(this.apiUrl+"favorites/add",favorite)
+  }
+  Delete(favorite: Favorite): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "favorites/delete", favorite)
 
-}
-Delete(favorite:Favorite):Observable<ResponseModel>{
-  return this.httpClient.post<ResponseModel>(this.apiUrl+"favorites/delete",favorite)
-
-}
+  }
 }

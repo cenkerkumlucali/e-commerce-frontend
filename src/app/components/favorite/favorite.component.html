@@ -9,4 +9,7 @@
             <app-category></app-category>
         </div>
     </div>
+    <div *ngFor="let favorite of favoriteDetails">
+            <p>{{favorite.productDetailDtos[0].productName}}</p>
+    </div>
 </div>
