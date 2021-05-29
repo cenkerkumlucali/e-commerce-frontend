@@ -1,0 +1,119 @@
+.discountRate{
+    width: 50px;
+    height: 50px;
+    background-color: #f90909;
+    border-bottom-right-radius: 12px;
+}
+.discountText{
+    color: #fff;
+}
+.discount-amount {
+    display: block;
+    margin-top: 5px;
+    padding-bottom: 6px;
+    text-align: center;
+    font-size: 16px;
+    color:#fff;
+    font-weight: 700;
+}
+#productName{
+    color: rgb(123, 123, 123);
+    flex-direction: row;
+    font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    height: 40px;
+    letter-spacing: -0.32px;
+}
+
+#bm{
+    width: 500px;
+    height: 273px; 
+    background-color: #d1623d;
+    margin-left: 27px;
+}
+#box1{
+    background-color: #022548; 
+    width: 337px;
+     height: 70px;
+}
+#box2{
+    background-color: #022548;
+     width: 337px;
+     margin-left: 25px; 
+     height: 70px;
+}
+#shoppingStart{
+    background-color: #fff;
+    color: #06284a;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 15px;
+    margin-left: 32px;
+    padding: 10px;
+}
+#cd{
+    font-weight: bold; 
+    color: #022548;
+}
+
+.discount{
+    height: 17px;
+    margin-top: 15px;
+    text-decoration:line-through;
+    font-size: 15px;
+    color: #919191;
+    font-weight: 500;
+}
+.card{
+    width: 13rem;
+    float: left;
+    margin-right: 20px;
+    max-height: 22.8rem;
+
+}
+.card-title{
+    font-size: initial;
+    text-align: -webkit-center;
+    font-weight: bold; 
+    padding-bottom: 0.7rem;
+}
+#cartBtn{
+   background-color:#d1623d; 
+   color: #ffffff;
+   border-radius: 7px;
+   padding: 10px;
+   font-size: 13px;
+   font-weight: 500;
+   margin-left: 1.7rem;
+   width: 8rem;
+}
+.discount{
+    height: 17px;
+
+    text-decoration:line-through;
+    font-size: 14px;
+    color: #022548;
+    font-weight: 500;
+}
+.price{
+    color: rgb(72, 72, 72);
+    font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 19px;
+    margin-top: 6px;
+    text-align: center;
+}
+.productAbout{
+    text-align: center;
+}
+.cartBtn{
+    display: none;
+   
+}
+.card:hover .productAbout{
+    display: none;
+}
+ .card:hover .cartBtn{
+    display: block;
+}
