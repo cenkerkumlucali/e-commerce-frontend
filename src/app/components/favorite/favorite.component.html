@@ -9,27 +9,39 @@
             <app-category></app-category>
         </div>
     </div>
-    <!-- <button (click)="getDetailsByFilteredAsc()"> s
-    </button> -->
+ 
     <div class="row mt-4">
         <div class="col-md-3">
 
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 ap">
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <div class="asc border" (click)="getDetailsByFilteredAsc()">
+                        Azalan Fiyat
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="asc border" (click)="getDetailsByFilteredDesc()">
+                        Artan Fiyat
+                    </div>
+            </div>
+            
+              </div>
 <div *ngFor="let favorite of favoriteDetails">
             <div class="card ">
-                <img routerLink="/product/detail/{{ favorite.productDetailDtos[0].productId }}"
-                    [src]="favorite.productDetailDtos[0].images.length !== 0 ? imageBasePath+ favorite.productDetailDtos[0].images[0] : imageBasePath + defaultImg"
-                    class="card-img-top" alt="{{ favorite.productDetailDtos[0].code }} Image"
+                <img routerLink="/product/detail/{{ favorite.productId }}"
+                    [src]="favorite.images.length !== 0 ? imageBasePath+ favorite.images[0] : imageBasePath + defaultImg"
+                    class="card-img-top"  alt=" Image"
                     style="width: 130px;margin-left: 40px;cursor: pointer;margin-top: 23px;" />
                 <div class="card-body">
                     <div class="row">
                         <div class="productAbout">
-                            <span routerLink="/product/detail/{{ favorite.productDetailDtos[0].productId }}"
+                            <span routerLink="/product/detail/{{ favorite.productId }}"
                                 id="productName" class="card-title  ">
-                                {{favorite.productDetailDtos[0].productName}}</span><br>
-                            <p class="price">{{favorite.productDetailDtos[0].price |
-                                discount:favorite.productDetailDtos[0].discountRate}}TL</p>
+                                {{favorite.productName}}</span><br>
+                            <p class="price">{{favorite.price |
+                                discount:favorite.discountRate}}TL</p>
                         </div>
                         <div style="padding-top: 20px;" class="col-md-12 cartBtn">
                             <a id="cartBtn" (click)="addToCart(products)" class="btn">Sepete ekle</a>

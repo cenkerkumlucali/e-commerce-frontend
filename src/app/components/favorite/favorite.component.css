@@ -87,6 +87,21 @@
    margin-left: 1.7rem;
    width: 8rem;
 }
+.asc,.desc{
+    width: 11rem;
+    margin-top: 1rem;
+    height: 1.8rem;
+    margin-left: 5px;
+    background-color: #e2e2e2;
+    color: #484848;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.ap{
+
+    text-align: center;
+}
 .discount{
     height: 17px;
 

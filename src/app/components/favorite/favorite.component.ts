@@ -36,12 +36,15 @@ export class FavoriteComponent implements OnInit {
   }
   getDetailsByFilteredAsc() {
 
-  let result:any = this.favoriteDetails.map(c=>c.productDetailDtos.find(c=>c.price)).sort((a,b) => a.price - b.price)//this.favoriteDetails.map(c=>c.productDetailDtos.find(c=>c.price)).sort((n1,n2) => n1.price - n2.price)
+    this.favoriteService.getAllDetailsFilteredAscByUserId(this.authService.getCurrentUserId()).subscribe((response)=>{
+      this.favoriteDetails = response.data
+    })
   
-  this.favoriteDetails.push(result)
-  this.favoriteDetails.map(c=>c.productDetailDtos).push(result)  
-  console.log(this.favoriteDetails);
-  console.log(result);
+  }
+  getDetailsByFilteredDesc() {
+    this.favoriteService.getAllDetailsFilteredDescByUserId(this.authService.getCurrentUserId()).subscribe((response)=>{
+      this.favoriteDetails = response.data
+    })
   
   }
   delete(favorite: Favorite) {

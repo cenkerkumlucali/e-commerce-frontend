@@ -19,14 +19,21 @@ export class FavoriteService {
     return this.httpClient.get<ListResponseModel<Favorite>>(this.apiUrl + "favorites/getall");
   }
 
-getDetailsByUserId(userId:number):Observable<ListResponseModel<FavoriteDetails>> {
-  return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsbyuserid?userId="+userId);
-}
-  Add(favorite: Favorite): Observable<ResponseModel> {
+  getDetailsByUserId(userId: number): Observable<ListResponseModel<FavoriteDetails>> {
+    return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsbyuserid?userId=" + userId);
+  }
+  getAllDetailsFilteredAscByUserId(userId: number): Observable<ListResponseModel<FavoriteDetails>> {
+    return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsfilteredascbyuserid?userId=" + userId);
+  }
+
+  getAllDetailsFilteredDescByUserId(userId: number): Observable<ListResponseModel<FavoriteDetails>> {
+    return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsfiltereddescbyuserid?userId=" + userId);
+  }
+  add(favorite: Favorite): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "favorites/add", favorite)
 
   }
-  Delete(favorite: Favorite): Observable<ResponseModel> {
+  delete(favorite: Favorite): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "favorites/delete", favorite)
 
   }

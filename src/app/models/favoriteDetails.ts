@@ -1,7 +1,10 @@
-import { ProductDetail } from "./productDetail";
 
 export interface FavoriteDetails{
     userId:number
+    productId:number
     userFullName:string
-    productDetailDtos:ProductDetail[]
+    productName:string
+    price:number
+    images:string[]
+    discountRate:number
 }
