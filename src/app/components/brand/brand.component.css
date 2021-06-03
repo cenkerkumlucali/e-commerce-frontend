@@ -1,6 +1,7 @@
 .box{
     width: 279px;
     border: 1px #e5e5e5 solid;
+    border-radius: 7px;
 }
 .brands{
     padding: 10px;
