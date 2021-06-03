@@ -12,6 +12,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MultiSelectModule } from 'primeng/multiselect';
 import {CarouselModule} from 'primeng/carousel';
 import { ConfirmationService } from 'primeng/api';
+import {NgbRating} from '@ng-bootstrap/ng-bootstrap'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { CreditCardOperationComponent } from './components/profil/credit-card-op
 import { OrdersComponent } from './components/profil/orders/orders.component';
 import { CreditCardAddComponent } from './components/profil/credit-card-operation/credit-card-add/credit-card-add.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
     DropdownModule,
     ConfirmDialogModule,
     CarouselModule,
+    NgbModule,
+    NgbPaginationModule,
     MultiSelectModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
