@@ -21,6 +21,7 @@ import { CommentComponent } from '../comment/comment.component';
 export class ProductDetailComponent implements OnInit {
   products:ProductDetail[]=[]
   productDto:ProductDetail
+  brandId:number
   productComment:ProductCommentDetails[]=[]
   Images:string[]=[]
   imageBasePath = environment.imageUrl;
@@ -34,29 +35,33 @@ export class ProductDetailComponent implements OnInit {
               private dialogService:DialogService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(async params => {
       if(params["productId"]){
-        this.getProductDetail(params["productId"]);
-        this.getProductDetailByBrandId(params["productId"]);
+       await this.getProductDetail(params["productId"]);
         this.getCommentByProductId(params["productId"])
       }
-      
     });
+   
   }
 
-  getProductDetail(productId:number){
-    this.productService.getProductDetailByProductId(productId).subscribe(response=>{
-      this.products = response.data
-      this.productDto = response.data[0]
-      this.Images=this.productDto.images
-    })
+   async getProductDetail(productId:number){
+   let productDetail=(await this.productService.getProductDetailByProductId(productId).toPromise())
+
+   this.productDto = productDetail.data[0];
+   console.log(this.productDto);
+   this.Images = this.productDto.images;
+   this.getProductDetailByBrandId()
+  
   }
-  getProductDetailByBrandId(brandId:number){
-    this.productService.getProductDetailByBrandId(brandId).subscribe((response)=>{
-      this.products = response.data
-      this.Images=this.productDto.images
-    })
-  }
+
+   getProductDetailByBrandId(){
+   this.productService.getProductDetailByBrandId(this.productDto.brandId).subscribe((response)=>{
+    this.products = response.data
+    console.log(this.products);
+    this.Images = this.productDto.images;
+  
+   })
+}
   getCommentByProductId(productId:number){
     this.productCommentService.getDetailByProductId(productId).subscribe((response)=>{
       this.productComment = response.data
