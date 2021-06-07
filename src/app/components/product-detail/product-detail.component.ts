@@ -46,12 +46,11 @@ export class ProductDetailComponent implements OnInit {
 
    async getProductDetail(productId:number){
    let productDetail=(await this.productService.getProductDetailByProductId(productId).toPromise())
-
    this.productDto = productDetail.data[0];
    console.log(this.productDto);
    this.Images = this.productDto.images;
    this.getProductDetailByBrandId()
-  
+
   }
 
    getProductDetailByBrandId(){
