@@ -49,9 +49,10 @@ export class FavoriteComponent implements OnInit {
     })
 
   }
-  delete(favorite: Favorite) {
+  delete(favorite: FavoriteDetails) {
     this.favoriteService.delete(favorite).subscribe((response) => {
       this.toastrService.success(response.message)
+     
     })
   }
   addToCart(favorite:FavoriteDetails) {

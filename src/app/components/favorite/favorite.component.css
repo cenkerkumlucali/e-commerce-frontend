@@ -88,7 +88,7 @@
 }
 .asc,.desc{
     width: 11rem;
-    margin-top: 1rem;
+    margin-bottom: 1em;
     height: 1.8rem;
     margin-left: 5px;
     background-color: #e2e2e2;
@@ -130,4 +130,13 @@
 }
  .card:hover .cartBtn{
     display: block;
+}
+.removeFavorite{
+    text-align: end;
+    margin-right: 0.7em;
+    font-size: 1.2em;
+    position: absolute;
+    right: 0;
+    color: #a5a58d;
+    cursor: pointer;
 }
