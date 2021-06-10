@@ -25,6 +25,11 @@ export class ProductService {
       this.apiUrl + 'products/getproductdetails'
     );
   }
+  getProductDetailsByMinPriceAndMaxPrice(minPrice:number,maxPrice:number): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetailsbyminpriceandmaxprice?minPrice='+minPrice+"&maxPrice="+maxPrice
+    );
+  }
   getProductDetailsAsc(): Observable<ListResponseModel<ProductDetail>> {
     return this.httpClient.get<ListResponseModel<ProductDetail>>(
       this.apiUrl + 'products/getproductdetailsasc'

@@ -1,9 +1,7 @@
+import { NumberDataResponseModel } from './../../models/numberDataResponseModel';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Brand } from 'src/app/models/brand';
-import { Category } from 'src/app/models/category';
-import { Product } from 'src/app/models/product';
 import { ProductDetail } from 'src/app/models/productDetail';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -21,6 +19,8 @@ export class ProductsPageComponent implements OnInit {
   imageBasePath = environment.imageUrl;
   defaultImg="";
   categoryId:number
+  minPrice:number
+  maxPrice:number
   productAddedToCart:boolean=false;
   constructor(private productService:ProductService,
               private activatedRoute:ActivatedRoute,
@@ -42,10 +42,16 @@ export class ProductsPageComponent implements OnInit {
       }
     })
   }
-
   getProducts(){
     this.productService.getProductDetails().subscribe(response=>{
       this.productDetail = response.data
+    })
+  }
+  getProductDetailsByMinPriceAndMaxPrice(minPrice:number,maxPrice:number){
+    this.productService.getProductDetailsByMinPriceAndMaxPrice(minPrice,maxPrice).subscribe((response)=>{
+      this.productDetail = response.data
+      this.minPrice = minPrice
+      this.maxPrice = maxPrice
     })
   }
   getProductsEvaluation(){

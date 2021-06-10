@@ -7,6 +7,27 @@
     <div class="row">
       <div class="col-md-3 mt-3">
         <app-brand></app-brand>
+        <div class="box mt-2">
+          <h6 class="Prices">Fiyat Aralığı</h6>
+          <div class="row mb-2">
+            <div class="col-md-4">
+              <input [(ngModel)]="minPrice" type="text" class="form-control mb-3" class="filterPrice" placeholder="En az" />
+            </div>
+            <div class="col-md-4">
+              <input [(ngModel)]="maxPrice" type="text" class="form-control mb-3" class="filterPrice" placeholder="En çok" />
+            </div>
+            <div class="col-md-4">
+              <button class="priceBtn" (click)="getProductDetailsByMinPriceAndMaxPrice(minPrice,maxPrice)"><i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <ul  class="ulPrice">
+              <li (click)="getProductDetailsByMinPriceAndMaxPrice(100,200)" >100 - 200 TL</li><br>
+              <li (click)="getProductDetailsByMinPriceAndMaxPrice(200,400)" >200 - 400 TL</li><br>
+              <li (click)="getProductDetailsByMinPriceAndMaxPrice(400,600)" >400 - 600 TL</li><br>
+              <li (click)="getProductDetailsByMinPriceAndMaxPrice(600,800)" >600 - 800 TL</li><br>
+              <li (click)="getProductDetailsByMinPriceAndMaxPrice(800,1000)" >800 - 1000 TL</li>
+          </ul>
+          </div>
       </div>
       <div class="col-md-9 ap border">
         <div class="row">
@@ -31,8 +52,6 @@
             </div>
           </div>
         </div>
-        
-        
         <div *ngFor="let product of productDetail" class=" card mt-3 ms-1 mb-5 bg-body rounded" style="width: 16rem">
           <app-product-card [products]="product"></app-product-card>
         </div>

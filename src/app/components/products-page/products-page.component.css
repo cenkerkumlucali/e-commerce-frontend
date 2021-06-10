@@ -69,3 +69,48 @@ img{
     margin-left: 7rem;
  }
  
+ /*Price Css Start*/
+ .box{
+    width: 279px;
+    border: 1px #e5e5e5 solid;
+    border-radius: 7px;
+}
+.priceBtn{
+    border: 1px solid #ffff;
+    border-radius: 5px;
+    background: #d1623d;
+    color: #ffffff;
+    width: 3.1rem;
+    height: 2.2rem;
+    margin-left: 10px;
+}
+.Prices{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px #e5e5e5 solid;
+}
+.ulPrice{
+    color: #484848;
+    font-size: 16px;
+    list-style-type: none;
+    cursor: pointer;
+    line-height: 17px;
+}
+li:hover{
+    color: #919191;
+    
+}
+.filterPrice{
+    transition-property: background-color,border-color;
+    background-color: #fff;
+    width: 100%;
+    margin-left: 21px;
+    color: #484848;
+    padding: 12px 15px 11px;
+    border: 2px solid #bfbfbf;
+    outline: 0;
+    height: 35px;
+    padding: 6px 10px;
+        border-radius: 7px;
+}
+/*Price Css Over*/
