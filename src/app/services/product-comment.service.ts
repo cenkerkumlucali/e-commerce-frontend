@@ -18,6 +18,9 @@ apiUrl=environment.baseUrl
   add(productComment:ProductComment):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"productcomment/add",productComment)
   }
+  delete(productComment:ProductComment):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"productcomment/delete",productComment)
+  }
   getDetail():Observable<ListResponseModel<ProductCommentDetails>>{
     return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl+"productcomment/getalldetails")
   }
