@@ -1,3 +1,4 @@
+import { NumberDataResponseModel } from './../models/numberDataResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -31,10 +32,11 @@ export class FavoriteService {
   }
   add(favorite: Favorite): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "favorites/add", favorite)
-
   }
-  delete(favorite: Favorite): Observable<ResponseModel> {
+  getByIdAdd(favorite: Favorite): Observable<NumberDataResponseModel<Favorite>> {
+    return this.httpClient.post<NumberDataResponseModel<Favorite>>(this.apiUrl + "favorites/getbyidadd", favorite)
+  }
+  delete(favorite: FavoriteDetails): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "favorites/delete", favorite)
-
   }
 }
