@@ -1,129 +1,133 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md">
-            <app-navbar></app-navbar>
+  <div class="row">
+    <div class="col-md">
+      <app-navbar></app-navbar>
 
-        </div>
     </div>
-    <div class="row">
-        <div class="col-md">
-
-            <app-category></app-category>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <app-category></app-category>
     </div>
-    <div class="row">
-      <div class="col-md-6 crsl" >
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-          <div>
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
+  </div>
+  <div class="row">
+    <div class="col-md-6 crsl">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
             <div *ngIf="products[0]?.images?.length===0" class="crousel-item active detailImage" [class.active]="true">
-              <img [src]="imageBasePath + defaultImg" class="d-block mx-auto detailImage"/>
+              <img [src]="imageBasePath + defaultImg" class="d-block mx-auto detailImage" />
             </div>
-  
-  
-                <div *ngFor="let product of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }" class="carousel-item " data-bs-interval="10000">
-                <img [src]="productDto.images.length !== 0 ? imageBasePath+ product: imageBasePath + defaultImg" width="90" height="325" class="d-block w-100" >  
-                </div>
-              </div>
-              
+            <div *ngFor="let product of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }"
+              class="carousel-item " data-bs-interval="10000">
+              <img [src]="productDto.images.length !== 0 ? imageBasePath+ product: imageBasePath + defaultImg"
+                width="90" height="325" class="d-block w-100">
+            </div>
           </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <div class="col-md-6" id="detail">
-        <header class="title-wrapper">
-            <h1 itemprop="name" class="product-name best-price-trick" id="product-name">
-                {{productDto?.productName}}
-            </h1>
-            
-        </header>
-        <span class="brand-name">
-            <p routerLink="/products/brand/{{productDto?.brandId}}" id="brand">{{productDto?.brandName}}</p>
-        </span>
-        <a id="first-campaign-ribbon" data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
-            <span class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç alışverişlerde 25 TL indirim</span>
-        </a>
 
-
-        <div class="row" >
-          <div class="col-md-4">
-               <div itemprop="offers" class="product-price price-container big" >            
-             <span class="badge highlight active" id="product-discount-rate" >
-            <span class="discount-amount">%<span>{{productDto?.discountRate}}</span></span>indirim</span>
+    </div>
+    <div class="col-md-6" id="detail">
+      <header class="title-wrapper">
+        <h1 itemprop="name" class="product-name best-price-trick" id="product-name">
+          {{productDto?.productName}}
+        </h1>
+      </header>
+      <span class="brand-name">
+        <p routerLink="/products/brand/{{productDto?.brandId}}" id="brand">{{productDto?.brandName}}</p>
+      </span>
+      <a id="first-campaign-ribbon"
+        data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
+        <span class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç
+          alışverişlerde 25 TL indirim</span>
+      </a>
+      <div class="row">
+        <div class="col-md-4">
+          <div itemprop="offers" class="product-price price-container big">
+            <span class="badge highlight active" id="product-discount-rate">
+              <span class="discount-amount">%<span>{{productDto?.discountRate}}</span></span>indirim</span>
             <span class="discountPrice">{{productDto?.price}} TL</span>
             <span class="price">{{productDto?.price | discount:productDto?.discountRate}} TL</span>
           </div>
-          </div>
-       <div class="col-md-8">
-        <a (click)="addToCart(productDto)" class="btn cartBtn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
-        <button (click)="openComment()"  class="btn cartBtn"><i class="fas fa-comments"></i> Değerlendir</button>
-
-       </div>
         </div>
-        <ul class="shipment-list-container">
-          <li>
-              <b class="hour" >13 saat </b>
-              <b class="minute">57 </b>
-              <span ><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
-          </li>
-          <li style="display: none;">
-              <span ><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
-          </li>
-          <li id="locationBaseDeliveryWithTimer"  style="display: none;">
-              <span id="tooltipContainerWithTimer" class="text">
-                  <b d></b>
-                  iline bugün teslimat seçeneği
-                  <span class="tooltip-info-icon"></span>
-              </span>
-          </li>
-          <li style="display: none">(Kargo Bedava)</li>
+        <div class="col-md-8">
+          <a (click)="addToCart(productDto)" class="btn cartBtn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
+          <button (click)="openComment()" class="btn cartBtn"><i class="fas fa-comments"></i> Değerlendir</button>
+        </div>
+      </div>
+      <ul class="shipment-list-container">
+        <li>
+          <b class="hour">13 saat </b>
+          <b class="minute">57 </b>
+          <span><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
+        </li>
+        <li style="display: none;">
+          <span><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
+        </li>
+        <li id="locationBaseDeliveryWithTimer" style="display: none;">
+          <span id="tooltipContainerWithTimer" class="text">
+            <b d></b>
+            iline bugün teslimat seçeneği
+            <span class="tooltip-info-icon"></span>
+          </span>
+        </li>
+        <li style="display: none">(Kargo Bedava)</li>
       </ul>
-      <section > 
-        </section>
-      </div>
-      <div class="row">
-        <div class="col-md-12 mt-5 p-3 description">
-          <h2 class="sameSeller">Açıklama</h2>
-          <p>{{productDto?.description}}</p>
-        </div>
-      </div>
-      <div *ngFor="let comment of productComment" class="row">
-        <div class="userr">
-          <div class="col-md-3">
-            <div class="user">
-              <i class="fas fa-user"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-9 mt-5 p-2">
-          <p class="userName">{{comment.userFullName}}</p>
-          <div class="p-4 comment">
-              <p>{{comment.comment}}</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 mt-5">
-          <h2 class="sameSeller ">Aynı satıcıdan</h2>
-      <p-carousel [value]="products" [autoplayInterval]="3000" [numVisible]="4" [numScroll]="1">
-        <ng-template let-product pTemplate="item">
-          <app-product-card [products]="product"></app-product-card>
-        </ng-template>  
-      </p-carousel>
+
+      <section>
+      </section>
+      <span class="addedFavorite" (click)="getByIdAddFavorite()">
+        <i class="far fa-heart"></i> {{favoriteText}}
+      </span>
     </div>
-  </div>
-  
-  
+    <div class="row">
+      <div class="col-md-12 mt-5 p-3 description">
+        <h2 class="sameSeller">Açıklama</h2>
+        <p>{{productDto?.description}}</p>
+      </div>
+    </div>
+    <div *ngFor="let comment of productComment" class="row">
+      <div class="userr">
+        <div class="col-md-3">
+          <div class="user">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 mt-5 p-2">
+        <p class="userName">{{comment.userFullName}}</p>
+        <div class="p-4 comment">
+          <span>{{comment.comment}}</span>
+          <span class="removeComment" (click)="deleteComment(comment)" *ngIf="comment.userId === this.authService.getCurrentUserId()">
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <h2 class="sameSeller ">Aynı satıcıdan</h2>
+        <p-carousel [value]="products" [autoplayInterval]="3000" [numVisible]="4" [numScroll]="1">
+          <ng-template let-product pTemplate="item">
+            <app-product-card [products]="product"></app-product-card>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
