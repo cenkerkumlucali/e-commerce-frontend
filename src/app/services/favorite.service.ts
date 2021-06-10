@@ -19,9 +19,12 @@ export class FavoriteService {
   getAllDetails(): Observable<ListResponseModel<Favorite>> {
     return this.httpClient.get<ListResponseModel<Favorite>>(this.apiUrl + "favorites/getall");
   }
-
+  
   getDetailsByUserId(userId: number): Observable<ListResponseModel<FavoriteDetails>> {
     return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsbyuserid?userId=" + userId);
+  }
+  getDetailsByUserIdAndProductId(userId: number,productId:number): Observable<ListResponseModel<FavoriteDetails>> {
+    return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getdetailsbyuseridandproductid?userId=" + userId+"&productId="+productId);
   }
   getAllDetailsFilteredAscByUserId(userId: number): Observable<ListResponseModel<FavoriteDetails>> {
     return this.httpClient.get<ListResponseModel<FavoriteDetails>>(this.apiUrl + "favorites/getalldetailsfilteredascbyuserid?userId=" + userId);

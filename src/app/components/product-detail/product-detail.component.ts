@@ -1,3 +1,4 @@
+import { FavoriteDetails } from 'src/app/models/favoriteDetails';
 import { ProductComment } from './../../models/productComment';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,6 +29,8 @@ export class ProductDetailComponent implements OnInit {
   defaultImg = "/images/default.jpg"
   favoriteText = "Favoriye ekle"
   favoriteId: number
+  productId:number
+  favoriteDetails:FavoriteDetails
   constructor(private productService: ProductService,
     private productCommentService: ProductCommentService,
     private activatedRoute: ActivatedRoute,
@@ -35,8 +38,7 @@ export class ProductDetailComponent implements OnInit {
     private cartService: CartService,
     public  authService: AuthService,
     private dialogService: DialogService,
-    private favoriteService: FavoriteService,
-    private commentService:ProductCommentService) { }
+    private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async params => {
@@ -45,12 +47,16 @@ export class ProductDetailComponent implements OnInit {
         this.getCommentByProductId(params["productId"]);
       }
     });
+
   }
   async getProductDetail(productId: number) {
     let productDetail = (await this.productService.getProductDetailByProductId(productId).toPromise())
     this.productDto = productDetail.data[0];
     this.Images = this.productDto.images;
+    console.log(this.productDto);
     this.getProductDetailByBrandId()
+    this.getFavoriteByUserIdAndId()
+   
   }
   getProductDetailByBrandId() {
     this.productService.getProductDetailByBrandId(this.productDto.brandId).subscribe((response) => {
@@ -63,8 +69,21 @@ export class ProductDetailComponent implements OnInit {
       this.productComment = response.data
     })
   }
+  getFavoriteExists(){
+    if (this.favoriteDetails.productId == this.productDto.productId) {
+      this.favoriteText="Favoriden çıkar"
+    }
+  }
+  getFavoriteByUserIdAndId(){
+    this.favoriteService.getDetailsByUserIdAndProductId(this.authService.getCurrentUserId(),this.productDto.productId).subscribe((response)=>{
+      this.favoriteDetails=response.data[0]
+      console.log(this.favoriteDetails);
+      
+      this.getFavoriteExists()
+    })
+  }
   getByIdAddFavorite() {
-    if (this.favoriteText === "Favoriye ekle") {
+    if (this.favoriteText==="Favoriye ekle") {
       this.favoriteService.getByIdAdd({ productId: this.productDto.productId, brandId: this.productDto.brandId, userId: this.authService.getCurrentUserId(), createDate: new Date() })
         .subscribe((response) => {
           this.favoriteText = "Favoriden çıkar"
@@ -72,7 +91,7 @@ export class ProductDetailComponent implements OnInit {
           this.toastrService.success(response.message)
         })
     } else {
-      this.favoriteService.delete({ id: this.favoriteId }).subscribe((response) => {
+      this.favoriteService.delete({ id:this.favoriteDetails.id,productId:this.productId}).subscribe((response) => {
         this.favoriteText = "Favoriye ekle"
         this.toastrService.success(response.message)
       })
