@@ -72,7 +72,6 @@ export class ProductsPageComponent implements OnInit {
   getProductsDetailByCategoryId(categoryId:number){
     this.productService.getProductDetailByCategoryId(categoryId).subscribe((response)=>{
       this.productDetail = response.data
-      console.log(response.data)
     })
   }
   getProductByBrandId(brandId:number){

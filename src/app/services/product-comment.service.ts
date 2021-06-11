@@ -21,10 +21,16 @@ apiUrl=environment.baseUrl
   delete(productComment:ProductComment):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"productcomment/delete",productComment)
   }
+  update(productComment:ProductComment):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"productcomment/update",productComment)
+  }
   getDetail():Observable<ListResponseModel<ProductCommentDetails>>{
     return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl+"productcomment/getalldetails")
   }
   getDetailByProductId(productId:number):Observable<ListResponseModel<ProductCommentDetails>>{
     return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl+"productComment/getalldetailsbyproductid?productId="+productId)
+  }
+  getDetailByUserIdAndId(userId:number,id:number):Observable<ListResponseModel<ProductCommentDetails>>{
+    return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl+"productComment/getallbyuseridandid?userId="+userId+"&id="+id)
   }
 }

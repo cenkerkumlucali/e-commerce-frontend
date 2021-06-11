@@ -28,7 +28,7 @@ const routes: Routes = [
   {path:"profil",component:ProfilComponent,canActivate:[LoginGuard]},
   {path:"address",component:AddressTransactionsComponent,canActivate:[LoginGuard]},
   {path:"orders",component:OrdersComponent,canActivate:[LoginGuard]},
-  {path:"creditcard",component:CreditCardOperationComponent}
+  {path:"creditcard",component:CreditCardOperationComponent},
 ];
 
 @NgModule({

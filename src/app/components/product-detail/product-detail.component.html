@@ -23,9 +23,7 @@
               aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
-            <div *ngIf="products[0]?.images?.length===0" class="crousel-item active detailImage" [class.active]="true">
-              <img [src]="imageBasePath + defaultImg" class="d-block mx-auto detailImage" />
-            </div>
+
             <div *ngFor="let product of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }"
               class="carousel-item " data-bs-interval="10000">
               <img [src]="productDto.images.length !== 0 ? imageBasePath+ product: imageBasePath + defaultImg"
@@ -67,10 +65,27 @@
             <span class="price">{{productDto?.price | discount:productDto?.discountRate}} TL</span>
           </div>
         </div>
+        
         <div class="col-md-8">
-          <a (click)="addToCart(productDto)" class="btn cartBtn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
-          <button (click)="openComment()" class="btn cartBtn"><i class="fas fa-comments"></i> Değerlendir</button>
+          <div class="row">
+            <div class="col-md-6">
+              <a (click)="addToCart(productDto)" class="btn cartBtn"><i class="fas fa-cart-plus"></i> Sepete ekle</a>
+
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <button class="button effective icon icon-minus"  (click)="decreaseQuantity()">
+                    <span>-</span>
+                </button>
+                <input id="quantity" class="input short" type="text" value="{{quantity}}" maxlength="2">
+                <button class="button effective icon icon-plus"  (click)="increaseQuantity()">
+                    <span>+</span>  
+                </button>
+            </div>
+          </div>
+          </div>
         </div>
+        
       </div>
       <ul class="shipment-list-container">
         <li>
@@ -93,9 +108,19 @@
 
       <section>
       </section>
-      <span class="addedFavorite" (click)="getByIdAddFavorite()">
-        <i class="far fa-heart"></i> {{favoriteText}}
-      </span>
+     
+      <div class="row">
+        <div class=" col-md-4">
+          <span class="addedFavorite" (click)="getByIdAddFavorite()">
+            <i class="far fa-heart"></i> {{favoriteText}}
+          </span>
+        </div>
+        <div class=" col-md-5">
+          <span (click)="openComment()" class="addedFavorite"><i class="far fa-comments"></i> Değerlendir</span>
+  
+        </div>
+        
+      </div>
     </div>
     <div class="row">
       <div class="col-md-12 mt-5 p-3 description">
@@ -115,8 +140,16 @@
         <p class="userName">{{comment.userFullName}}</p>
         <div class="p-4 comment">
           <span>{{comment.comment}}</span>
-          <span class="removeComment" (click)="deleteComment(comment)" *ngIf="comment.userId === this.authService.getCurrentUserId()">
+          <span class="removeComment" (click)="deleteComment(comment)"
+            *ngIf="comment.userId === this.authService.getCurrentUserId()">
             <i class="fas fa-times"></i>
+
+          </span>
+          <span class="editComment">
+            <span *ngIf="comment.userId === this.authService.getCurrentUserId()"(click)="setUpdatedComment(comment)"
+              data-bs-target="#exampleModal" data-bs-toggle="modal">
+              <i class="fas fa-pen"></i>
+            </span>
           </span>
         </div>
       </div>
@@ -131,3 +164,4 @@
         </p-carousel>
       </div>
     </div>
+<app-comment-update [commentForUpdate]="setUpdateComment"></app-comment-update>

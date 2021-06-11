@@ -44,6 +44,7 @@ import { OrdersComponent } from './components/profil/orders/orders.component';
 import { CreditCardAddComponent } from './components/profil/credit-card-operation/credit-card-add/credit-card-add.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommentUpdateComponent } from './components/comment/comment-update/comment-update.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     MainPageComponent,
     NavbarComponent,
     CategoryComponent,
-     LoginComponent,
+    LoginComponent,
     RegisterComponent,
     ResetPasswordComponent,
     ProductDetailComponent,
@@ -72,6 +73,7 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     CreditCardOperationComponent,
     CreditCardAddComponent,
     FavoriteComponent,
+    CommentUpdateComponent,
   ],
   imports: [
     BrowserModule,

@@ -104,7 +104,6 @@ export class AddressTransactionsComponent implements OnInit {
   setSelectedAddress(address:Address){
     this.selectedAddress = address
   }
- 
   setCurrentAddress(address: Address) {
     this.currentAddress = address;
   }

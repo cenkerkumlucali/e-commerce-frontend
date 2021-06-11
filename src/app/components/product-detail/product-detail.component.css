@@ -1,210 +1,280 @@
-
-#detail{
-    height: 326px;
-    background-color: #f5f5f5;
-    padding: 20px 24px;
-    border-radius: 0 8px 8px 0;
-    margin: 10px 0px 10px 0px;
+#detail {
+  height: 326px;
+  background-color: #f5f5f5;
+  padding: 20px 24px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0px 10px 0px;
 }
-.crsl{
-    margin: 10px 0px 10px 0px;
+.crsl {
+  margin: 10px 0px 10px 0px;
 }
- h1 {
-    padding: 0;
-    color: #484848;
-    line-height: 1.2;
-    font-size: 17px;
-    font-weight: 600;
+h1 {
+  padding: 0;
+  color: #484848;
+  line-height: 1.2;
+  font-size: 17px;
+  font-weight: 600;
 }
-.brand-name{
-    display: block;
-    padding-bottom: 8px;
-    font-size: 15px;
-    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
-    font-weight: 600;
+.brand-name {
+  display: block;
+  padding-bottom: 8px;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  font-weight: 600;
 }
-#brand{
-    color: #062e55;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    background-color: transparent;
-    text-decoration: none;
-    box-sizing: border-box;
-    outline: 0;
-    cursor: pointer;
-    font-size: 15px;
-    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
-    font-weight: 600;
-    line-height: 1.2;
-    -webkit-font-smoothing: antialiased;
+#brand {
+  color: #062e55;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  background-color: transparent;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
 }
-.addedFavorite{
-    font-size: 1.1em;
-    color: #da4c1d;
-    cursor:pointer
+.addedFavorite {
+  font-size: 1.1em;
+  color: #da4c1d;
+  cursor: pointer;
 }
-.addedFavorite:hover{
-    color:#6b705c;
+.addedFavorite:hover {
+  color: #6b705c;
 }
 #first-campaign-ribbon {
-    display: block;
-    margin-bottom: 8px;
-    color: rgb(20, 119, 20);
-    font-size: 13px;
-    cursor: pointer;
-    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    line-height: 1.2;
+  display: block;
+  margin-bottom: 8px;
+  color: rgb(20, 119, 20);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.2;
 }
 
-.product-detail-module .productDetailRight .product-price-wrapper .product-price-and-ratings .badge.active {
-    display: table-cell;
+.product-detail-module
+  .productDetailRight
+  .product-price-wrapper
+  .product-price-and-ratings
+  .badge.active {
+  display: table-cell;
 }
 
-.product-detail-module .productDetailRight .product-price-wrapper .product-price-and-ratings .badge, .product-detail-module .productDetailRight .product-price-wrapper .product-price-and-ratings .product-old-price {
-    display: none;
+.product-detail-module
+  .productDetailRight
+  .product-price-wrapper
+  .product-price-and-ratings
+  .badge,
+.product-detail-module
+  .productDetailRight
+  .product-price-wrapper
+  .product-price-and-ratings
+  .product-old-price {
+  display: none;
 }
 .price-container.big .highlight {
-    width: 124px;
-    height: 48px;
+  width: 124px;
+  height: 48px;
 }
 .badge.highlight {
-    width: 42px;
-    background-color: #f90909;
-    color: #fff;
-    font-family: -apple-system,BlinkMacSystemFont,Arial,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
-    font-weight: 700;
-}.price-container .badge {
-    text-align: center;
-    line-height: 13px;
-}
-span{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-.price-container.big .discount-amount {
-    display: block;
-    padding-bottom: 6px;
-    text-align: center;
-    font-size: 21px;
+  width: 42px;
+  background-color: #f90909;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  font-weight: 700;
 }
 .price-container .badge {
-    display: table-cell;
-    width: 42px;
-    right: 15px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px 4px 3px;
-    line-height: 13px;
+  text-align: center;
+  line-height: 13px;
 }
-.sameSeller{
-    font-size: x-large;
-    margin-left:3rem;
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-style: normal;
-    letter-spacing: 0.033rem;
-    color: rgb(72, 72, 72);
+span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
 }
-.price{
-    font-size: 32px;
-    color: #484848;
-    font-weight: 600;
-    white-space: nowrap;
-    display: block;
-    height: 20px;
+.price-container.big .discount-amount {
+  display: block;
+  padding-bottom: 6px;
+  text-align: center;
+  font-size: 21px;
 }
-.discountPrice{
-    height: 20px;
-    text-decoration:line-through;
-    margin: 1px 0 1px 0;
-    font-size: 19px;
-    color: #9e9e9e;
+.price-container .badge {
+  display: table-cell;
+  width: 42px;
+  right: 15px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 4px 3px;
+  line-height: 13px;
 }
-.cartBtn{
-    height: 40px;
-    background-color: #da4c1d;
-    color: #ffffff;
-    margin-top: 79px;
-    margin-right: 10px;
-    width: 139px;
-    font-weight: 500;
+.sameSeller {
+  font-size: x-large;
+  margin-left: 3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.033rem;
+  color: rgb(72, 72, 72);
+}
+.price {
+  font-size: 32px;
+  color: #484848;
+  font-weight: 600;
+  white-space: nowrap;
+  display: block;
+  height: 20px;
+}
+.discountPrice {
+  height: 20px;
+  text-decoration: line-through;
+  margin: 1px 0 1px 0;
+  font-size: 19px;
+  color: #9e9e9e;
+}
+.cartBtn {
+  height: 40px;
+  background-color: #da4c1d;
+  color: #ffffff;
+  margin-top: 79px;
+  margin-right: 10px;
+  width: 139px;
+  font-weight: 500;
+}
+.shipment-list-container {
+  font-size: 13px;
+  margin-top: 10px;
+  padding-left: 1rem;
+}
+.card {
+  width: 18rem;
+  float: left;
+  margin-right: 20px;
+}
+#productName {
+  color: #022548;
+  text-align: center;
+  font-size: large;
+  cursor: pointer;
+}
+#cartBtnBrand {
+  background-color: #da4c1d;
+  color: #ffffff;
+  border-radius: 7px;
+  margin-top: 2px;
+  width: 7.2rem;
+  margin-left: 8rem;
+}
+.discount {
+  height: 17px;
 
- }
- .shipment-list-container{
-    font-size: 13px;
-    margin-top: 10px;
-    padding-left: 1rem;
- }
- .card{
-    width: 18rem;
+  text-decoration: line-through;
+  font-size: 14px;
+  color: #022548;
+  font-weight: 500;
+}
+.priceBrand {
+  font-size: x-large;
+  font-weight: bold;
+  color: #022548;
+}
+.description {
+  margin-left: 12px;
+  background-color: #f5f5f5;
+}
+.comment {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  position: relative;
+}
+.userr {
+  background: #f5f5f5;
+  width: 64px;
+  height: 64px;
+  border-radius: 35px;
+  margin-top: 6.2rem;
+  margin-right: 5px;
+}
+.user {
+  font-size: 39px;
+  margin-left: 4px;
+  color: black;
+}
+.userName {
+  color: #919191;
+  font-size: 14px;
+  margin-left: 8px;
+}
+.removeComment {
+  cursor: pointer;
+  font-size: 1.6em;
+  position: absolute;
+  right: 15em;
+  right: 22px;
+  top: 18px;
+}
+.editComment {
+  position: absolute;
+  right: 3.6em;
+  top: 1.6em;
+  cursor: pointer;
+}
+.product-detail-module .productDetailRight form .quantity-wrapper .input-group button, .product-detail-module  {
     float: left;
-    margin-right: 20px;
-    
-
 }
-#productName{
-    color: #022548;
+.input-group{
+    margin-top: 4.8em;
+}
+.product-detail-module .productDetailRight form #quantity {
+    width: 39px;
+    padding: 5px 5px 15px;
+    border-color: #bfbfbf;
+    font-weight: 700;
     text-align: center;
-    font-size: large;
-    cursor: pointer;
+    color: #484848;
 }
-#cartBtnBrand{
-    background-color: #da4c1d;
-    color: #ffffff;
-    border-radius: 7px;
-    margin-top: 2px;
-    width: 7.2rem;
-    margin-left: 8.0rem;
- }
- .discount{
-    height: 17px;
 
-    text-decoration:line-through;
-    font-size: 14px;
-    color: #022548;
-    font-weight: 500;
+.button.effective, a.button.effective {
+    background-color: #bfbfbf;
+    color: #484848;
 }
-.priceBrand{
-    font-size: x-large;
-    font-weight: bold;
-    color:#022548;
-}
-.description{
-    margin-left: 12px;
-    background-color: #f5f5f5;
-}
-.comment{
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    position: relative;
-}
-.userr{
-    background: #f5f5f5;
-    width: 64px;
-    height: 64px;
-    border-radius: 35px;
-    margin-top: 6.2rem;
-    margin-right:5px;
-}
-.user{
-    font-size: 39px;
-    margin-left: 4px;
-    color: black;
-}
-.userName{
-    color: #919191;
-    font-size: 14px;
-    margin-left: 8px;
-}
-.removeComment{
+.button, a.button {
+    background-color: #ff6000;
+    white-space: nowrap;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 16px;
+    outline: 0;
     cursor: pointer;
-    font-size: 1.6em;
-    position: absolute;
-    right: 15em;
-    right: 22px;
-    top: 18px;
+    line-height: 1;
+    display: inline-block;
+}
+
+.input{
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #484848;
+    padding: 12px 15px 11px;
+    border: 2px solid #bfbfbf;
+    outline: 0;
+    width: 44px;
+    height: 48px;
+}
+.product-detail-module .productDetailRight form #quantity {
+    width: 39px;
+    padding: 5px 5px 15px;
+    border-color: #bfbfbf;
+    font-weight: 700;
+    text-align: center;
+    color: #484848;
 }

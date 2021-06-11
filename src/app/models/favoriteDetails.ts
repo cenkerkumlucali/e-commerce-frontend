@@ -1,6 +1,6 @@
 
 export interface FavoriteDetails{
-    id:number
+    id?:number
     userId?:number
     productId?:number
     brandId?:number

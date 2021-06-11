@@ -1,4 +1,5 @@
 export interface ProductDetail{
+
  productId:number
  brandId:number
  categoryId:number

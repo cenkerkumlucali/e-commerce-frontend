@@ -49,6 +49,8 @@ export class CartComponent implements OnInit {
   getDetailUserId() {
     this.cartService.getDetailsUserId(this.authService.currentUserId).subscribe((response) => {
       this.basketDetail = response.data
+      console.log(response);
+      
     })
   }
  get totalPrice(){
@@ -58,7 +60,6 @@ export class CartComponent implements OnInit {
    } 
    return Math.round(total*100)/100
   }
- 
   openCreditCard() {
     const ref = this.dialogService.open(PaymentInformationComponent, {
       data: {
