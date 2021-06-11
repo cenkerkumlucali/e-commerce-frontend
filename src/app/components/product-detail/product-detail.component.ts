@@ -33,9 +33,9 @@ export class ProductDetailComponent implements OnInit {
   favoriteId: number
   productId: number
   favoriteDetails: FavoriteDetails
-  setUpdateComment:ProductComment=null
-  currentComment:ProductComment
-  quantity:number=1
+  setUpdateComment: ProductComment = null
+  currentComment: ProductComment
+  quantity: number = 1
 
   constructor(private productService: ProductService,
     private productCommentService: ProductCommentService,
@@ -47,22 +47,22 @@ export class ProductDetailComponent implements OnInit {
     private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe( params => {
+    this.activatedRoute.params.subscribe(params => {
       if (params["productId"]) {
-         this.getProductDetail(params["productId"]);
+        this.getProductDetail(params["productId"]);
         this.getCommentByProductId(params["productId"]);
       }
     });
   }
   async getProductDetail(productId: number) {
-    this.productService.getProductDetailByProductId(productId).subscribe((response)=>{
+    this.productService.getProductDetailByProductId(productId).subscribe((response) => {
       this.productDto = response.data[0];
       this.Images = this.productDto.images;
       this.getProductDetailByBrandId()
       this.getFavoriteByUserIdAndId()
 
     })
-    
+
   }
   getProductDetailByBrandId() {
     this.productService.getProductDetailByBrandId(this.productDto.brandId).subscribe((response) => {
@@ -88,7 +88,7 @@ export class ProductDetailComponent implements OnInit {
           this.favoriteText = "Favoriden çıkar"
           this.favoriteId = response.data
           this.toastrService.success(response.message)
-          setTimeout(()=>window.location.reload(),1000)
+          setTimeout(() => window.location.reload(), 1000)
         })
     } else {
       this.favoriteService.delete({ id: this.favoriteDetails.id, productId: this.productId }).subscribe((response) => {
@@ -111,12 +111,12 @@ export class ProductDetailComponent implements OnInit {
   }
   increaseQuantity() {
     this.quantity++;
-   }
-   decreaseQuantity(){
-     this.quantity--;
-   }
+  }
+  decreaseQuantity() {
+    this.quantity--;
+  }
 
-  /*Comment Operation Started*/ 
+  /*Comment Operation Started*/
   getCommentByProductId(productId: number) {
     this.productCommentService.getDetailByProductId(productId).subscribe((response) => {
       this.productComment = response.data
@@ -138,10 +138,10 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
-  setUpdatedComment(productComment:ProductComment){
+  setUpdatedComment(productComment: ProductComment) {
     this.setUpdateComment = productComment
   }
-  setCurrentComment(productComment:ProductComment){
+  setCurrentComment(productComment: ProductComment) {
     this.currentComment = productComment
   }
   /*Comment Operation Ended*/
