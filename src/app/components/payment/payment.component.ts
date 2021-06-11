@@ -107,8 +107,8 @@ export class PaymentComponent implements OnInit {
       let orderDetail: OrderDetail = new OrderDetail()
       orderDetail.orderId = this.orderId
       orderDetail.productId = basket.productId
-      orderDetail.count = 2
-      orderDetail.salePrice=basket.price*orderDetail.count
+      orderDetail.count = basket.count
+      orderDetail.salePrice=basket.price * orderDetail.count
       orderDetail.createDate = new Date()
       orderDetail.active = true
       this.orderDetail.push(orderDetail)
