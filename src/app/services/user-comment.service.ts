@@ -19,6 +19,8 @@ export class UserCommentService {
   add(userComment:UserComment):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"usercomment/add",userComment)
   }
-
+  update(userComment:UserComment):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"usercomment/update",userComment)
+  }
 
 }
