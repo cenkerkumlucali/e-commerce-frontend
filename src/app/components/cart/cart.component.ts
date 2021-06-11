@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
   basket:BasketDetails
   imageBasePath = environment.imageUrl;
   defaultImg = "";
+  
   constructor(private cartService: CartService,
     private authService: AuthService,
     private toastrService: ToastrService,
@@ -35,6 +36,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDetailUserId()
+    
   }
 
   delete(basketDetail: BasketDetails) {
@@ -49,8 +51,9 @@ export class CartComponent implements OnInit {
   getDetailUserId() {
     this.cartService.getDetailsUserId(this.authService.currentUserId).subscribe((response) => {
       this.basketDetail = response.data
-      console.log(response);
-      
+      this.basketDetail.forEach(basket => {
+        basket.price = basket.price * basket.count
+      });
     })
   }
  get totalPrice(){
@@ -60,6 +63,7 @@ export class CartComponent implements OnInit {
    } 
    return Math.round(total*100)/100
   }
+
   openCreditCard() {
     const ref = this.dialogService.open(PaymentInformationComponent, {
       data: {
