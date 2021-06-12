@@ -29,11 +29,6 @@
     font-size: 0.9rem;
     color: #646464;
     font-weight: 600;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
 }
 .trash{
     cursor: pointer;
@@ -104,4 +99,10 @@ img{
     position: absolute;
     top: 26px;
     left: 20px;
+}
+.count{
+    font-size: 0.9rem;
+    color: #646464;
+    font-weight: 600;
+    margin-left: 8px;
 }
