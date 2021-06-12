@@ -10,9 +10,7 @@
 ## Orders
 ![orders](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/orders.jpg)
 ## Products
-![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/all--products.jpg)
-## Filtered Products
-![Filtered Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/brand-filtered-products.jpg)
+![Products](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/products.jpg)
 ## User Address (.gif)
 ![User Address](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/address-operation.gif)
 ## Login
