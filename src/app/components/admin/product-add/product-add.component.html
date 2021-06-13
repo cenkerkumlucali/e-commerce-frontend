@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <app-navbar></app-navbar>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+      <form [formGroup]="productAddForm " (ngSubmit)='addProduct()'>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="modalLabels" for="name">Marka seç</label>
+              <select class="form-select input" formControlName='brandId'>
+                <option *ngFor="let brand of brands" [ngValue]='brand.id'> {{brand.name}} </option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="modalLabels" for="name">Kategori seç</label>
+                <select class="form-select input" formControlName='categoryId'>
+                  <option *ngFor="let category of categories" [ngValue]='category.categoryId'> {{category.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mt-1">
+              <label class="modalLabels" for="name">Ürün adı</label>
+              <input type="text" id="name" class="form-control input form-control-lg" formControlName='name'>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mt-1">
+              <label class="modalLabels" for="code">Ürün kodu</label>
+              <input type="text" id="code" class="form-control input form-control-lg" formControlName='code'>
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group mt-1">
+          <label class="modalLabels" for="price">Fiyat</label>
+          <input type="number" id="price" class="form-control input form-control-lg" formControlName='price'>
+        </div>
+        <div class="form-group mt-1">
+          <label class="modalLabels" for="discountRate">Ürün indirim oranı</label>
+          <input type="number" id="discountRate" class="form-control input form-control-lg" formControlName='discountRate'>
+        </div>
+        <div class="form-group mt-1">
+          <label class="modalLabels" for="description">Ürün açıklaması</label>
+          <textarea rows="2" cols="50" type="textarea" id="description" class="form-control input form-control-lg" formControlName='description'></textarea>
+        </div>
+        <label for="formFileMultiple" class="form-label">Fotoğraf ekle</label>
+        <input class="form-control" (change)="onSelectFile($event)" type="file" id="formFileMultiple" multiple />
+        <button class="btn btn-primary">Ekle</button>
+
+      </form>
+      <form [formGroup]="productImageAddForm" class="was-validated">
+
+      </form>
+
+    </div>
+  </div>
