@@ -1,26 +1,34 @@
 <div class="container">
   <div class="row">
-    <div class="col-md">
-      <app-navbar></app-navbar>
+    <div class="col-md-4 boxBorder">
+      <h4 class="title">Ürün ekleme kuralları</h4>
+      <p class="article">Eğer ürünün aşağıdaki maddelerden birine giriyorsa, ürününü BtkDükkan ile almak mümkün
+        olmayacaktır.</p>
+      <ul>
+        <li>Alkol, tütün, elektronik sigara ve destekleyicileri, erotik malzemeler, reçeteli olan ilaçlar ve çevrimiçi platformlarda satışı yasal olmayan benzeri ürünleri satışa sunduysan</li>
+        <li>Ürünün bitki, tohum ve açık gıda ise</li>
+        <li>Ürün açıklaması, ismi, resmi ya da markasına topluluk kurallarımıza uymayan içerikler eklenmişse</li>
+        <li>İstediğin ürün canlı herhangi bir varlık ise</li>
+        <li>Ev, araba alım satımı veya harhangi bir şeyin satışı için eklenmiş bir ürün ise</li>
+        <li>Ürünün ikinci el ise</li>
+      </ul>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
     <div class="col-md-8">
-      <form [formGroup]="productAddForm " (ngSubmit)='addProduct()'>
+      <form [formGroup]="productAddForm" (ngSubmit)='addProduct()'>
         <div class="form-group">
           <div class="row">
             <div class="col-md-6">
               <label class="modalLabels" for="name">Marka seç</label>
-              <select class="form-select input" formControlName='brandId'>
-                <option *ngFor="let brand of brands" [ngValue]='brand.id'> {{brand.name}} </option>
+              <select class="form-select input" formControlName='brandId' placeholder="Markalar">
+                <option selected>Markalar</option>
+                <option *ngFor="let brand of brands" [value]='brand.id' > {{brand.name}}  </option>
               </select>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label class="modalLabels" for="name">Kategori seç</label>
                 <select class="form-select input" formControlName='categoryId'>
-                  <option *ngFor="let category of categories" [ngValue]='category.categoryId'> {{category.name}}
+                  <option *ngFor="let category of categories"  [value]='category.categoryId'> {{category.name}}
                   </option>
                 </select>
               </div>
@@ -49,19 +57,17 @@
         </div>
         <div class="form-group mt-1">
           <label class="modalLabels" for="discountRate">Ürün indirim oranı</label>
-          <input type="number" id="discountRate" class="form-control input form-control-lg" formControlName='discountRate'>
+          <input type="number" id="discountRate" class="form-control input form-control-lg"
+            formControlName='discountRate'>
         </div>
         <div class="form-group mt-1">
           <label class="modalLabels" for="description">Ürün açıklaması</label>
-          <textarea rows="2" cols="50" type="textarea" id="description" class="form-control input form-control-lg" formControlName='description'></textarea>
+          <textarea rows="2" cols="50" type="textarea" id="description" class="form-control input form-control-lg"
+            formControlName='description'></textarea>
         </div>
-        <label for="formFileMultiple" class="form-label">Fotoğraf ekle</label>
+        <label for="formFileMultiple" class="form-label ">Fotoğraf ekle</label>
         <input class="form-control" (change)="onSelectFile($event)" type="file" id="formFileMultiple" multiple />
-        <button class="btn btn-primary">Ekle</button>
-
-      </form>
-      <form [formGroup]="productImageAddForm" class="was-validated">
-
+        <button class="add mt-2">Ekle</button>
       </form>
 
     </div>

@@ -1,9 +1,7 @@
-import { Brand } from './../../../models/brand';
-import { BrandService } from './../../../services/brand.service';
-import { CategoryService } from './../../../services/category.service';
-import { HttpClient } from '@angular/common/http';
-import { ProductImage } from './../../../models/productImage';
-import { ProductImageService } from './../../../services/product-image.service';
+import { Brand } from '../../../models/brand';
+import { BrandService } from '../../../services/brand.service';
+import { CategoryService } from '../../../services/category.service';
+import { ProductImageService } from '../../../services/product-image.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -16,13 +14,14 @@ import { Category } from 'src/app/models/category';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
+  
   productAddForm: FormGroup
   productImageAddForm: FormGroup
   categories: Category[]
   brands: Brand[]
   selectedFile: File = null;
   formData = new FormData();
-  productId:number
+  productId: number
   constructor(private productService: ProductService,
     private productImageService: ProductImageService,
     private formBuilder: FormBuilder,
@@ -43,25 +42,25 @@ export class ProductAddComponent implements OnInit {
       name: ["", Validators.required],
       code: ["", Validators.required],
       price: ["", Validators.required],
+      rating:[5],
       description: ["", Validators.required],
-      rating: ["", Validators.required],
-      discountRate:["",Validators.required],
-      images:[""]
+      discountRate: ["", Validators.required],
+      images: [""]
     })
   }
   addProduct() {
-    if(this.productAddForm.valid){
-      let productModel = Object.assign({},this.productAddForm.value)
+    if (this.productAddForm.valid) {
+      let productModel = Object.assign({}, this.productAddForm.value)
       this.productService.getIdAdd(
-        productModel ).subscribe((response)=>{
-          this.productId=response.data
-          this.formData.append('productId',this.productId.toPrecision())
+        productModel).subscribe((response) => {
+          this.productId = response.data
+          this.formData.append('productId', this.productId.toPrecision())
           this.productImageService.add(this.formData).subscribe((response) => {
             this.toastrService.success(response.message)
           })
         })
     }
-}
+  }
   /*Product Operation Ended*/
 
   /*Category Operation Started*/
@@ -79,8 +78,8 @@ export class ProductAddComponent implements OnInit {
   /*Product Image Operation Started*/
   onSelectFile(fileInput: any) {
     for (let i = 0; i < fileInput.target.files.length; i++) {
-      let selectedFile=<File>fileInput.target.files[i]; 
-      this.formData.append('image',selectedFile)
+      let selectedFile = <File>fileInput.target.files[i];
+      this.formData.append('image', selectedFile)
     }
   }
   /*Product Image Operation Ended*/
