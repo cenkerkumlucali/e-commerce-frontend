@@ -5,7 +5,7 @@ import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { Observable } from 'rxjs';
-import {LocalStorageService} from '../services/local-storage.service'
+import { LocalStorageService } from '../services/local-storage.service'
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -14,55 +14,62 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
   currentUserId: number;
+  currentRoles: string;
   apiUrl = environment.baseUrl;
-  jwtHelperService:JwtHelperService=new JwtHelperService()
-  
+  jwtHelperService: JwtHelperService = new JwtHelperService()
 
-  constructor(private httpClient:HttpClient,
-    private storageService:LocalStorageService,
-   ) {this.setUserStats() }
 
-  login(loginModel:LoginModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + 'auth/login',loginModel);
+  constructor(private httpClient: HttpClient,
+    private storageService: LocalStorageService,
+  ) { this.setUserStats() }
+
+  login(loginModel: LoginModel): Observable<SingleResponseModel<TokenModel>> {
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + 'auth/login', loginModel);
   }
 
-  register(registerModel:RegisterModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + 'auth/register',registerModel);
+  register(registerModel: RegisterModel): Observable<SingleResponseModel<TokenModel>> {
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + 'auth/register', registerModel);
   }
 
-  isAuthenticated(){
-    if(localStorage.getItem('token')){
+  isAuthenticated() {
+    if (localStorage.getItem('token')) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
-  setCurrentUserId(){
+  setCurrentUserId() {
     var decoded = this.getDecodedToken()
     var propUserId = Object.keys(decoded).filter(x => x.endsWith("/nameidentifier"))[0];
     this.currentUserId = Number(decoded[propUserId]);
   }
-
-  getCurrentUserId():number {
+  setRoles() {
+    var decoded = this.getDecodedToken()
+    var propUserId = Object.keys(decoded).filter(x => x.endsWith("/role"))[0];
+    this.currentRoles = String(decoded[propUserId]);
+  }
+  getCurrentRoles(): string {
+    return this.currentRoles
+  }
+  getCurrentUserId(): number {
     return this.currentUserId
   }
-  getDecodedToken(){
-    try{
+  getDecodedToken() {
+    try {
       return this.jwtHelperService.decodeToken(this.storageService.getToken());
     }
-    catch(Error){
-        return null;
+    catch (Error) {
+      return null;
     }
   }
-  async setUserStats(){
-    if(this.loggedIn()){
+  async setUserStats() {
+    if (this.loggedIn()) {
       this.setCurrentUserId()
-      
-    
+      this.setRoles()
     }
   }
- 
-  logout(){
+
+  logout() {
     this.storageService.remove("token");
   }
   loggedIn(): boolean {
