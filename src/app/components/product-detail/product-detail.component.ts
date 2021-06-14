@@ -59,7 +59,7 @@ export class ProductDetailComponent implements OnInit {
       this.productDto = response.data[0];
       this.Images = this.productDto.images;
       this.getProductDetailByBrandId()
-      this.getFavoriteByUserIdAndId()
+      this.getFavoriteByUserIdAndProductId()
 
     })
 
@@ -75,20 +75,20 @@ export class ProductDetailComponent implements OnInit {
       this.favoriteText = "Favoriden çıkar"
     }
   }
-  getFavoriteByUserIdAndId() {
+  getFavoriteByUserIdAndProductId() {
     this.favoriteService.getDetailsByUserIdAndProductId(this.authService.getCurrentUserId(), this.productDto.productId).subscribe((response) => {
       this.favoriteDetails = response.data[0]
       this.getFavoriteExists()
     })
   }
-  getByIdAddFavorite() {
+  favoriteOperations() {
+    console.log(this.favoriteDetails)
     if (this.favoriteText === "Favoriye ekle") {
       this.favoriteService.getByIdAdd({ productId: this.productDto.productId, brandId: this.productDto.brandId, userId: this.authService.getCurrentUserId(), createDate: new Date() })
         .subscribe((response) => {
           this.favoriteText = "Favoriden çıkar"
-          this.favoriteId = response.data
+          this.favoriteDetails = {id : response.data}
           this.toastrService.success(response.message)
-          setTimeout(() => window.location.reload(), 1000)
         })
     } else {
       this.favoriteService.delete({ id: this.favoriteDetails.id, productId: this.productId }).subscribe((response) => {
