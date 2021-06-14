@@ -1,0 +1,129 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 72px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  max-width: 472px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 80px;
+  color: #484848;
+
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top:25px;
+    cursor:pointer
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid #d1623d;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.32px;
+    line-height: 1.5;
+    outline: 0px;
+    width: 100%;
+    padding: 14px 56px 14px 14px;
+    
+    color: #d1623d;
+    margin-bottom: 25px;
+}
+
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: 1px solid #d1623d;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Arial, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.32px;
+    line-height: 1.5;
+    outline: 0px;
+    width: 100%;
+    padding: 14px 56px 14px 14px;
+ 
+    color: #d1623d;
+}
+body {
+  font-family: -apple-system,SFProText,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.eOptir {
+  -webkit-box-align: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  -webkit-box-pack: center;
+  justify-content: center;
+  outline: none;
+  padding: 8px;
+  position: relative;
+  text-decoration: none;
+  background-color: #d1623d;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  height: 56px;
+  min-width: 184px;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+.gSdU {
+  color: rgb(251, 111, 111);
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  line-height: 1.5;
+  margin: 7px 0px 7px 8px;
+}

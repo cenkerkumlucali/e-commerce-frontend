@@ -1,0 +1,20 @@
+<div class="container ">
+  <body class="text-center">
+    <h4 style="font-family: inherit;">Admin Girişi</h4>
+    <main class="form-signin  ">
+      <form [formGroup]="loginForm">
+        <div class="form-floating">
+          <input formControlName="email" value="" type="email" class="form-control" id="floatingInput"
+            class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="E-posta adresi">
+        </div>
+
+        <div class="form-floating">
+          <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+            class="hb-AxiLy jjcQgX s78h1y5paci" placeholder="Şifre">
+        </div>
+        <button (click)="login()" class="w-100 btn btn-lg btn-success eOptir mt-3" type="submit">Giriş yap</button>
+
+      </form>
+    </main>
+  </body>
+</div>
