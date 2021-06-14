@@ -1,0 +1,44 @@
+<div class="container">
+    <app-admin-navbar></app-admin-navbar>
+    <div class="row mt-2">
+        <p-table #dt [rows]="6" [paginator]="true" [rowHover]="true" dataKey="id" [showCurrentPageReport]="true"
+            [value]="products">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name">Ürünler<p-sortIcon field="name"></p-sortIcon>
+                    </th>
+                    <th>Ürün ismi</th>
+                    <th>Marka</th>
+                    <th>Kategori</th>
+                    <th>Fiyat</th>
+                    <th>İşlemler</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td><img src="{{imageUrl}}{{product.images}}" width="50px" height="50px" alt={{product.code}}> </td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.brandName}}</td>
+                    <td>{{product.categoryName}} </td>
+                    <td>{{product.price}} TL </td>
+                     <td>
+                        <button (click)="setSelectedProduct(product)" pButton pRipple icon="pi pi-pencil" style="margin-right:10px;" class="p-button-rounded p-button-success"
+                        data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">
+                    </button>
+                    
+                         <button  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                         (click)="deleteProduct(product)"></button>
+                        </td> 
+                        
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        Toplamda {{products ? products.length : 0 }} marka var.
+                    </div>
+                </ng-template>
+            </p-table>
+            
+        </div>
+    </div>
+    <app-product-edit [productForUpdate]="selectedProduct"></app-product-edit>
