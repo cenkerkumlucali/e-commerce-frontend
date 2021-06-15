@@ -15,16 +15,16 @@ import { Category } from 'src/app/models/category';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  categories:Category[]=[]  
+  categories: Category[] = []
   email = this.localStorageService.get('email');
-  user:User=new User();
-  constructor(private authService:AuthService,
-    private localStorageService:LocalStorageService,
-    private userService:UserService,
-    private toastrService:ToastrService,
-    private router:Router,
-    private categoryService:CategoryService
-    ) { }
+  user: User = new User();
+  constructor(private authService: AuthService,
+    private localStorageService: LocalStorageService,
+    private userService: UserService,
+    private toastrService: ToastrService,
+    private router: Router,
+    private categoryService: CategoryService
+  ) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -33,36 +33,37 @@ export class NavbarComponent implements OnInit {
     this.getEmail();
 
   }
-  getCategories(){
-    this.categoryService.getCategories().subscribe((response)=>{
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe((response) => {
       this.categories = response.data
     })
   }
-  checkToLogin(){
-    if(this.authService.isAuthenticated()){
+  checkToLogin() {
+    if (this.authService.isAuthenticated()) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  checkToEmail(){
-    if(this.localStorageService.get('email')){
+  checkToEmail() {
+    if (this.localStorageService.get('email')) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  logOut(){
-   this.localStorageService.clean()
+  logOut() {
+    this.localStorageService.clean()
     this.toastrService.success("Başarıyla Çıkış Yapıldı");
     this.router.navigate(["/"])
   }
 
-  getEmail(){
-    if(this.email){
-      this.userService.getByEmail(this.email).subscribe(response=>{
+  getEmail() {
+    if (this.email) {
+      this.userService.getByEmail(this.email).subscribe(response => {
         this.user = response;
       })
     }
