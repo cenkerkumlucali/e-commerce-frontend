@@ -52,7 +52,7 @@ export class FavoriteComponent implements OnInit {
   delete(favorite: FavoriteDetails) {
     this.favoriteService.delete(favorite).subscribe((response) => {
       this.toastrService.success(response.message)
-     
+     setTimeout(()=>window.location.reload(),500)
     })
   }
   addToCart(favorite:FavoriteDetails) {
