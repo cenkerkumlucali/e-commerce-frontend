@@ -25,7 +25,7 @@ export class ProductCardComponent {
   addToCart(product: ProductDetail) {
     this.cartService
       .add({
-        productId: product.productId,
+        productId: product.id,
         brandId: product.brandId,
         userId: this.authService.currentUserId,
         count: 1,

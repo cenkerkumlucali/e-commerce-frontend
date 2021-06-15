@@ -47,14 +47,14 @@ export class CommentComponent implements OnInit {
   setCommentForm(){
     this.commentForm = this.formBuilder.group({
       userId:[this.authService.getCurrentUserId(),Validators.required],
-      productId:[this.productDto.productId = this.config.data.productDto.productId,Validators.required],
+      productId:[this.productDto.id = this.config.data.productDto.productId,Validators.required],
       comment:["",Validators.required]
     })
   }
   setProductCommentForm(){
     this.productCommentForm = this.formBuilder.group({
       userId:[this.authService.getCurrentUserId(),Validators.required],
-      productId:[this.productDto.productId = this.config.data.productDto.productId,Validators.required],
+      productId:[this.productDto.id = this.config.data.productDto.productId,Validators.required],
       comment:["",Validators.required]
     })
   }

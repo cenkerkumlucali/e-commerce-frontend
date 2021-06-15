@@ -71,12 +71,12 @@ export class ProductDetailComponent implements OnInit {
     })
   }
   getFavoriteExists() {
-    if (this.favoriteDetails.productId == this.productDto.productId) {
+    if (this.favoriteDetails.productId == this.productDto.id) {
       this.favoriteText = "Favoriden çıkar"
     }
   }
   getFavoriteByUserIdAndProductId() {
-    this.favoriteService.getDetailsByUserIdAndProductId(this.authService.getCurrentUserId(), this.productDto.productId).subscribe((response) => {
+    this.favoriteService.getDetailsByUserIdAndProductId(this.authService.getCurrentUserId(), this.productDto.id).subscribe((response) => {
       this.favoriteDetails = response.data[0]
       this.getFavoriteExists()
     })
@@ -84,7 +84,7 @@ export class ProductDetailComponent implements OnInit {
   favoriteOperations() {
     console.log(this.favoriteDetails)
     if (this.favoriteText === "Favoriye ekle") {
-      this.favoriteService.getByIdAdd({ productId: this.productDto.productId, brandId: this.productDto.brandId, userId: this.authService.getCurrentUserId(), createDate: new Date() })
+      this.favoriteService.getByIdAdd({ productId: this.productDto.id, brandId: this.productDto.brandId, userId: this.authService.getCurrentUserId(), createDate: new Date() })
         .subscribe((response) => {
           this.favoriteText = "Favoriden çıkar"
           this.favoriteDetails = {id : response.data}
@@ -101,7 +101,7 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.add({
       userId: this.authService.getCurrentUserId(),
       brandId: product.brandId,
-      productId: product.productId,
+      productId: product.id,
       count: this.quantity,
     }).subscribe((response) => {
       console.log(response);

@@ -82,7 +82,7 @@ export class ProductsPageComponent implements OnInit {
   addToCart(product:ProductDetail){
     this.productAddedToCart = false;
     this.cartService.add({
-      productId:product.productId,
+      id:product.id,
       brandId:product.brandId,
       userId:this.authService.getCurrentUserId(),
       count:1
