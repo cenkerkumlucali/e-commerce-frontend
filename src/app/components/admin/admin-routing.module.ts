@@ -3,7 +3,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { ProductAddComponent } from './product-add/product-add.component';
+import { ProductAddComponent } from './admin-products/product-add/product-add.component';
 import { AdminGuard } from 'src/app/guards/admin.guard';
 
 const routes: Routes = [
