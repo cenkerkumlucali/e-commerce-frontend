@@ -5,4 +5,5 @@ export interface ProductCommentDetails{
     userFullName:string
     productName:string
     comment:string
+    imagePath:string[]
 } 
