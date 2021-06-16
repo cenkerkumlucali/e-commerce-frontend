@@ -1,0 +1,30 @@
+.image{
+    display: flex;
+    float: left;
+    margin-right: 17px;
+}
+.remove{
+    cursor: pointer;
+}
+.file{
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+.success{
+    height: 40px;
+    background-color: #da4c1d;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 11rem;
+    font-weight: 400;
+}
+.close{
+    height: 40px;
+    background-color: #da4c1d;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 6rem;
+    font-weight: 400;
+}

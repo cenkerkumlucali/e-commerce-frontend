@@ -1,0 +1,94 @@
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form [formGroup]="productUpdateForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="colorId">Marka seç</label>
+
+                                    <div class="col-sm-12">
+                                        <select class="form-select" formControlName="brandId">
+                                            <option *ngFor="let brand of brands" selected="productForUpdate.brandId"
+                                                [ngValue]="brand.id">{{brand.name}}</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="categoryId">Kategori seç</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-select" formControlName="categoryId">
+                                            <option *ngFor="let category of categories"
+                                                selected="productForUpdate.categoryId" [ngValue]="category.categoryId">
+                                                {{category.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="modelYear">Ürün ismi</label>
+                            <input type="text" id="modelYear" formControlName="name" class="form-control"
+                                placeholder="{{productForUpdate?.productName}}"
+                                value="{{productForUpdate?.productName}}">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="minFindeksScore">Ürün fiyatı</label>
+                                    <input type="number" id="price" formControlName="price" class="form-control"
+                                        value="{{productForUpdate?.price}}" placeholder="{{productForUpdate?.price}}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="minFindeksScore">İndirim oranı</label>
+                                    <input type="number" id="minFindeksScore" formControlName="discountRate"
+                                        class="form-control" value="{{productForUpdate?.discountRate}}"
+                                        value="{{productForUpdate?.discountRate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="description">Ürün kodu</label>
+                            <input type="text" id="code" formControlName="code" class="form-control"
+                                value="{{productForUpdate?.code}}" placeholder="{{productForUpdate?.code}}">
+                        </div>
+                        <div class="mb-2">
+                            <label for="dailyPrice">Ürün açıklaması</label>
+                            <textarea rows="3" colums="30" type="text" id="description" formControlName="description"
+                                class="form-control" value="{{productForUpdate?.description}}"></textarea>
+                        </div>
+                        <div class="image" *ngFor="let product of productForUpdate?.image">
+                            <img [src]="imageUrl + product.imagePath" width="150px" height="150px">
+                            <div class="remove" (click)="deleteImages(product)">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="file">
+                <label for="formFileMultiple" class="form-label">Fotoğraf ekle</label>
+                <input class="form-control" (change)="onSelectFile($event)" type="file"
+                    id="formFileMultiple" accept=".png, .jpg, .jpeg" multiple />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn close" data-bs-dismiss="modal">Kapat</button>
+                <button (click)="update()" type="button" class="btn success" data-bs-dismiss="modal">Değişiklikleri
+                    kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
