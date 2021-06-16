@@ -36,7 +36,6 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct()
-    this.setCommentForm()
     this.setProductCommentForm()
   }
 
@@ -44,30 +43,24 @@ export class CommentComponent implements OnInit {
     this.productDto = this.config.data.productDto
   }
 
-  setCommentForm(){
-    this.commentForm = this.formBuilder.group({
-      userId:[this.authService.getCurrentUserId(),Validators.required],
-      productId:[this.productDto.id = this.config.data.productDto.productId,Validators.required],
-      comment:["",Validators.required]
-    })
-  }
   setProductCommentForm(){
     this.productCommentForm = this.formBuilder.group({
       userId:[this.authService.getCurrentUserId(),Validators.required],
-      productId:[this.productDto.id = this.config.data.productDto.productId,Validators.required],
+      productId:[this.productDto.id = this.config.data.productDto.id,Validators.required],
       comment:["",Validators.required]
     })
   }
   
   comment(){
-    if(this.commentForm.valid){
-      let commentModel = Object.assign({},this.commentForm.value)
-      this.userCommentService.add(commentModel).subscribe((response)=>{
-        this.toastrService.success(response.message,"Başarılı")
-        this.productCommentService.add(commentModel).subscribe((response1)=>{
+    console.log(this.productCommentForm.value);
+    if(this.productCommentForm.valid){
+      
+      let commentModel = Object.assign({},this.productCommentForm.value)
+        this.productCommentService.add(commentModel).subscribe((response)=>{
+          this.toastrService.success(response.message)
+          console.log(commentModel);
           setTimeout(()=>window.location.reload())
-        })
-      },responseError=>{
+        },responseError=>{
           if(responseError.error.Errors.length>0){
             console.log(responseError.error.Errors)
             for (let i = 0; i < responseError.error.Errors.length; i++) {
@@ -77,6 +70,8 @@ export class CommentComponent implements OnInit {
             }
           }
       })
+    }else{
+      this.toastrService.error("Lütfen formu doldurun")
     }
      
 }
