@@ -19,7 +19,6 @@ export class AdminGuard implements CanActivate {
       return true;
     } else {
       this.router.navigate(["/"])
-      this.toastrService.info("Sayfa bulunamadı")
       return false
     }
 

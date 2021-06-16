@@ -17,7 +17,6 @@ export class UserGuard implements CanActivate {
         return true;
       } else {
         this.router.navigate(["/admin/product/add"])
-        this.toastrService.info("Sayfa bulunamadı")
         return false
       }
   }
