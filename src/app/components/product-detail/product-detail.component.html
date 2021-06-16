@@ -111,7 +111,7 @@
      
       <div class="row">
         <div class=" col-md-4">
-          <span class="addedFavorite" (click)="getByIdAddFavorite()">
+          <span class="addedFavorite" (click)="favoriteOperations()">
             <i class="far fa-heart"></i> {{favoriteText}}
           </span>
         </div>
@@ -130,11 +130,9 @@
     </div>
     <div *ngFor="let comment of productComment" class="row">
       <div class="userr">
-        <div class="col-md-3">
-          <div class="user">
-            <i class="fas fa-user"></i>
-          </div>
-        </div>
+
+          <img style="width: 53px;height: 58px;border-radius: 2rem;" 
+          [src]="comment.imagePath.length !==0 ? imageBasePath + comment.imagePath : imageBasePath  + defaultImg" alt="{{comment.id}}" width="15px" height="15px">
       </div>
       <div class="col-md-9 mt-5 p-2">
         <p class="userName">{{comment.userFullName}}</p>

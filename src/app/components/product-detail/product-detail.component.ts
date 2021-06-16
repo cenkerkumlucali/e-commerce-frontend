@@ -28,7 +28,7 @@ export class ProductDetailComponent implements OnInit {
   productComment: ProductCommentDetails[]
   Images: string[]
   imageBasePath = environment.imageUrl;
-  defaultImg = "/images/default.jpg"
+  defaultImg = "/images/NotFoundImageForUser.png"
   favoriteText = "Favoriye ekle"
   favoriteId: number
   productId: number
@@ -54,13 +54,13 @@ export class ProductDetailComponent implements OnInit {
       }
     });
   }
-  async getProductDetail(productId: number) {
+   getProductDetail(productId: number) {
     this.productService.getProductDetailByProductId(productId).subscribe((response) => {
       this.productDto = response.data[0];
       this.Images = this.productDto.images;
       this.getProductDetailByBrandId()
       this.getFavoriteByUserIdAndProductId()
-
+  
     })
 
   }
@@ -71,7 +71,7 @@ export class ProductDetailComponent implements OnInit {
     })
   }
   getFavoriteExists() {
-    if (this.favoriteDetails.productId == this.productDto.id) {
+    if (this.favoriteDetails?.productId == this.productDto?.id) {
       this.favoriteText = "Favoriden çıkar"
     }
   }
@@ -130,6 +130,8 @@ export class ProductDetailComponent implements OnInit {
       header: 'Yorum yap',
       width: '50%',
     });
+    console.log(this.productDto);
+    
   }
   deleteComment(productComment: ProductComment) {
     this.productCommentService.delete(productComment).subscribe((response) => {
