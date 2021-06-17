@@ -17,5 +17,16 @@
 ![Login](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/Login--1.jpg)
 ## Register
 ![Register](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/Register--1.jpg)
-## Profil 
-![Profil](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/profile-update.jpg)
+<h1 align="center"> Profile </h1>
+
+## Profile-Edit (.gif)
+![Profil-Edit](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/profil-edited.gif)
+## Password-Change (.gif)
+![Password-Change](https://github.com/cenkerkumlucali/BtkMarket-Frontend/blob/master/src/assets/images/change-password.gif)
+
+<h1 align="center"> Admin </h1>
+
+## Product-Edit (.gif)
+![Product-Edit](https://github.com/cenkerkumlucali/E-Commerce-Frontend/blob/master/src/assets/images/admin-product-edit.gif)
+## Product-Add
+![Product-Add](https://github.com/cenkerkumlucali/E-Commerce-Frontend/blob/master/src/assets/images/product-add.jpg)
