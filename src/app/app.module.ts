@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {DropdownModule} from 'primeng/dropdown';
-import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MultiSelectModule } from 'primeng/multiselect';
-import {CarouselModule} from 'primeng/carousel';
+import { CarouselModule } from 'primeng/carousel';
 import { ConfirmationService } from 'primeng/api';
-import {NgbRating} from '@ng-bootstrap/ng-bootstrap'
-
+import { NgbRating } from '@ng-bootstrap/ng-bootstrap'
+import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
@@ -23,7 +23,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ResetPasswordComponent } from './components/profil/reset-password/reset-password.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { DiscountPipe } from './pipes/discount.pipe';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
@@ -45,6 +45,7 @@ import { CreditCardAddComponent } from './components/profil/credit-card-operatio
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommentUpdateComponent } from './components/comment/comment-update/comment-update.component';
+import { AdminGuard } from './guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { CommentUpdateComponent } from './components/comment/comment-update/comm
     CreditCardAddComponent,
     FavoriteComponent,
     CommentUpdateComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,7 @@ import { CommentUpdateComponent } from './components/comment/comment-update/comm
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    JwtModule,  
+    JwtModule,
     DynamicDialogModule,
     DropdownModule,
     ConfirmDialogModule,
@@ -90,13 +92,15 @@ import { CommentUpdateComponent } from './components/comment/comment-update/comm
     NgbModule,
     NgbPaginationModule,
     MultiSelectModule,
+    CommonModule,
     ToastrModule.forRoot({
-      positionClass:"toast-bottom-right"
+      positionClass: "toast-bottom-right"
     }),
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     LoginGuard,
+    AdminGuard,
     DialogService,
     ConfirmationService,
   ],

@@ -1,5 +1,10 @@
+import { UserGuard } from './guards/user.guard';
+import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { AdminGuard } from './guards/admin.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
+import { ProductAddComponent } from './components/admin/admin-products/product-add/product-add.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,24 +18,29 @@ import { OrdersComponent } from './components/profil/orders/orders.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
-
+import { Observable } from 'rxjs/Observable';
+import { ResetPasswordComponent } from './components/profil/reset-password/reset-password.component';
 const routes: Routes = [
   {path:"",component:MainPageComponent},
   {path:"login",component:LoginComponent}, 
-  {path:"products",component:ProductsPageComponent}, 
+  {path:"products",component:ProductsPageComponent,canActivate:[UserGuard]}, 
   {path:"register",component:RegisterComponent},
-  {path:"paymentinformation/:productId",component:PaymentInformationComponent},
-  {path:'product/detail/:productId', component: ProductDetailComponent},
-  {path:'cart',component: CartComponent,canActivate:[LoginGuard]}, 
-  {path:'favorite',component: FavoriteComponent,canActivate:[LoginGuard]},
-  {path:'products/category/:categoryId', component: ProductsPageComponent },
-  {path:'products/brand/:brandId', component: ProductsPageComponent},
-  {path:"profil",component:ProfilComponent,canActivate:[LoginGuard]},
-  {path:"address",component:AddressTransactionsComponent,canActivate:[LoginGuard]},
-  {path:"orders",component:OrdersComponent,canActivate:[LoginGuard]},
-  {path:"creditcard",component:CreditCardOperationComponent},
-];
-
+  {path:"paymentinformation/:productId",component:PaymentInformationComponent,canActivate:[UserGuard]},
+  {path:'product/detail/:productId', component: ProductDetailComponent,canActivate:[UserGuard]},
+  {path:'cart',component: CartComponent,canActivate:[LoginGuard,UserGuard]}, 
+  {path:'favorite',component: FavoriteComponent,canActivate:[LoginGuard,UserGuard]},
+  {path:'products/category/:categoryId', component: ProductsPageComponent,canActivate:[UserGuard] },
+  {path:'products/brand/:brandId', component: ProductsPageComponent,canActivate:[UserGuard]},
+  {path:"profil",component:ProfilComponent},
+  {path:"profil/changepassword",component:ResetPasswordComponent},
+  {path:"address",component:AddressTransactionsComponent,canActivate:[LoginGuard,UserGuard]},
+  {path:"orders",component:OrdersComponent,canActivate:[LoginGuard,UserGuard]},
+  {path:"creditcard",component:CreditCardOperationComponent,canActivate:[UserGuard]},
+  {path:"product/add",component:ProductAddComponent,canActivate:[UserGuard]},
+  {path: 'admin',component: AdminComponent,loadChildren: () =>import('./components/admin/admin.module').then((c) => c.AdminModule)},
+  {path:'admin/login',component:AdminLoginComponent}
+]; 
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
