@@ -65,7 +65,7 @@
             <span class="price">{{productDto?.price | discount:productDto?.discountRate}} TL</span>
           </div>
         </div>
-        
+
         <div class="col-md-8">
           <div class="row">
             <div class="col-md-6">
@@ -74,18 +74,18 @@
             </div>
             <div class="col-md-6">
               <div class="input-group">
-                <button class="button effective icon icon-minus"  (click)="decreaseQuantity()">
-                    <span>-</span>
+                <button class="button effective icon icon-minus" (click)="decreaseQuantity()">
+                  <span>-</span>
                 </button>
                 <input id="quantity" class="input short" type="text" value="{{quantity}}" maxlength="2">
-                <button class="button effective icon icon-plus"  (click)="increaseQuantity()">
-                    <span>+</span>  
+                <button class="button effective icon icon-plus" (click)="increaseQuantity()">
+                  <span>+</span>
                 </button>
+              </div>
             </div>
           </div>
-          </div>
         </div>
-        
+
       </div>
       <ul class="shipment-list-container">
         <li>
@@ -108,7 +108,7 @@
 
       <section>
       </section>
-     
+
       <div class="row">
         <div class=" col-md-4">
           <span class="addedFavorite" (click)="favoriteOperations()">
@@ -117,9 +117,9 @@
         </div>
         <div class=" col-md-5">
           <span (click)="openComment()" class="addedFavorite"><i class="far fa-comments"></i> Değerlendir</span>
-  
+
         </div>
-        
+
       </div>
     </div>
     <div class="row">
@@ -131,20 +131,25 @@
     <div *ngFor="let comment of productComment" class="row">
       <div class="userr">
 
-          <img style="width: 53px;height: 58px;border-radius: 2rem;" 
-          [src]="comment.imagePath.length !==0 ? imageBasePath + comment.imagePath : imageBasePath  + defaultImg" alt="{{comment.id}}" width="15px" height="15px">
+        <img style="width: 53px;height: 58px;border-radius: 2rem;"
+          [src]="comment.imagePath.length !==0 ? imageBasePath + comment.imagePath : imageBasePath  + defaultImg"
+          alt="{{comment.id}}" width="15px" height="15px">
       </div>
       <div class="col-md-9 mt-5 p-2">
         <p class="userName">{{comment.userFullName}}</p>
         <div class="p-4 comment">
           <span>{{comment.comment}}</span>
+          <div class="commentImage" *ngFor="let image of comment.commentImagePath">
+           <div></div>
+            <img class="commentImg" [src]="imageBasePath + image.imagePath"
+              alt="{{comment.id}}" width="15px" height="15px">
+          </div>
           <span class="removeComment" (click)="deleteComment(comment)"
             *ngIf="comment.userId === this.authService.getCurrentUserId()">
             <i class="fas fa-times"></i>
-
           </span>
           <span class="editComment">
-            <span *ngIf="comment.userId === this.authService.getCurrentUserId()"(click)="setUpdatedComment(comment)"
+            <span *ngIf="comment.userId === this.authService.getCurrentUserId()" (click)="setUpdatedComment(comment)"
               data-bs-target="#exampleModal" data-bs-toggle="modal">
               <i class="fas fa-pen"></i>
             </span>
@@ -162,4 +167,4 @@
         </p-carousel>
       </div>
     </div>
-<app-comment-update [commentForUpdate]="setUpdateComment"></app-comment-update>
+    <app-comment-update [commentForUpdate]="setUpdateComment"></app-comment-update>

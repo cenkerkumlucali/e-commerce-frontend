@@ -278,3 +278,8 @@ span {
     text-align: center;
     color: #484848;
 }
+.commentImg{
+  width: 15rem;
+  margin-top: 1rem;
+  height: auto;
+}
