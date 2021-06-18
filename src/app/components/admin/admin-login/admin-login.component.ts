@@ -37,7 +37,7 @@ export class AdminLoginComponent implements OnInit {
         this.toastrService.success(response.message)
         this.localStorageService.set('token', response.data.token)
         this.localStorageService.set('email', this.loginForm.value.email)
-        this.router.navigate(["/admin/products"]).then(r => window.location.reload())
+        this.router.navigate(["admin/products"]).then(r => window.location.reload())
       }, responseError => {
         this.toastrService.error(responseError.error)
       })
