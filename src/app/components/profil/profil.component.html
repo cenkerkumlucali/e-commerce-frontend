@@ -8,63 +8,70 @@
             <div class="mt-4">
                 <h5 class="pb">Profil bilgileri</h5>
             </div>
-            <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input class="input" type='file' id="imageUpload"
+                                onchange="$('#imagePreview')[0].src = window.URL.createObjectURL(this.files[0])"
+                                (change)="onSelectFile($event)" accept=".png, .jpg, .jpeg" />
+                            
+                            <label for="imageUpload" class="label">
+                                    <div class="icon">
+                                        <i class="fas fa-pen fa-sm "  ></i>
+                                    </div>
 
-
-                <form [formGroup]="profileForm">
-                    <input type="hidden" id="id" formControlName="id" [ngModel]="user.id" class="form-control" />
-
-                    <div class="row offset-3">
-                        <div class="col-md-3">
-                            <label for="firstName" class="col-sm-2 col-form-label">Ad</label>
-
-                            <input type="text " id="firstName" formControlName="firstName" [ngModel]="user.firstName"
-                                class="form-control" placeholder="Adınız" />
-
+                                
+                            </label>    
                         </div>
-                        <div class="col-md-6  mb-3">
-
-                            <label for="lastName" class="col-md-2 lastNameLabel col-form-label">Soyad</label>
-
-                            <input type="text" id="lastName" formControlName="lastName" [ngModel]="user.lastName"
-                                class="form-control" placeholder="Soyadınız" />
-
-
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6 offset-3">
-                            <label for="email" class="col-sm-2 col-form-label">E-Posta</label>
-
-                            <input type="text" id="email" formControlName="email" class="form-control"
-                                [ngModel]="user.email" placeholder="E-Posta Adresiniz" />
-
-
+                        <div class="avatar-preview" >
+                            <img id="imagePreview" *ngIf="users?.image"
+                                [src]="users.image?.imagePath.length !== 0 ? imageBaseUrl + Image:imageBaseUrl + defaultImg"
+                                style="width: 11.2rem;border-radius: 121px;margin: 1px;">
+                             <img id="imagePreview *"
+                              *ngIf="users?.image == null" [src]="imageBaseUrl + defaultImg"
+                               style="width: 11.2rem;border-radius: 121px;margin: 1px;">
                         </div>
                     </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <form [formGroup]="profileForm">
+                            <input type="hidden" id="id" formControlName="id" [ngModel]="user.id"
+                                class="form-control" />
 
-
-
-                    <div class="row">
-                        <div class="col-md-6 offset-3">
-                            <label for="password" class="col-sm-2 col-form-label">Şifreniz</label>
-
-                            <input type="password" id="password" formControlName="password" class="form-control"
-                                placeholder="Şifreniz" />
-
-                        </div>
+                            <div class="row offset-1">
+                                <div class="col-md-3">
+                                    <label for="firstName" class="col-sm- col-form-label">Ad</label>
+                                    <input type="text " id="firstName" formControlName="firstName"
+                                        [ngModel]="user.firstName" class="form-control" placeholder="Adınız" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="col-md-5 lastNameLabel col-form-label">Soyad</label>
+                                    <input type="text" id="lastName" formControlName="lastName"
+                                        [ngModel]="user.lastName" class="form-control" placeholder="Soyadınız" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 offset-1">
+                                    <label for="email" class="col-sm-5 col-form-label">E-Posta</label>
+                                    <input type="text" id="email" formControlName="email" class="form-control"
+                                        [ngModel]="user.email" placeholder="E-Posta Adresiniz" />
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-md-6 offset-1">
+                                    <button class="btn btn-outline-success update"
+                                        (click)="updateProfile()">Güncelle</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 offset-3">
-                    <button class="btn btn-outline-success update" (click)="updateProfile()">Güncelle</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
 
-        </div>
 
+        </div>
     </div>
 </div>
