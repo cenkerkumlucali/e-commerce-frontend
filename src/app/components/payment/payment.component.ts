@@ -114,7 +114,7 @@ export class PaymentComponent implements OnInit {
       this.orderDetail.push(orderDetail)
     });
     this.orderDetailService.addOrderDetail(this.orderDetail).subscribe((response) => {
-      this.toastrService.success("başarılı")
+      this.toastrService.success("Başarılı")
     })
   }
   async card() {

@@ -5,16 +5,16 @@
       <app-profil-list></app-profil-list>
     </div>
     <div class="col-md-8 mt-4 ">
-      <h5 class="title">Kayıtlı kredi kartları</h5>
+      <h5 class="title" *ngIf="customerCreditCard.length!==0">Kayıtlı kredi kartları</h5>
       <div class="saveCreditCard border"*ngFor="let creditCard of customerCreditCard">
         <span  class="ai" >
-     
             <span class="nameOnTheCard">{{creditCard.nameOnTheCard}}</span>
-   
           <span class="remove" (click)="deleteCustomerCreditCard(creditCard)"><i class="fas fa-times"></i></span>
         </span>
       </div>
-      
+      <div *ngIf="customerCreditCard.length == 0" class="mt-5">
+
+      </div>
       <button class="buy " (click)="openComment()">Yeni kredi kartı ekle</button>
     </div>
   </div>

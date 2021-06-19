@@ -6,8 +6,7 @@
         </div>
         <div  class="col-md-9   mt-4">
           <div  class="ai">
-            <h5 class="savedAddressTitle">Kayıtlı adresler</h5>
-            
+            <h5 class="savedAddressTitle" *nIf="addresses.length !==0">Kayıtlı adresler</h5>
           </div>
             <div class="address">
               <div  class="savedAddress mt-2" *ngFor="let address of addresses">
@@ -51,9 +50,6 @@
                     placeholder="örn=Ev adresim,İş adresim" />
                 </div>
               </div>
-              
-  
-              
             </form>
           </div>
           <div class="">

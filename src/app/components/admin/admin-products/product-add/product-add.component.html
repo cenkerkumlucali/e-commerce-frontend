@@ -67,7 +67,7 @@
             formControlName='description'></textarea>
         </div>
         <label for="formFileMultiple" class="form-label ">Fotoğraf ekle</label>
-        <input class="form-control" (change)="onSelectFile($event)" type="file" id="formFileMultiple" multiple />
+        <input class="form-control" (change)="onSelectFile($event)" type="file" id="formFileMultiple" accept=".png, .jpg, .jpeg" multiple />
         <button class="add mt-2">Ekle</button>
       </form>
 

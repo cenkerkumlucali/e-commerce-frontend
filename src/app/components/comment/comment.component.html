@@ -1,30 +1,33 @@
-<p-confirmDialog header="Confirmation" #cardsave header="Kart kaydet" icon="pi pi-exclamation-triangle" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}"></p-confirmDialog>
+<p-confirmDialog header="Confirmation" #cardsave header="Kart kaydet" icon="pi pi-exclamation-triangle"
+  [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}"></p-confirmDialog>
 
 <div class="content d-flex justify-content-center">
   <div class="row justify-content-md-center">
     <div class="col-md-12">
       <div class="p-fluid p-formgrid p-grid">
-            <form [formGroup]="commentForm"> 
-                  <div class="row">
-                    <div class="col-md-12 cm12">
-                      <div class="mb-3">
-                        <label for="comment" class="form-label evaluate">Değerlendir </label>
-                        <div style="font-size:2rem; color:orange">
+        <form [formGroup]="productCommentForm">
+          <div class="row">
+            <div class="col-md-12 cm12">
+              <div class="mb-3">
+                <!-- <label for="comment" class="form-label evaluate">Değerlendir </label> -->
+                <!-- <div style="font-size:2rem; color:orange">
                         <!-- <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating> -->
-                      </div>
-                        <label for="comment" class="form-label">Ürün hakkındaki düşünceleriniz (İsteğe Bağlı)
-                          </label>
-                        
-                          <input  formControlName="comment" type="text" class="form-control" id="comment">
-                        </div>
-                      </div>
-                      </div>
-              </form>
+                <!--</div> -->
+                <label for="comment" class="form-label">Ürün hakkındaki düşünceleriniz
+                </label>
+
+                <input formControlName="comment" type="text" class="form-control" id="comment">
+              </div>
+            </div>
           </div>
-          <div  class="card">
-            <button (click)="comment()" type="button" class="btn commentBtn"  data-bs-dismiss="modal">Yorum yap</button>
-          </div>
-        </div>
+          <label for="formFileMultiple" class="form-label ">Fotoğraf ekle (İsteğe bağlı)</label>
+          <input class="form-control" (change)="onSelectFile($event)" type="file" id="formFileMultiple" accept=".png, .jpg, .jpeg" multiple />
+        </form>
+      </div>
+      <div class="card">
+        <button (click)="comment()" type="button" class="btn commentBtn" data-bs-dismiss="modal">Yorum yap</button>
+      </div>
+    </div>
 
   </div>
 </div>

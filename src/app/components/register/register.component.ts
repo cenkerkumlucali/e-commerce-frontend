@@ -29,13 +29,12 @@ registerForm:FormGroup
   }
 register(){
   if(this.registerForm.valid){
-    console.log(this.registerForm.value)
     let registerModel = Object.assign({},this.registerForm.value)
     this.authService.register(registerModel).subscribe(response=>{
-      this.toastrService.info(response.message)
+      this.toastrService.success(response.message)
       this.router.navigate(['/login']);
-    },errorResponse=>{
-      this.toastrService.error("errorResponse.error")
+    },responseError=>{
+      this.toastrService.error("Lütfen tekrar deneyiniz","Sunucu hatası")
     })
   }
 }
