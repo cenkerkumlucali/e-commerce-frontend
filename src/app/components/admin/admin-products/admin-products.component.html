@@ -1,22 +1,21 @@
 <div class="container">
     <app-admin-navbar></app-admin-navbar>
     <div class="row mt-2">
-        <p-table #dt [rows]="6" [paginator]="true" [rowHover]="true" dataKey="id" [showCurrentPageReport]="true"
+        <p-table #dt [rows]="5" [paginator]="true" [rowHover]="true" dataKey="id" 
             [value]="products">
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="name">Ürünler<p-sortIcon field="name"></p-sortIcon>
-                    </th>
-                    <th>Ürün ismi</th>
-                    <th>Marka</th>
-                    <th>Kategori</th>
-                    <th>Fiyat</th>
+                    <th>Ürünler</th>
+                    <th pSortableColumn="productName">Ürün ismi<p-sortIcon field="productName"></p-sortIcon></th>
+                    <th pSortableColumn="brandName">Marka<p-sortIcon field="brandName"></p-sortIcon></th>
+                    <th pSortableColumn="categoryName">Kategori<p-sortIcon field="categoryName"></p-sortIcon></th>
+                    <th pSortableColumn="price">Fiyat<p-sortIcon field="price"></p-sortIcon></th>
                     <th>İşlemler</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-product>
                 <tr>
-                    <td><img src="{{imageUrl}}{{product.images}}" width="50px" height="50px" alt={{product.code}}> </td>
+                    <td><img [src]="product.images.length !==0 ? imageUrl + product.images[0]:imageUrl" width="50px" height="50px"> </td>
                     <td>{{product.productName}}</td>
                     <td>{{product.brandName}}</td>
                     <td>{{product.categoryName}} </td>
@@ -34,7 +33,7 @@
                 </ng-template>
                 <ng-template pTemplate="summary">
                     <div class="p-d-flex p-ai-center p-jc-between">
-                        Toplamda {{products ? products.length : 0 }} marka var.
+                        Toplamda {{products ? products.length : 0 }} ürün var.
                     </div>
                 </ng-template>
             </p-table>
