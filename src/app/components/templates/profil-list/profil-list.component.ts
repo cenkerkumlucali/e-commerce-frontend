@@ -13,8 +13,5 @@ export class ProfilListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getProfilEditClass(){
-    return "list-group-item active"
- }
 
 }

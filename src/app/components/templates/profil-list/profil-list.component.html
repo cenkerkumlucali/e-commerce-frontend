@@ -1,8 +1,12 @@
-
-    <div class="list-group list">
-      <a  routerLink="/profil" [class]="getProfilEditClass()" aria-current="true"><i class="fas fa-user-edit"></i>  Profil bilgileri </a>
-      <a routerLink="/profil/changepassword"  [class]="getProfilEditClass()" ><i class="fas fa-lock"></i>   Şifre değişikliği</a>
-      <a routerLink="/address"  [class]="getProfilEditClass()" ><i class="fas fa-map-marker-alt"></i>  Adres bilgileri</a>
-      <a routerLink="/creditcard"  [class]="getProfilEditClass()" ><i class="fas fa-credit-card"></i>  Kredi kart bilgilerim</a>
-      <a routerLink="/orders"  [class]="getProfilEditClass()" ><i class="fas fa-shopping-basket"></i>  Siparişlerim</a>
-    </div>
+<div class="list-group list">
+  <span routerLinkActive="list-group-item active" routerLink="/profil/edit" class="list-group-item menuItem"><i
+    class="fas fa-user-edit"></i> Profil bilgileri</span>
+  <span routerLinkActive="list-group-item active" routerLink="/profil/changepassword" class="list-group-item menuItem"><i
+    class="fas fa-lock"></i> Şifre değişikliği</span>
+  <span routerLinkActive="list-group-item active" routerLink="/profil/address" class="list-group-item menuItem"><i
+    class="fas fa-map-marker-alt"></i> Adres bilgileri</span>
+  <span routerLinkActive="list-group-item active" routerLink="/profil/creditcard" class="list-group-item menuItem"><i
+    class="fas fa-credit-card"></i> Kredi kart bilgilerim</span>
+  <span routerLinkActive="list-group-item active" routerLink="/profil/orders" class="list-group-item menuItem"><i
+    class="fas fa-shopping-basket"></i> Siparişlerim</span>
+</div>
