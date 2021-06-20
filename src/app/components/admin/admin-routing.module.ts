@@ -1,20 +1,20 @@
-import { AdminProductsComponent } from './admin-products/admin-products.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './admin.component';
-import { ProductAddComponent } from './admin-products/product-add/product-add.component';
-import { AdminGuard } from 'src/app/guards/admin.guard';
+import {AdminProductsComponent} from './admin-products/admin-products.component';
+import {AdminLoginComponent} from './admin-login/admin-login.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AdminComponent} from './admin.component';
+import {ProductAddComponent} from './admin-products/product-add/product-add.component';
+import {AdminGuard} from 'src/app/guards/admin.guard';
 
 const routes: Routes = [
 
   {
-    path: "",
+    path: '',
     component: AdminComponent,
     children: [
-      { path: 'product/add', component: ProductAddComponent, canActivate: [AdminGuard] },
-      { path: 'products', component: AdminProductsComponent, canActivate: [AdminGuard] },
-      { path: 'login', component: AdminLoginComponent },
+      {path: 'product/add', component: ProductAddComponent, canActivate: [AdminGuard]},
+      {path: 'products', component: AdminProductsComponent, canActivate: [AdminGuard]},
+      {path: 'login', component: AdminLoginComponent},
     ],
   }
 ];
@@ -23,4 +23,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {
+}

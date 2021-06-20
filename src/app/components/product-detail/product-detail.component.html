@@ -16,18 +16,18 @@
         <div>
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-              aria-current="true" aria-label="Slide 1"></button>
+                    aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
+                    aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
+                    aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
 
             <div *ngFor="let product of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }"
-              class="carousel-item " data-bs-interval="10000">
+                 class="carousel-item " data-bs-interval="10000">
               <img [src]="productDto.images.length !== 0 ? imageBasePath+ product: imageBasePath + defaultImg"
-                width="90" height="325" class="d-block w-100">
+                   width="90" height="325" class="d-block w-100">
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
         <p routerLink="/products/brand/{{productDto?.brandId}}" id="brand">{{productDto?.brandName}}</p>
       </span>
       <a id="first-campaign-ribbon"
-        data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
+         data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
         <span class=" hbus 1347fc4f-5de5-45e7-93fc-c09a8f27bf74">Ininal ile 200 TL ve üzeri elektronik hariç
           alışverişlerde 25 TL indirim</span>
       </a>
@@ -132,28 +132,29 @@
       <div class="userr">
 
         <img style="width: 53px;height: 58px;border-radius: 2rem;"
-          [src]="comment.imagePath.length !==0 ? imageBasePath + comment.imagePath : imageBasePath  + defaultImg"
-          alt="{{comment.id}}" width="15px" height="15px">
+             [src]="comment.imagePath.length !==0 ? imageBasePath + comment.imagePath : imageBasePath  + defaultImg"
+             alt="{{comment.id}}" width="15px" height="15px">
       </div>
       <div class="col-md-9 mt-5 p-2">
         <p class="userName">{{comment.userFullName}}</p>
         <div class="p-4 comment">
           <span>{{comment.comment}}</span>
-          <div class="commentImage" *ngFor="let image of comment.commentImagePath">
-           <div></div>
-            <img class="commentImg" [src]="imageBasePath + image.imagePath"
-              alt="{{comment.id}}" width="15px" height="15px">
-          </div>
+
           <span class="removeComment" (click)="deleteComment(comment)"
-            *ngIf="comment.userId === this.authService.getCurrentUserId()">
+                *ngIf="comment.userId === this.authService.getCurrentUserId()">
             <i class="fas fa-times"></i>
           </span>
           <span class="editComment">
             <span *ngIf="comment.userId === this.authService.getCurrentUserId()" (click)="setUpdatedComment(comment)"
-              data-bs-target="#exampleModal" data-bs-toggle="modal">
+                  data-bs-target="#exampleModal" data-bs-toggle="modal">
               <i class="fas fa-pen"></i>
             </span>
           </span>
+        </div>
+        <div class="commentImage" *ngFor="let image of comment.commentImagePath">
+          <div></div>
+          <img class="commentImg" [src]="imageBasePath + image.imagePath"
+               alt="{{comment.id}}">
         </div>
       </div>
     </div>
