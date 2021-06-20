@@ -1,7 +1,13 @@
 .list-group-item.active {
-    background-color: #d1623d;
-    border-color: #d1623d 
+  background-color: #d1623d;
+  border-color: #d1623d;
+  color: #ffffff;
 }
-.list{
-    margin-top: 4.1rem;
+
+.list {
+  margin-top: 4.1rem;
+}
+
+.menuItem {
+  color: #484848;
 }
