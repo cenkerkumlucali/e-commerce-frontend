@@ -82,16 +82,6 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  async payProduct(payment: Payment) {
-    if (payment.moneyInTheCard >= 1) {
-
-      this.updateCard(payment);
-      this.toastrService.success('Ürünü satın aldınız', 'Işlem başarılı');
-    } else {
-      this.toastrService.error('Hata');
-    }
-  }
-
 
   pay() {
     this.orderService.addOrder({
@@ -120,7 +110,6 @@ export class PaymentComponent implements OnInit {
       this.orderDetail.push(orderDetail);
     });
     this.orderDetailService.addOrderDetail(this.orderDetail).subscribe((response) => {
-      this.toastrService.success('Başarılı');
     });
   }
 
@@ -132,7 +121,7 @@ export class PaymentComponent implements OnInit {
         let newPayment = await ((this.getFakeCardByCardNumber(this.cardNumber)));
         let wannaSave = await this.isSaved(newPayment);
         if (!wannaSave) {
-          this.payProduct(newPayment);
+          this.pay();
         }
       } else {
         this.toastrService.error('Hesap bilgileriniz onaylanmadı', 'Hata');
@@ -144,7 +133,7 @@ export class PaymentComponent implements OnInit {
   }
 
   async isSaved(payment: Payment): Promise<boolean> {
-    let result = false;
+    let result  = false;
     let customerId = this.authService.getCurrentUserId();
     let customerCards = (await this.customerCreditCardService.getByCustomerId(customerId).toPromise()).data;
     let isContains = customerCards.map(c => c.cardId).includes(payment.id);
@@ -160,10 +149,10 @@ export class PaymentComponent implements OnInit {
       message: 'Kartınız sistemde kayıtlı değil kaydetmek ister misiniz?',
       accept: () => {
         this.saveCard(payment);
-        this.payProduct(payment);
+        this.pay();
       },
       reject: () => {
-        this.payProduct(payment);
+        this.pay();
       }
     });
   }

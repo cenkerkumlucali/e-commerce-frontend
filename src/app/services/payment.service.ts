@@ -13,7 +13,7 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 })
 export class PaymentService {
 
-  
+
   constructor(private httpClient: HttpClient) { }
 
   apiUrl = environment.baseUrl;
@@ -23,14 +23,13 @@ export class PaymentService {
     return this.httpClient.post<ResponseModel>(newPath,payment);
   }
 
-  
-
   getCardByNumber(cardNumber:string):Observable<ListResponseModel<Payment>>{
-    let newPath = this.apiUrl + "payments/getbycardnumber?cardnumber=" + cardNumber
+    let newPath = this.apiUrl + 'payments/getbycardnumber?cardnumber=' + cardNumber
     return this.httpClient.get<ListResponseModel<Payment>>(newPath);
   }
+
   getCardById(id:number):Observable<SingleResponseModel<Payment>>{
-  let newPath = this.apiUrl +"payments/getbyid?id="+id
+  let newPath = this.apiUrl + 'payments/getbyid?id='+id
   return this.httpClient.get<SingleResponseModel<Payment>>(newPath)
   }
 
