@@ -2,7 +2,7 @@
 .saveCreditCard{
     width: 50rem;
     height: 50px;
-    
+
     margin-bottom: 1rem;
     position: relative;
     border-radius: 13px;
@@ -23,11 +23,11 @@
     font-weight: 600;
     text-align: center;
     margin-right: 80px;
-  
+
 }
-.buy {
+.add {
   width: 264px;
-  margin-bottom: 15px;
+  margin-top: 15px;
   margin-left: 9.8rem;
   align-items: center;
   border: none;
@@ -85,4 +85,10 @@
   right: 28px;
   top: 6px;
   cursor: pointer;
+}
+.notFountCreditCard{
+  text-align: center;
+  margin-left: 5em;
+  font-size: large;
+  font-weight: 600;
 }
