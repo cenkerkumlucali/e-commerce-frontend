@@ -1,4 +1,4 @@
-export interface CustomerAddress{
-    customerId:number
-    addressId:number
+export interface CustomerAddress {
+  customerId: number
+  addressId: number
 }

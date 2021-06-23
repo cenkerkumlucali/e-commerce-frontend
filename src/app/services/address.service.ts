@@ -24,7 +24,7 @@ export class AddressService {
   }
 
   getIdAdd(address: Address): Observable<NumberDataResponseModel<Address>> {
-    return this.httpClient.post<NumberDataResponseModel<Address>>(this.apiUrl + 'addresses/add', address);
+    return this.httpClient.post<NumberDataResponseModel<Address>>(this.apiUrl + 'addresses/getidadd', address);
   }
 
   update(address: Address): Observable<ResponseModel> {
