@@ -21,7 +21,7 @@
     font-size: 0.9rem;
 }
 .brandName{
-    color:#d1623d; 
+    color:#d1623d;
     font-weight: 600;
     cursor: pointer;
 }
@@ -45,14 +45,14 @@ img{
 .removeText{
     font-size: 0.9rem;
     color: black;
-    
+
     margin-left: 563px;
     text-align: end;
 }
 
 .basket:hover .trash{
     display: block;
-    
+
 }
 .basketPrice{
     color: rgb(72, 72, 72);
@@ -105,4 +105,11 @@ img{
     color: #646464;
     font-weight: 600;
     margin-left: 8px;
+}
+.emptyCart{
+  position: absolute;
+  top: 31%;
+  left: 39%;
+  font-size: 2.5em;
+  font-weight: 500;
 }

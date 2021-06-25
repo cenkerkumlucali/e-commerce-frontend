@@ -7,9 +7,9 @@
     </div>
     <div class="row" style="position: relative;">
         <div class="col-md-6">
-            <h1 class="title">Sepetim</h1>
+            <h1 class="title" *ngIf="this.basketDetail.length">Sepetim</h1>
         </div>
-        <div class="col-md-3 complete">
+        <div class="col-md-3 complete" *ngIf="this.basketDetail.length">
             <div class="ab">
                 <span class="payPrice">Ödenecek tutar</span>
                 <div class="totalPrice">{{totalPrice}} TL</div>
@@ -33,13 +33,13 @@
                 </div>
                 <div class="seller">
                     Satıcı
-                    <span class="brandName">{{basket.brandName}}</span> <span class="cargo ms-2">En geç 10 Mayıs
-                        Perşembe günü kargoda <i class="fas fa-truck"></i></span><br><br>
+                    <span class="brandName">{{basket.brandName}}</span> <span class="cargo ms-2">En geç 30 Mayıs
+                        Çarşamba günü kargoda <i class="fas fa-truck"></i></span><br><br>
                     <span class="basketPrice">{{basket.price}} TL</span><span class="count">{{basket.count}} adet</span>
                 </div>
             </div>
         </div>
 
     </div>
-
+    <div class="emptyCart" *ngIf="!this.basketDetail.length">Sepetiniz boş</div>
 </div>
