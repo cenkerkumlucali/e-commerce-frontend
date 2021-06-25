@@ -29,7 +29,7 @@ export class PaymentInformationComponent implements OnInit {
   defaultImg = '/images/default.jpg';
   createAddressForm: FormGroup;
   basketDetail: BasketDetails[];
-  addressId:number
+  addressId: number;
 
   constructor(
     private addressService: AddressService,
@@ -62,21 +62,20 @@ export class PaymentInformationComponent implements OnInit {
   }
 
   buy() {
-    if (this.address) {
-      this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response) => {
+        this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response) => {
         this.address = response.data[0];
         this.openCreditCard();
       });
-    } else {
-      this.add();
-      this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response) => {
+        if (this.address){
+        this.add();
+        this.addressService.getAdressByUserId(this.authService.getCurrentUserId()).subscribe((response) => {
         this.address = response.data[0];
       });
     }
   }
 
   add() {
-    let addressModel = Object.assign({}, this.createAddressForm.value);
+    const addressModel = Object.assign({}, this.createAddressForm.value);
     this.addressService.getIdAdd(addressModel).subscribe((response) => {
       this.address.id = response.data;
       this.addCustomerAddress();
@@ -110,8 +109,8 @@ export class PaymentInformationComponent implements OnInit {
   }
 
   async getSavedCards() {
-    let customerId = this.authService.getCurrentUserId();
-    let customerCards = (await this.customerAddressService.getByCustomerId(customerId).toPromise()).data;
+    const customerId = this.authService.getCurrentUserId();
+    const customerCards = (await this.customerAddressService.getByCustomerId(customerId).toPromise()).data;
     customerCards.forEach(card => {
       this.addressService.getAddressById(card.addressId).subscribe(response => {
         this.savedAddress.push(response.data);
