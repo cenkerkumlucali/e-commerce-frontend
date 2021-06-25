@@ -37,6 +37,7 @@ export class ProductDetailComponent implements OnInit {
   currentComment: ProductComment;
   quantity: number = 1;
 
+
   constructor(private productService: ProductService,
               private productCommentService: ProductCommentService,
               private activatedRoute: ActivatedRoute,
@@ -49,15 +50,15 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      if (params['productId']) {
-        this.getProductDetail(params['productId']);
-        this.getCommentByProductId(params['productId']);
+      if (params['productName']) {
+        this.getProductDetail(params['productName']);
+        this.getCommentByProductName(params['productName']);
       }
     });
   }
 
-  getProductDetail(productId: number) {
-    this.productService.getProductDetailByProductId(productId).subscribe((response) => {
+  getProductDetail(productName: string) {
+    this.productService.getProductDetailByProductName(productName).subscribe((response) => {
       this.productDto = response.data[0];
       this.Images = this.productDto.images;
       this.getProductDetailByBrandId();
@@ -130,8 +131,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   /*Comment Operation Started*/
-  getCommentByProductId(productId: number) {
-    this.productCommentService.getDetailByProductId(productId).subscribe((response) => {
+  getCommentByProductName(productName: string) {
+    this.productCommentService.getDetailByProductName(productName).subscribe((response) => {
       this.productComment = response.data;
     });
   }
@@ -144,8 +145,6 @@ export class ProductDetailComponent implements OnInit {
       header: 'Yorum yap',
       width: '50%',
     });
-    console.log(this.productDto);
-
   }
 
   deleteComment(productComment: ProductComment) {

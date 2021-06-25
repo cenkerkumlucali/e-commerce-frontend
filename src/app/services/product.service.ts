@@ -57,6 +57,12 @@ currentProduct:Product
       this.apiUrl + 'products/getproductdetailsdesc'
     );
   }
+  getProductDetailByProductName(productName: string): Observable<ListResponseModel<ProductDetail>> {
+    return this.httpClient.get<ListResponseModel<ProductDetail>>(
+      this.apiUrl + 'products/getproductdetailbyproductname?productName=' + productName
+    );
+  }
+
   getProductDetailByProductId(productId: number): Observable<ListResponseModel<ProductDetail>> {
     return this.httpClient.get<ListResponseModel<ProductDetail>>(
       this.apiUrl + 'products/getproductdetailbyproductid?productId=' + productId
@@ -83,6 +89,6 @@ currentProduct:Product
     this.currentProduct = product
   }
   getCurrentProduct(){
-    return this.currentProduct 
+    return this.currentProduct
   }
 }
