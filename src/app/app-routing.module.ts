@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsPageComponent, canActivate: [UserGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'paymentinformation/:productId', component: PaymentInformationComponent},
-  {path: 'product/detail/:productId', component: ProductDetailComponent},
+  {path: 'product/detail/:productName', component: ProductDetailComponent},
   {path: 'cart', component: CartComponent},
   {path: 'favorite', component: FavoriteComponent, canActivate: [LoginGuard, UserGuard]},
   {path: 'products/category/:categoryId', component: ProductsPageComponent, canActivate: [UserGuard]},
