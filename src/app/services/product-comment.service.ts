@@ -40,6 +40,9 @@ export class ProductCommentService {
   getDetailByProductId(productId: number): Observable<ListResponseModel<ProductCommentDetails>> {
     return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl + 'productComment/getalldetailsbyproductid?productId=' + productId);
   }
+  getDetailByProductName(productName: string): Observable<ListResponseModel<ProductCommentDetails>> {
+    return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl + 'productComment/getalldetailsbyproductname?productName=' + productName);
+  }
 
   getDetailByUserIdAndId(userId: number, id: number): Observable<ListResponseModel<ProductCommentDetails>> {
     return this.httpClient.get<ListResponseModel<ProductCommentDetails>>(this.apiUrl + 'productComment/getallbyuseridandid?userId=' + userId + '&id=' + id);

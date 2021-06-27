@@ -22,19 +22,19 @@
 }
 #bm{
     width: 500px;
-    height: 273px; 
+    height: 273px;
     background-color: #d1623d;
     margin-left: 27px;
 }
 #box1{
-    background-color: #022548; 
+    background-color: #022548;
     width: 337px;
      height: 70px;
 }
 #box2{
     background-color: #022548;
      width: 337px;
-     margin-left: 25px; 
+     margin-left: 25px;
      height: 70px;
 }
 #shoppingStart{
@@ -47,7 +47,7 @@
     padding: 10px;
 }
 #cd{
-    font-weight: bold; 
+    font-weight: bold;
     color: #022548;
 }
 
@@ -69,11 +69,11 @@
 .card-title{
     font-size: initial;
     text-align: -webkit-center;
-    font-weight: bold; 
+    font-weight: bold;
     padding-bottom: 0.7rem;
 }
 #cartBtn{
-   background-color:#d1623d; 
+   background-color:#d1623d;
    color: #ffffff;
    border-radius: 7px;
    padding: 10px;
@@ -92,4 +92,6 @@
     font-size: 20px;
     font-weight: bold;
     color:#022548;
+    max-width: 6em;
+    width: 200px;
 }

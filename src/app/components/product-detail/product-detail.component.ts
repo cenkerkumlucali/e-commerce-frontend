@@ -156,6 +156,7 @@ export class ProductDetailComponent implements OnInit {
 
   setUpdatedComment(productComment: ProductComment) {
     this.setUpdateComment = productComment;
+    console.log(productComment);
   }
 
   setCurrentComment(productComment: ProductComment) {
