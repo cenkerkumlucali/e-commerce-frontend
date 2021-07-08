@@ -74,32 +74,28 @@ export class ProfilComponent implements OnInit {
   updateProfile() {
     if (this.profileForm.valid) {
       if (this.users?.image?.imagePath?.length === 0) {
-        this.addImage()
-        
+        this.addImage();
       } else {
-        
-        let profilModel = Object.assign({}, this.profileForm.value)
+        let profilModel = Object.assign({}, this.profileForm.value);
         this.userService.profileUpdate(profilModel).subscribe(response => {
-          this.updateImage()
-          this.toastrService.success(response.message)
-          setTimeout(() => window.location.reload(), 500)
+          this.updateImage();
+          this.toastrService.success(response.message);
+          setTimeout(() => window.location.reload(), 500);
         }, responseError => {
           if (responseError.error.Errors.length > 0) {
-            console.log(responseError.error.Errors)
             for (let i = 0; i < responseError.error.Errors.length; i++) {
               this.toastrService.error(responseError.error.Errors[i].ErrorMessage,
-              )
+              );
             }
           }
         });
       }
     } else {
-      this.toastrService.error("Formu boş bırakmayınız")
+      this.toastrService.error("Formu boş bırakmayınız");
     }
   }
   /*User Image Operation Started*/
   addImage() {
-
     this.formData.append('userId', this.user.id.toPrecision())
     this.userImageService.add(this.formData).subscribe((response) => { })
   }
