@@ -1,5 +1,5 @@
-export interface BrandDetail{
-    brandId:number
-    brandName:string
-    images:string[]
+export interface BrandDetail {
+  brandId: number
+  brandName: string
+  images: string[]
 }
